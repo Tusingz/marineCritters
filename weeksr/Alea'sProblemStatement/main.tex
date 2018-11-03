@@ -1,0 +1,54 @@
+%++++++++++++++++++++++++++++++++++++++++
+% Don't modify this section unless you know what you're doing!
+\documentclass[letterpaper,12pt]{article}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\hypersetup{
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=blue,        % color of internal links
+	citecolor=blue,        % color of links to bibliography
+	filecolor=magenta,     % color of file links
+	urlcolor=blue
+}
+%++++++++++++++++++++++++++++++++++++++++
+
+
+\begin{document}
+
+\title{Problem Statement}
+\author{Alea Weeks}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+Marine creatures die from being stranded on beaches. Using a database that contains the date and location of beached animals along with a Geographic Information System (GIS) platform a predictive model can be built that will allow for the timely rescue of beached animals. Successful completion of this project would involve a GIS interface that visually represents the beach stranding data.
+\end{abstract}
+
+
+\section{Problem}
+
+Marine creatures, such as sea turtles, sharks, and squids, often become stranded on beaches and die. The cause of these beach strandings is not clear. Factors that may contribute to sea turtle beach strandings are sea temperate and wind current directions. If there was a way to predict where and when these beachings are likely to occur, many animals could be spared from death.
+
+
+\section{Solution}
+
+The solution is to use a Geographic Information Systems (GIS) platform that incorporates sea surface temperature, wind currents, and wind directions and an existing data base that contains the times and locations of marine creatures that have been found. These two resources can be used to create a model that will predict where and when marine creatures are likely to be stranded. This would allow for a timely response procedure that could save the lives of many sea creatures.
+
+
+\section{Performance Metrics}
+
+Metrics that would indicate a successful completion of the project would include a GIS interface that is tied to the database and is hosted on a website. This would allow users a visual representation of where and when animals are stranded. Another way to determine the success and completion of the project would be when a number of marine animals have been saved using our predictive model.
+
+
+% bibliography
+\nocite{*} %Uncomment to make even refs that aren't cited show up
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+%end bibliography
+
+
+\end{document}

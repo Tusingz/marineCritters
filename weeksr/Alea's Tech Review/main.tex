@@ -1,0 +1,146 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Beached Marine Critters Project Team}
+\def \CapstoneTeamNumber{		64}
+\def \GroupMemberOne{			Alea Weeks}
+\def \GroupMemberTwo{			Amar Raad}
+\def \GroupMemberThree{			Daniel Domme}
+\def \GroupMemberFour{			Justin Disalvo}
+\def \GroupMemberFive{			Zachary Tusing}
+\def \CapstoneProjectName{		Beached Marine Critters Project Tech Review}
+\def \CapstoneSponsorCompany{	Oregon State University Hatfield Marine Science Center; Oregon Sea Grant}
+\def \CapstoneSponsorPerson{		Dr. William Hanshumaker}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				Technology Review
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\normalsize\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            %\vfill
+            \vspace{1in}
+            \vspace{.5in}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            %\CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+            }
+            \vspace{20pt}
+        }
+        \vfill
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	%This document is written using one sentence per line.
+        	%This allows you to have sensible diffs when you use \LaTeX with version control, as well as giving a quick visual test to see if sentences are too short/long.
+        	%If you have questions, ``The Not So Short Guide to LaTeX'' is a great resource (\url{https://tobi.oetiker.ch/lshort/lshort.pdf})
+		    The Pacific Ocean off of the Oregon Coast has constantly changing weather and sea conditions.  With this, many different animal species, including threatened sea turtles, end up stranded
+            on the shore and perishing. In order to better understand how weather and ocean conditions affect where and when animals get stranded, historical statistics will need to be combined and reviewed. As correlations between the data are found, this will aid in rescue and research attempts for biologists and conservationists. Predictions will be able to be made as to the general location and species of a possible stranding when certain sea and weather conditions occur.  This could lead to the reduction of animal deaths and the further understanding of the current state of the environment.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\begin{singlespace}
+\section{Introduction}
+This document explores different technologies that the\CapstoneTeamName{} could use in their project. This technology review specifically focuses on what technologies could be used to implement the mapping, visualization, and user interaction with the data. With each technology solution, there will be a discussion of the pros and cons to using it.
+
+\section{Mapping of Data onto Geographic Model}
+
+\subsection{Introduction}
+Our project needs to use GIS (geographic information system) software to create a map that includes our spatial data. There are many different options when it comes to GIS software. This section explores the pros and cons to three GIS applications. 
+
+\subsection{ArcGIS}
+ArcGIS is one of the leading GIS platforms in the GIS market. It is used for making maps and incorporating geographic data to them \cite{ARCGIS-WIKIPEDIA}. ArcGIS allows the users to view, analyze, and layer spatial data \cite{ARCGIS-WIKIPEDIA}. This would be a beneficial GIS option to use for our project since we will need to be able to plot data of where and when animals were beached onto a map, layer climate data on top of that, and provide the user a clean and intuitive way to interact with the data. ArcGIs is built around a geodatabase which is a way store spatial data and the features of spatial data such as topology. ArcGIS is written in C++ and can only run on Windows. ArcGIS allows for ease in sharing and distributing maps. Development using ArcGIS includes a GUI (graphical user interface), a large support community, and well written documentation. ArcGIS also provides a lot of customization and many different tools for developing interactive maps. Another pro to ArchGIS is that it is well maintained. Everything listed above is a pro to using ArcGIS, now the cons will be explored. An obvious con to using ArcGIS is that it requires a high subscription fee to use. However, ArcGIS does offer support to students at a reduced or free cost. Another con is that if you wish to have additional functionality or features, you may need spend even more money. Users also report that the program occasionally crashes.
+
+\subsection{QGIS}
+QGIS is a free, open-source GIS application. QGIS was made and is maintained by a group of volunteers who are dedicated to providing free GIS software. It is a cross platform application and can be used in Windows, Linux, Mac OS X, and Android. QGIS is written in C++, Python, and QT. QGIS allows users to analyze, plot, and edit spatial data. QGIS integrates with many other open source GIS's such as GRASS GIS, POSTGIS, and MapServer\cite{QGIS-WIKIPEDIA}. QGIS accepts data in the following forms: shapefiles, coverages, personal geodatabases, dxf, MapInfo, PostGIS, and other formats \cite{QGIS-WIKIPEDIA}. Data can also be used via external sources due to the web services provided by QGIS. There are currently 400 plugins available for use with QGIS which expand the functionality and features of QGIS. There is a large user support community and well supported documentation. A con to using QGIS is that the plugins and tools are not very organized.
+
+\subsection{GRASS GIS}
+GRASS (Geographic Resource Analysis Support System) GIS is another free and open source GIS application. It was developed by the US Army Corps of Engineers. It was written in C, C++, Python, and Tcl. It is a cross platform application and can be run on Windows, Mac OS X, and Linux \cite{GRASS-WIKIPEDIA}. GRASS GIS offers 300 modules for data analysis. GRASS GIS also has a large amount of helpful documentation. The cons to GRASS GIS are that its UI is clunky and there is a big learning curve to using GRASS GIS. 
+
+\subsection{Conclusion}
+Using GIS is an integral aspect of our project. The GIS software we choose to use can either limit or expand the functionality and success of our project. Therefore this is one of the most important decisions for our team to make. The way we display our data must be clean, allow intuitive interaction and interpretation, and pleasing to the eye. We must also be able to layer climate, weather, and sea condition data on top of the beach stranding data. We also wish to have a pleasant time developing using a clean (not clunky) GUI, plenty of helpful documentation, and support. Due to the criteria above, ArcGIS is the best option. However, if the subscription fee cannot be waved, QGIS is a good second choice. 
+
+\section{Sources of Data}
+\subsection{Introduction}
+Where we get our data on the strandings of beached animals is another important aspect of our project. This section will be different than the others since we are not going to choose a single source for our data as that could limit our project in many ways. 
+
+\subsection{Beached Marine Critters}
+Our first source of data comes from our client, Dr. William Hanshumaker. He provided us with an Excel spreadsheet that contains information about stranded beach animals such as: location of where they were found, the date they were found, and their species. This data has been collected as part of the Beached Marine Sea Critters Project that was started by Hanshumaker. The goal of the project is to gather data on the strandings of beach animals so we can better understand why they become beached. The database provided to us by Hanshumaker includes  species found along the Oregon Coast: salmon shark, lancet fish, green sea turtles, olive ridley sea turtles, giant sunfish, and Humboldt squid \cite{BEACHED-MARINE}. The pros to this source of data is that it comes from our client and that it dates back to the year 1938. The cons to this data set is that does not contain enough data on just sea turtles to make a meaningful model out of. There are far more entries on salmon shark and lancet fish than sea turtles. However, if we expand our model to include more than just sea turtles then this data source would prove to be more useful.
+
+\subsection{U.S. Fish and Wildlife Service}
+Another source of data for our project is the U.S. Fish and Wildlife service. The U.S. Fish and Wildlife Service's goal is to conserve and protect North America's wildlife. They have a lot of data on many different aspects of wildlife. Our team has already contacted them and received data on sea turtle beachings. The data they provided us were in Excel spreadsheets. The spreadsheets contained information on sea turtles found in Alaska, California, Washington, and Oregon. The database contains the date the turtle was found, the common species name for the turtle, the location it was found, the status (if it was alive, dead, mutilated, or undetermined) of the turtle when found, and miscellaneous notes about the turtle. We were also provided with the necropsy report of the first beached sea turtle found this season. This report contained more in depth information about one particular turtle that found. The pros to this data source is that they provided us with a vast amount of data on sea turtle strandings. Another pro to this data is that it is in the same format as the data we received from Dr. William Hanshumaker so standardizing these two data sets should not be difficult. A potential con to this source of data is that a lot of the data is from coasts other than the Oregon Coast. However, if we expand the model to more than just the Oregon coast, this database will be very helpful.
+
+\subsection{Oregon Coast Watch}
+The Oregon Shores Conservation Coalition Coast Watch is another source we hope to gather data from. We have not yet contacted them so we do not know if they have data they wish to give us and we do not know what form the data will be in or what it will contain. On their website, they have a form for reporting a stranded animal so they must have some sort of database that stores these reports. At this time, there is not much else to report about this data source. 
+
+\subsection{Conclusion}
+There are pros and cons to all of the aforementioned sources of data. Once we have our requirements finalized and know if we can expand the project to include more than just sea turtles and more than just animals found on the Oregon coast, we will have a better idea of what data we can use. As of right now, all of the data we have collected from the above sources provide the project with some useful information. Our project will use the data from these sources as well as many others. 
+
+\section{Data Analysis/Prediction (Stretch Goal)}
+
+\subsection{Introduction}
+A stretch goal of our project is to use our visual model to analyze and predict where and when marine animals beachings will occur. Options for data analysis and prediction tools are listed below. It should be noted that this part of the project is reliant on what software we use to make the visual model.
+
+\subsection{ArcGIS's Data Prediction and Analytic Tools}
+ArcGIS provides tools to analyze data. From their website they state that ArcGIS has, "modeling tools to analyze data, visualize patterns, and better understand complex systems. Compare present conditions with the past to make authoritative predictions"\cite{ArcGIS}.  This would be a valuable tool to use since a measure of success for this project would be to compare historical data of beach stranding before and after this model was used to see if beach strandings decreased due to the predictive model. ArcGIS also provides a tool that can be used to detect patterns in data. This could be useful for this stretch goal as we could use it to see what combination of variables may lead to beachings. The pros to using ArcGIS's data prediction and analytics would be that it is a well supported and documented tool. Additionally, it has been used by conservation groups such as The National Aubudon Society, The Nature Conservatory, the Chesapeake Conservatory, and forest conservation. The cons to using ArcGIS would be that it is a subscription service. 
+
+\subsection{QGIS}
+There exists a plugin in QGIS that is used for predicting landslides. So there may be a plugin that could be used for our purposes. However, it does not seem that QGIS supports data prediction as well as ArcGIS does.
+
+\subsection{Spatial Data Analysis and Modeling with R}
+R is a widely used platform for data analysis and modeling. It provides a lot of support for data manipulation, analytics, and prediction. Importantly, R supports the analyzing of spatial data which is the type of data we are using for our project. There is a lot of documentation for spatial data analysis and modeling with R. There are case studies that were implemented using R that are similar to the project we are working. One such study was analyzing species distribution data and there is documentation that shows the step by step instructions on how to replicate the study. The cons to using R is that it does not have good memory management, speed, and efficiency.
+
+\subsection{Conclusion}
+As stated before, the choice for technology for this aspect of the project relies on what software we use to model our data. ArcGIS seems like the best choice out of all of these since it has been successfully used in animal conservation projects that are similar to ours. 
+\end{singlespace}
+
+% bibliography
+\nocite{*} %Uncomment to make even refs that aren't cited show up
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+%end bibliography
+
+\end{document}
