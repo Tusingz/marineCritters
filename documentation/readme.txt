@@ -1,1 +1,2 @@
-This is group documentation for the project
+This is the group directory for any documentation
+
