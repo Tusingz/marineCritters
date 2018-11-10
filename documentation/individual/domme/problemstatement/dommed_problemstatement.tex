@@ -1,0 +1,150 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{times}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Beached Marine Critters Project Team}
+\def \CapstoneTeamNumber{		64}
+\def \GroupMemberOne{			Daniel Domme}
+\def \GroupMemberTwo{			Regina Weeks}
+\def \GroupMemberThree{			Amar Raad}
+\def \GroupMemberFour{			Zachary Tusing}
+\def \GroupMemberFive{			Justin Disalvo}
+\def \CapstoneProjectName{		Develop a predictive model for beach strandings of sea turtles, shark and squid}
+\def \CapstoneSponsorCompany{	Oregon State University Hatfield Marine Science Center; Oregon Sea Grant}
+\def \CapstoneSponsorPerson{		Dr. William Hanshumaker}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+%\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+     \includegraphics[height=3cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\normalsize\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\normalsize Prepared for}\par
+            \huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+				\NameSigPair{\GroupMemberFour}\par
+			\NameSigPair{\GroupMemberFive}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	%This document is written using one sentence per line.
+        	%This allows you to have sensible diffs when you use \LaTeX with version control, as well as giving a quick visual test to see if sentences are too short/long.
+        	%If you have questions, ``The Not So Short Guide to LaTeX'' is a great resource (\url{https://tobi.oetiker.ch/lshort/lshort.pdf})
+		The Pacific Ocean off of the Oregon Coast has constantly changing conditions, and many different species end up stranded on the shore.
+		In order to better understand how weather and ocean conditions affect where animals get stranded, the help of data provided by the public is needed.
+		This will also aid in the rescue and research of the various stranded animals.  
+		Currently, there exist a mobile application and a website for the users to input data on stranding locations.
+		There is currently a lack of a way to tie in weather and ocean conditions with the reports to help visualize the data.
+		Providing a method could help motivate the public to help and to provide predictions for places to search for stranded animals.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\begin{singlespace}
+\section{Problem Description}
+			Dr. William Hanshumaker, working for the Oregon Sea Grant at Oregon State University Hatfield Marine Science Center, has a need for the expansion of 
+			capabilities of a citizen science project.  The project, called Beached Marine Critters, consists of a website and Apple iTunes Application that allows
+			for the public to provide data on ocean species of interest found stranded on the shore.  Users fill out a report and submit it to the database.
+		  The report consists of user information, animal location, animal condition, photographs, and animal descriptions.  This information is used to 
+		start to collect species variations and samples for research.  
+		
+		As of now, not much is being done with the data that is being collected and reported by the public.  What needs to be done is to start to tie that information in 
+		with ocean current, water temperature, and wind direction information to try to better understand how they interact.  This would allow for predictive models
+		that would aid in the timely rescue of sensitive species and reduce the amount of beaches to search for animal rescuers.  This interaction could also
+		help to learn of any variances in patterns and to learn the impact of climate change on the Oregon Coast.  
+
+		In addition to the need of tying user stranding reports to water and weather conditions, is the need to provide statistical information to users and researchers.
+		Showing maps and graphs with trends and data can help to motivate people to participate and add more complete data to the database.  The public can get more
+		connected to the world around them, and it can show real-time climate change effects.  It can help researchers provide findings for publications and grant opportunities.
+
+		One final problem with the project is the performance and user experience of the website.  Currently, the website is slow and unresponsive, and the organization is
+		inconsistent.  The forms that users fill out to report a stranded animal do not require a standard format.  This makes parsing data extremely difficult for programs that
+		might expand upon it.
+
+\section{Proposed Solution}
+		Our team will expand on the existing format of the website, mobile application, and database information.  
+		To allow the inclusion of water temperature, water current, and weather conditions, our team will use National Oceanic and Atmospheric Administration data API's.
+		The date and location that is reported by the user will be tied to the conditions of that time and location.  Over time, data will start to provide trends and relations
+		between conditions and stranding.  We will provide various maps with data plots based on user-specified metrics such as date, weather, location, or conditions.
+		Hopefully, with enough public participation, previous data can be used to form forecasts of ocean creature beaching.  The beaching forecast could eventually be in
+		real-time based on the ever-changing weather and ocean conditions.  This could allow rescuers and researchers to
+		be present at the greatest time of need and reduce the amounts of deaths of animals. It could also reduce the cost of rescue efforts and help to save endangered species.
+		
+		To address the standardization of user input into the database, new submissions will have to follow a few rigid guidelines.  Latitude and longitude information will need to 
+		be required, and the date of the report is needed.  At least one picture will need to be uploaded. 
+		For the site to be efficient for administrators, gate keeping should be kept to a minimum.  All posts should be automatically allowed to be 
+		added to the cumulative data.  A report system should be in place for users to police bogus reports to administrators, and to reduce spam and abuse, users will need to 
+		have an account that needs to be verified and signed into before contributing.  This will also allow for easy management of bots or spammers and to make for a better
+		environment for all ages.
+
+		Improvements in the basic website style and layout will be implemented to encourage a good experience for users.  Rehosting the website on servers with better performance
+		will need to be implemented to keep current users and to allow the needed expansion of future users.  All features of the website will be made more responsive and intuitive
+		for the users.  If needed, database schemas will be optimized for speed.
+		The addition of a mobile application for Android devices would encourage a larger portion of users to participate.  The use of built-in GPS functionality, photo albums,
+		and clocks on mobile devices would increase the convenience of submitting reports.  Any increase in user participation would help lead to the goal of stranding forecasts.
+
+\section{Performance Metrics}
+		By the end of the project, our team would like to have increased the speed of loading data and information on the project website by at least 75\%.  Users will have accounts 
+		that they can log into and submit reports to the database, and users will be able to submit and view data on an Android application in addition to the iTunes application and 
+		website.  The website layout will be intuitive and interactive to encourage use and learning.  Submitted reports will be available in the database immediately after submission,
+		and they will have a standard input for location data and pictures of specimens.  Any omission or use of wrong format of required information will result in a submission being
+		prompted again for the user and the rejection of the data.
+		We will provide dynamic map infographics on current and past animal stranding reports.  User will be able to view locations on maps with weather and ocean conditions.  
+		Statistics reports will be available for researchers and users of the site.
+		Data for sea and weather conditions will be gathered using API's from the National Oceanic and Atmospheric Administration and openweathermap.org.
+		Information on surface sea temperatures, ocean currents, and weather will be submitted to the database with the user report that it corresponds to.
+		We will allow for an easy future expansion for predictive modeling of animal beaching.
+\end{singlespace}
+\end{document}

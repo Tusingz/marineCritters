@@ -1,0 +1,1 @@
+A document that creates a working definition and description of the problem the group will be solving. Including details from client meetings and project proposal. Identify metrics answering the following question: What are the desired outcomes? How will the group know when the client's problem has been solved?
