@@ -1,0 +1,196 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Beached Marine Critters Project Team}
+\def \CapstoneTeamNumber{		64}
+\def \GroupMemberOne{			Alea Weeks}
+\def \GroupMemberTwo{			Amar Raad}
+\def \GroupMemberThree{			Daniel Domme}
+\def \GroupMemberFour{			Justin Disalvo}
+\def \GroupMemberFive{			Zachary Tusing}
+\def \CapstoneProjectName{		Develop a visual model for sea turtle beach strandings}
+\def \CapstoneSponsorCompany{	Oregon State University Hatfield Marine Science Center; Oregon Sea Grant}
+\def \CapstoneSponsorPerson{		Dr. William Hanshumaker}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+     \includegraphics[height=3cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\normalsize\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            %\vfill
+            \vspace{1in}
+            {\Large Prepared for}\par
+            \huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            \vspace{.5in}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            %\CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+				\NameSigPair{\GroupMemberFour}\par
+			\NameSigPair{\GroupMemberFive}\par
+            }
+            \vspace{20pt}
+        }
+        \vfill
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	%This document is written using one sentence per line.
+        	%This allows you to have sensible diffs when you use \LaTeX with version control, as well as giving a quick visual test to see if sentences are too short/long.
+        	%If you have questions, ``The Not So Short Guide to LaTeX'' is a great resource (\url{https://tobi.oetiker.ch/lshort/lshort.pdf})
+		    The Pacific Ocean off of the Oregon Coast has constantly changing weather and sea conditions.  With this, many different animal species, including threatened sea turtles, end up stranded
+            on the shore and perishing. In order to better understand how weather and ocean conditions affect where and when animals get stranded, historical statistics will need to be combined and reviewed. As correlations between the data are found, this will aid in rescue and research attempts for biologists and conservationists. Predictions will be able to be made as to the general location and species of a possible stranding when certain sea and weather conditions occur.  This could lead to the reduction of animal deaths and the further understanding of the current state of the environment.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\begin{singlespace}
+\section{Introduction}
+This section provides information on the contents for the rest of the document.  Sources and definitions are also provided.
+\subsection{Purpose}
+The purpose of this document is to serve as a guide to the creation of a visual representation of beached sea turtles. A detailed description of the project and related research is outlined.  This model will eventually be used to predict where and when sea turtles will become stranded. This would allow for allow for the timely rescue of many stranded sea turtles. \newline 
+\par \noindent The audience for this document is anyone who is involved in the development of the aforementioned model.
+\subsection{Scope}
+    These requirements are meant to help form a new understanding about how ocean and weather conditions affect sea turtle behavior.  The ability to analyze trends and statistics will facilitate the reduction in turtle deaths by allowing rescue workers to know where they are likely to be stranded.
+\subsection{Definitions}
+    \begin{itemize}
+        \item Geographic Information System (GIS) - A program designed to process and represent multiple forms of data
+            and layer them over maps [1].
+        \item Olive Ridley Sea Turtle - A species of sea turtle that is mainly found in warm climates. This species is the primary focus for this project because it gets stranded on Oregon shores [2].
+        \item NOAA - An abbreviation for Nation Oceanic and Atmospheric Administration. This administration provides scientific data about weather and sea conditions [3].
+        \item NANOOS - An abbreviation for Northwest Association of Networked Ocean Observation Systems.  This association monitors and studies sea levels and sea life through data collection and visualizations [4].
+        \item ArcGIS - A GIS software provider that enables using geographic maps to analyze data [5].
+    \end{itemize}
+\subsection{References}
+The following resources will be used to collect data and provide assistance to the project:
+\begin{enumerate}[label={[\arabic*]}]
+    \item A. Lovett and K. Appleton, \textit{GIS for Environmental Decision-Making}. Boca Raton, FL: CRC Press, 2008. [E-book]. Available: ProQuest Ebook Central.
+    \item National Oceanic and Atmospheric Administration Fisheries, "Olive Ridley Turtles," \textit{National Oceanic and Atmospheric Administration}. [Online]. Available: \url{https://www.fisheries.noaa.gov/species/olive-ridley-turtle}. [Accessed: Oct. 28, 2018].
+    \item National Oceanic and Atmospheric Administration, "National Oceanic and Atmospheric Administration," \textit{Noaa.gov}. [Online]. Availabe: \url{https://www.noaa.gov/}. [Accessed: Oct. 28, 2018].
+    \item Northwest Association of Networked Ocean Observation Systems (NANOOS), "NANOOS," \textit{NANOOS}. [Online]. Available: \url{http://www.nanoos.org/home.php}. [Accessed: Oct. 28, 2018].
+    \item ArcGIS, "ArcGIS | Main," \textit{arcgis.com}. [Online]. Available: \url{https://www.arcgis.com/index.html}. [Accessed: Oct.28, 2018].
+    \item Marine Mammal Institute, "Oregon Marine Mammal Stranding Network," \textit{Oregon State University Marine Mammal Institute}. [Online]. Available: \url{https://mmi.oregonstate.edu/ommsn}. [Accessed: Oct. 28, 2018].
+    \item Seaside Aquarium, "SEASIDE AQUARIUM." [Online]. Available: \url{http://www.seasideaquarium.com/}. [Accessed: Oct. 28, 2018].
+    \item NANOOS Visualization System (NVS), "NVS: Tuna Fishers," \textit{NANOOS Visualization System}. [Online]. Available: \url{http://nvs.nanoos.org/TunaFish}. [Accessed: Oct. 28, 2018].
+    \item Oregon Shores Conservation Coalition, "Coastwatch | Oregon Shores," \textit{Oregon Shores}. [Online]. Available: \url{https://oregonshores.org/coastwatch}. [Accessed: Oct. 28, 2018].
+    \item U.S. Fish and Wildlife Service, "Oregon Fish and Wildlife Office - Newport Field Office," \textit{Fws.gov}. [Online]. Available: \url{https://www.fws.gov/oregonfwo/promo.cfm?id=177175715}. [Accessed: Oct. 28, 2018].
+\end{enumerate}
+    Additionally, various research papers will be read throughout the duration of the project.
+\subsection{Overview}
+    This document is intended to provide clear guidelines and project details that will assist in making data visualization to understand and save sea life.
+    These guidelines are contained in the following sections:
+    \begin{itemize}
+        \item Section 2: This section provides functional details on the project product and its intended users.
+        \item Section 3: This section displays all specific requirements and goals of the project.  This includes any stretch goals. A chart is provided to show a time line for finishing product features.
+    \end{itemize}
+\section{Overview Description}
+The purpose of this section is to provide a general overview of the visual model for sea turtle beach strandings software. All major product functions and user characteristics are explained, and any constraints and assumptions will be outlined.
+\subsection{Product Perspective}
+The product will provide researchers a way to approach sea creature strandings. This product allows researchers and rescue teams to look at data in a visual way. Without the product there are no visual constructions of data surrounding marine life strandings.
+\subsection{Product Functions}
+The visual model of stranded sea turtles will incorporate the following data:
+    \begin{itemize}
+        \item Basic data about the turtle stranding:
+        \begin{itemize}
+            \item The location of where the turtle was found
+            \item The date the turtle was found        
+        \end{itemize}
+        \item Climate and weather data from the day the turtle was beached:
+        \begin{itemize}
+            \item Wind Current 
+            \item Wind Direction
+            \item El Nino or La Nina year
+        \end{itemize}
+        \item Ocean conditions:
+        \begin{itemize}
+            \item Sea surface temperatures
+            \item Ocean currents
+        \end{itemize}
+    \end{itemize}
+\subsection{User Characteristics}
+    The intended users of this software are animal rescue workers and researchers.  
+    \begin{itemize}
+        \item Researcher: marine biologists will be able to examine trends and statistics in the archived data and possibly be able to find correlations.  The data might also be the basis for future research. 
+        \item Rescue worker: conservationists and rescue agencies will be able to look at trends in location, weather, and sea conditions and be able to know when and where to look to maximize positive outcomes for beached sea turtles and other species of interest.
+    \end{itemize} 
+\subsection{Constraints}
+The team would prefer to use ArcGIS due to the features it provides. However, ArcGIS requires a pricey subscription to use. The GIS software that we use relies on whether or not Oregon State University will cover the potential costs.  
+\subsection{Assumptions and Dependencies}
+The success of this project relies on the availability of data on sea turtle beach strandings. The planning of this project is done with the assumption that the team will be able to gather enough data on sea turtle beachings to create a meaningful model. If there is not enough data, then our visual representation of the data will serve little purpose. \newline 
+Another dependency is that the data collected may be organized in various forms so it must be possible to standardize the data received. 
+\section{Specific Requirements}
+This section of the document will outline all interface and functional requirements, along with projected stretch goals and a projected time line of project milestones.
+\subsection{Interface}
+\subsubsection{User Interface}The interface implemented in this project will be an executable download from the client's web page. In the executable, the user will be able to select what data they want included on a map, such as weather and water surface temperature. The user will also be able to choose the date or date range that they want to view.  Then, a map will be generated with locations of where an animal has been found stranded on the beach.  The overlays of the map will be dynamic based on what data the user wants to display with regards to weather, sea conditions, and date. This will allow the user to select the data required to better understand why these animals are being stranded.
+\subsubsection{Software Interface}
+In the background, the software will need to take in a database or list of 
+sea animal strandings. This software will allow for the user to input information about each individual animal's strandings so that the GUI will provide a map overlay. This sort of database connection will allow users to quickly and efficiently access individual animals information and visual overlays.
+\subsection{Functional Requirements}
+The product will need to:
+    \begin{itemize}
+        \item Use a preexisting database with the species of animal, date found, location found, and weather/sea conditions during that period of time
+        \item Use the database to map a specific animal over a period of time along with weather and sea conditions
+        \item Record inputted data to the main database
+    \end{itemize}
+\subsection{Stretch Goals}
+    \begin{itemize}
+        \item Generalize the program so any species of animal can be mapped
+        \item Implement a predictive model
+        \item Write a research paper
+        \item Draw correlations between global warming and animal migration and available food sources
+        \item Learn more about El Nino and La Nina climate cycles
+        \item Learn more about the life cycles of various sea creatures
+        \item Conclude various suspects and sources to the cause of a sea critter's stranding
+    \end{itemize}
+
+\subsection{Gantt Chart}
+\includegraphics[scale=0.35]{GanttChart-Capstone.eps}
+\end{singlespace}
+\end{document}
