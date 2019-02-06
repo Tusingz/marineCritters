@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
-from PyQt5 import QtGui
+from PyQt5.QtGui import *
 from PyQt5 import QtCore
 
 """
@@ -88,7 +88,7 @@ def windClicked(self):
 # Description:  When this function is called, it will create a button, "name", and assign
 #               it to a VBoxLayout or HBoxLayout, "layout". When the button is clicked, it will
 #               call the function "funcPointer"
-# Creator(s):      Justin
+# Creator(s):   Justin
 """
 def createButton(name, funcPointer, layout):
     button = QPushButton(name)
@@ -100,7 +100,7 @@ def createButton(name, funcPointer, layout):
 # Description:  When this function is called, it will create a checkbox with
 #               the name "name" and will be added to the grid layout "layout" at
 #               possition (x, y). When clicked, it will call funcPointer.
-# Creator(s):      Justin
+# Creator(s):   Justin
 """
 def createCheckBox(name, funcPointer, layout, x, y):
     checkBox = QCheckBox(name)
@@ -176,6 +176,7 @@ def window():
 
     window.setGeometry(20, 50, 1250, 800)
     window.setWindowTitle("Beached Marine Critters")
+    window.setWindowIcon(QIcon('sea-turtle-icon.png'))
     window.show()
     sys.exit(app.exec_())
 
