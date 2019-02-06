@@ -1,0 +1,165 @@
+﻿DBID,Date,Animal Type,Species,Alive/Dead,Area,State,Longitude,Latitude,Est/Exact,Length,Width,Weight,Sex,Injured,Injury Desc.,Notes
+9,01-09-58,Turtle,Green Sea Turtle,Live/Dead,Naselle,Washington,-123.812,46.366,Estimate,0,0,0,Unknown,No Data,,Caught in a gillnet in the Naselle River estuary.*
+10,20-02-61,Turtle,Green Sea Turtle,No Data,Westport,Washington,-124.109,46.895,Estimate,0,0,0,Unknown,No Data,,*
+11,01-10-76,Turtle,Green Sea Turtle,Alive,Point Macartney,Alaska,-134.044,57.024,Estimate,0,0,0,No Data,No Data,,SIGHTING
+12,01-11-76,Turtle,Green Sea Turtle,No Data,Eliza Harbor,Alaska,-134.29,57.209,Estimate,0,0,0,No Data,No Data,,CARCASS
+13,01-09-81,Turtle,Green Sea Turtle,Alive,"Dundas Island, B.C.",Alaska,-130.857,54.574,Estimate,0,0,0,No Data,No Data,,REPEATED SIGHTINGS
+29,17-11-89,Turtle,Green Sea Turtle,Live,Ocean Shores,Washington,-124.162,46.959,Estimate,0,0,0,Unknown,No Data,,
+30,22-01-90,Turtle,Green Sea Turtle,Dead,Cannon Beach,Oregon,-123.964,45.89,Estimate,0,0,0,Unknown,No Data,,
+31,27-01-90,Turtle,Green Sea Turtle,Dead,Sunset Beach,Oregon,-123.94,46.1,Estimate,0,0,0,Unknown,No Data,,
+32,29-01-90,Turtle,Green Sea Turtle,Live,Copalis Beach,Washington,-124.181,47.112,Estimate,0,0,0,Unknown,No Data,,
+33,30-01-90,Turtle,Green Sea Turtle,Dead,Kipsan Beach,Washington,-124.059,46.466,Estimate,0,0,0,Unknown,No Data,,
+34,03-02-90,Turtle,Green Sea Turtle,Dead,Twin Harbors,Washington,-124.114,46.856,Estimate,0,0,0,Unknown,No Data,,*
+35,09-02-90,Turtle,Green Sea Turtle,Live,Sunset Beach,Oregon,-123.94,46.1,Estimate,0,0,0,Unknown,No Data,,
+51,06-11-91,Turtle,Green Sea Turtle,Unknown,Pistol River,Oregon,-124.406,42.276,Estimate,0,0,0,Unknown,No Data,,Turtle was Live when found but died shortly thereafter. 
+61,01-10-93,Turtle,Green Sea Turtle,No Data,Homer (Bishop Beach),Alaska,-151.54,59.637,Estimate,0,0,0,No Data,No Data,,CARCASS
+62,01-10-93,Turtle,Green Sea Turtle,Alive,Seldovia,Alaska,-151.717,59.439,Estimate,0,0,0,No Data,No Data,,SIGHTING
+63,20-10-93,Turtle,Green Sea Turtle,No Data,Homer,Alaska,-151.546,59.64,Estimate,0,0,0,No Data,No Data,,"SHOULDER, SKIN AND MUSCLE TO PRATT MUSEUM"
+64,21-03-94,Turtle,Green Sea Turtle,Dead,Tahkenich Creek,Oregon,-124.166,43.815,Estimate,0,0,0,Unknown,No Data,,
+77,01-10-96,Turtle,Green Sea Turtle,Alive,Rocky Pass,Alaska,-133.738,56.677,Estimate,0,0,0,No Data,No Data,,SIGHTING
+78,01-10-96,Turtle,Green Sea Turtle,Alive,Copper River Flats,Alaska,-144.961,60.398,Estimate,0,0,0,No Data,No Data,,LIVE - SENT TO SAN DIEGO
+81,01-05-97,Turtle,Green Sea Turtle,No Data,Blacksand Spit,Alaska,-139.472,59.398,Estimate,0,0,0,No Data,No Data,,CARCASS
+86,17-01-98,Turtle,Green Sea Turtle,Live,Beverly Beach State Park,Oregon,-124.058,44.729,Estimate,0,0,0,Unknown,No Data,,
+89,01-10-98,Turtle,Green Sea Turtle,No Data,Ocean Cape,Alaska,-139.862,59.542,Estimate,0,0,0,No Data,No Data,,CARCASS
+96,31-10-99,Turtle,Green Sea Turtle,Live/Dead,Long Beach,Washington,-124.063,46.356,Estimate,0,0,0,Unknown,No Data,,
+97,10-12-99,Turtle,Green Sea Turtle,Live/Dead,Agate Beach,Oregon,-124.067,44.676,Estimate,0,0,0,Unknown,No Data,,
+98,13-12-99,Turtle,Green Sea Turtle,Live,Long Beach,Washington,-124.063,46.356,Estimate,0,0,0,Unknown,No Data,,M544
+99,15-12-99,Turtle,Green Sea Turtle,Live,Pacific City,Oregon,-123.969,45.209,Estimate,0,0,0,Unknown,No Data,,
+101,16-12-99,Turtle,Green Sea Turtle,Dead,Taholah,Washington,-124.292,47.341,Estimate,0,0,0,Unknown,No Data,,
+102,16-12-99,Turtle,Green Sea Turtle,Dead,Ocean Shores,Washington,-124.162,46.959,Estimate,0,0,0,Unknown,No Data,,Carcass collected and frozen for later identification.
+103,17-12-99,Turtle,Green Sea Turtle,Dead,Copalis,Washington,-124.18,47.116,Estimate,0,0,0,Unknown,No Data,,Carcass collected and frozen for later identification.
+104,30-12-99,Turtle,Green Sea Turtle,Live,Ocean Shores,Washington,-124.162,46.959,Estimate,0,0,0,Unknown,No Data,,M543
+105,12-01-00,Turtle,Green Sea Turtle,Dead,Moolak,Oregon,-124.062,44.7,Estimate,0,0,0,Unknown,No Data,,
+106,26-01-00,Turtle,Green Sea Turtle,Dead,Ocean Shores,Washington,-124.162,46.959,Estimate,0,0,0,Unknown,No Data,,
+108,19-03-00,Turtle,Green Sea Turtle,Live,Gearheart,Oregon,-123.927,46.025,Estimate,0,0,0,Unknown,No Data,,M546/M547
+125,01-10-01,Turtle,Green Sea Turtle,No Data,"Chapin, Admiralty",Alaska,-134.324,57.135,Estimate,0,0,0,No Data,No Data,,
+131,03-11-02,Turtle,Green Sea Turtle,No Data,Kodiak,Alaska,-152.403,57.787,Estimate,0,0,0,No Data,No Data,,Original CCL on form was 85.3 CM.
+133,27-01-04,Turtle,Green Sea Turtle,Live,Westport,Washington, -124.1158,46.9013,Estimate,0,0,0,Unknown,No Data,,M549
+154,07-01-07,Turtle,Green Sea Turtle,Alive,Gleneden Beach,Oregon,-124.0297,44.9102,Estimate,0,0,0,Unknown,No Data,,
+155,07-01-07,Turtle,Green Sea Turtle,Live,Lincoln Beach,Oregon,-124.046,44.852,Estimate,0,0,0,Unknown,No Data,,Field #: HMSC07-01-07-Cm Source: Jim Rice
+156,27-01-07,Turtle,Green Sea Turtle,Live,Westport,Washington,-124.115,46.9,Estimate,0,0,0,No Data,No Data,,M549
+162,20-12-07,Turtle,Green Sea Turtle,No Data,Ketchikan,Alaska,-131.638,55.345,Estimate,0,0,0,No Data,No Data,,Original CCL on form was 74 CM.
+164,02-03-08,Turtle,Green Sea Turtle,Dead,South Sand Point,Washington,-122.25,47.676,Estimate,0,0,0,Unknown,No Data,,
+168,23-10-08,Turtle,Green Sea Turtle,Alive,Sandlake,Oregon,-123.966937,45.257706,Exact,0,0,0,Female,No Data,,Field #: HMSC08-10-23-Cm. Source: Jim Rice
+169,24-10-08,Turtle,Green Sea Turtle,No Data,Seaside,Oregon,-123.93,45.989,Estimate,90,0,0,Male,No Data,,
+170,06-02-09,Turtle,Green Sea Turtle,Dead,Ocean Shores,Washington,-124.164,46.954,Estimate,0,0,0,Unknown,No Data,,Carcass collected and frozen for later identification
+174,28-11-09,Turtle,Green Sea Turtle,Live,Long Beach,Washington,-124.06,46.353,Estimate,0,0,0,Unknown,No Data,,Field #:  HMSC09-11-29-Cm Transferred to OCA Source: Jim Rice
+182,18-11-10,Turtle,Green Sea Turtle,Live/Dead,Long Beach,Washington,-124.06,46.353,Estimate,0,0,0,Unknown,No Data,,Died 11/22/2010
+183,19-11-10,Turtle,Green Sea Turtle,Live,Seaview,Washington,-124.061,46.332,Estimate,0,0,0,Unknown,No Data,,Field # HMSC10-11-19-Cm Source: Jim Rice
+192,18-06-12,Turtle,Green Sea Turtle,Alive,Newport,Oregon,-124.062569,44.700781,Exact,0,0,0,Male,No Data,,
+193,18-06-12,Turtle,Green Sea Turtle,Alive,Moolak Beach,Oregon,-124.063,44.699,Estimate,0,0,0,Unknown,No Data,,"Field #: HMSC12-06-18-Cm Transferred to OCA, released by Sea World. Access to photo in a Google+ Album. Source: Jim Rice"
+200,17-12-12,Turtle,Green Sea Turtle,Alive,Seaside,Oregon,-123.931879,45.997871,Exact,0,0,0,Unknown,No Data,,
+201,24-12-12,Turtle,Green Sea Turtle,Dead,Neskowin,Oregon,-123.97403,45.152071,Exact,0,0,0,Unknown,No Data,,Field #: HMSC12-12-24-Cm Fresh Dead Access to photo in a Google+ Album
+208,12-05-14,Turtle,Green Sea Turtle,Dead,Langlois,Oregon,-124.49768,42.9196,Exact,0,0,0,Unknown,No Data,,Field #: HMSC14-05-12-Cm . Buried on site. Access to photo in a Google+ Album. Source: Jim Rice
+213,13-08-14,Turtle,Green Sea Turtle,Alive,Florence,Oregon,-124.142988,43.967523,Exact,0,0,0,Unknown,No Data,,Field #: HMSC14-08-13-Cm. Access to a Google+ Album. Source: Jim Rice 
+233,15-03-16,Turtle,Green Sea Turtle,Dead,Bandon,Oregon,-124.43525,43.08484,Exact,0,0,0,Unknown,No Data,,"031516CmST-Responded to by Oregon Parks Beach Ranger, South Coast District."
+235,03-12-17,Turtle,Green Sea Turtle,Alive,Warrenton,Oregon,-123.99912,46.23396,Exact,0,0,0,Unknown,No Data,,
+239,01-08-63,Turtle,Leatherback,Alive,Stephens Passage,Alaska,-133.81,57.652,Estimate,0,0,0,No Data,No Data,,SIGHTING
+240,01-09-63,Turtle,Leatherback,No Data,Copper River Flats,Alaska,-144.967,60.385,Estimate,0,0,0,No Data,No Data,,NETTED & KILLED
+241,01-07-78,Turtle,Leatherback,Alive,Eaton Point,Alaska,-132.068,55.939,Estimate,0,0,0,No Data,No Data,,NETTED & RELEASED
+242,01-08-78,Turtle,Leatherback,Alive,Gravina Island,Alaska,-131.788,55.335,Estimate,0,0,0,No Data,No Data,,SIGHTING
+243,01-08-78,Turtle,Leatherback,Alive,Craig,Alaska,-133.141,55.473,Estimate,0,0,0,No Data,No Data,,NETTED & RELEASED
+244,01-08-78,Turtle,Leatherback,Alive,Myer's Chuck,Alaska,-132.258,55.737,Estimate,0,0,0,No Data,No Data,,SIGHTING
+245,01-08-79,Turtle,Leatherback,No Data,Metlakatla,Alaska,-131.577,55.129,Estimate,0,0,0,No Data,No Data,,NETTED & KILLED
+246,01-08-79,Turtle,Leatherback,Alive,Union Bay,Alaska,-132.226,55.762,Estimate,0,0,0,No Data,No Data,,NETTED & RELEASED
+248,01-03-83,Turtle,Leatherback,No Data,Perryville,Alaska,-159.129,55.913,Estimate,0,0,0,No Data,No Data,,CARCASS
+249,01-07-83,Turtle,Leatherback,Alive,Yakutat,Alaska,-140.717,59.763,Estimate,0,0,0,No Data,No Data,,SIGHTING
+251,01-08-83,Turtle,Leatherback,Alive,Cape Cross,Alaska,-136.562,57.914,Estimate,0,0,0,No Data,No Data,,SIGHTING
+252,01-08-83,Turtle,Leatherback,Alive,"Deer Harbor, Yakobi Island",Alaska,-136.547,57.94,Estimate,0,0,0,No Data,No Data,,SIGHTING - 2 INDIVIDUALS
+253,01-08-83,Turtle,Leatherback,Alive,Glacier Bay Entrance,Alaska,-136.129,58.686,Estimate,0,0,0,No Data,No Data,,SIGHTING
+254,01-08-83,Turtle,Leatherback,Alive,Noyes Island Vincinity,Alaska,-133.707,55.51,Estimate,0,0,0,No Data,No Data,,SIGHTING
+255,01-08-84,Turtle,Leatherback,Alive,Cape Addington,Alaska,-133.819,55.44,Estimate,0,0,0,No Data,No Data,,SIGHTING
+286,01-01-90,Turtle,Leatherback,No Data,Yakutat,Alaska,-140.684,59.757,Estimate,0,0,0,No Data,No Data,,CARCASS
+313,01-07-93,Turtle,Leatherback,Alive,Vitskari Straight,Alaska,-135.301,57.045,Estimate,0,0,0,No Data,No Data,,SIGHTING
+316,01-08-93,Turtle,Leatherback,Alive,Vitskari Rocks,Alaska,-135.549,57.006,Estimate,0,0,0,No Data,No Data,,SIGHTING
+371,11-05-80,Turtle,Leatherback Sea Turtle,Alive,Off Westport,Washington,-124.123,46.903,Estimate,0,0,0,Unknown,No Data,,Sighted at sea.*
+372,03-10-81,Turtle,Leatherback Sea Turtle,Dead,Port Angeles,Washington,-123.467,48.131,Estimate,0,0,0,Unknown,No Data,,Sighted at sea.*
+373,23-09-84,Turtle,Leatherback Sea Turtle,Live,Off Westport,Washington,-124.123,46.903,Estimate,0,0,0,Unknown,No Data,,Sighted at sea.*
+374,07-09-85,Turtle,Leatherback Sea Turtle,Dead,Kalaloch,Washington,-124.374,47.604,Estimate,0,0,0,Unknown,No Data,,*
+375,19-09-85,Turtle,Leatherback Sea Turtle,Dead,Twin Harbors,Washington,-124.113,46.857,Estimate,0,0,0,Unknown,No Data,,*
+376,10-10-85,Turtle,Leatherback Sea Turtle,Dead,Ocean Shores,Washington,-124.166,46.996,Estimate,0,0,0,Unknown,No Data,,*
+377,30-10-85,Turtle,Leatherback Sea Turtle,Dead,Queets,Washington,-124.353,47.534,Estimate,0,0,0,Unknown,No Data,,*
+378,09-10-87,Turtle,Leatherback Sea Turtle,Dead,Yellowbank,Washington,-124.685,48.095,Estimate,0,0,0,Unknown,No Data,,*
+379,21-07-93,Turtle,Leatherback Sea Turtle,Dead,Oysterville,Washington,-124.033,46.549,Estimate,0,0,0,Unknown,No Data,,
+380,09-08-93,Turtle,Leatherback Sea Turtle,Live,La Push,Washington,-124.636,47.907,Estimate,0,0,0,Unknown,No Data,,Turtle reported seen from vessel while underway. 
+381,13-09-93,Turtle,Leatherback Sea Turtle,Dead,Leadbetter Point,Washington,-124.059,46.627,Estimate,0,0,0,Unknown,No Data,,
+382,21-09-93,Turtle,Leatherback Sea Turtle,Dead,Fort Canby,Washington,-124.052,46.278,Estimate,0,0,0,Unknown,No Data,,
+383,26-08-85,Turtle,Leatherback Sea Turtle (2+),Live,Off La Push,Washington,-124.636,47.907,Estimate,0,0,0,Unknown,No Data,,Sighted at sea.*  
+391,01-12-91,Turtle,Loggerhead,No Data,Shuyak Island,Alaska,-152.486,58.514,Estimate,0,0,0,No Data,No Data,,CARCASS
+397,01-07-93,Turtle,Loggerhead,Alive,Cape Georgena,Alaska,-135.859,57.329,Estimate,0,0,0,No Data,No Data,,SIGHTING
+435,15-09-80,Turtle,Loggerhead Sea Turtle,Dead,Ocean Shores,Washington,-124.166,46.996,Estimate,0,0,0,Unknown,No Data,,*
+436,01-02-81,Turtle,Loggerhead Sea Turtle,Live,Benson Beach,Washington,-124.06,46.368,Estimate,0,0,0,Unknown,No Data,,"Found live with a puncture wound, treated at Seattle Aquarium and released.*"
+437,01-02-81,Turtle,Loggerhead Sea Turtle,Dead,Ocean Shores,Washington,-124.166,46.996,Estimate,0,0,0,Unknown,No Data,,*
+438,01-12-90,Turtle,Loggerhead Sea Turtle,Live,Ocean Shores,Washington,-124.166,46.996,Estimate,0,0,0,Unknown,No Data,,
+439,14-08-92,Turtle,Loggerhead Sea Turtle,Live,Westport Bay,Washington,-124.117,46.907,Estimate,0,0,0,Unknown,No Data,,
+440,11-05-93,Turtle,Loggerhead Sea Turtle,Live,Newport,Oregon,-124.062,44.631,Estimate,0,0,0,Unknown,No Data,,
+441,24-01-98,Turtle,Loggerhead Sea Turtle,Unknown,Lincoln City,Oregon,-124.019,44.962,Estimate,0,0,0,Unknown,No Data,,
+442,09-01-00,Turtle,Loggerhead Sea Turtle,Dead,Ocean Shores,Washington,-124.166,46.996,Estimate,0,0,0,Unknown,No Data,,
+443,24-12-07,Turtle,Loggerhead Sea Turtle,Unkown,Gearhart,Oregon,-123.926,46.023,Estimate,0,0,0,Unknown,No Data,,Field #: HMSC07-01-07-Cm Died 12/25/2007. Source: Jim Rice
+444,11-02-17,Turtle,Loggerhead Sea Turtle,Alive,Cannon Beach,Oregon,-123.96865,45.91075,Estimate,0,0,0,Female,No Data,,
+445,01-03-17,Turtle,Loggerhead Sea Turtle,Fresh Dead,Neskowin,Oregon,-123.985,45.107143,Estimate,0,0,0,Unknown,No Data,,
+475,01-06-91,Turtle,Olive Ridley,No Data,South Of Ketchikan,Alaska,-131.597,55.32,Estimate,0,0,0,No Data,No Data,,CARCASS
+523,14-12-14,Turtle,Olive Ridley,Fresh Dead,Warrenton,Oregon,-123.929,46.173,Estimate,0,0,0,Unknown,No Data,,Field#:122414LoST. Photos of Level A and turtle provided 
+524,22-12-14,Turtle,Olive Ridley,Alive,Oysterville,Washington,-124.048,46.547,Estimate,0,0,0,Unknown,No Data,,Field #: 122214LoST . Transferred to OCA 12/22/2014 for rehabilitation.  Photos of Level A and turtle provided. 
+525,24-12-14,Turtle,Olive Ridley,Fresh Dead,Warrenton,Oregon,-123.929,46.173,Estimate,0,0,0,No Data,No Data,,Field#:122414LoST Photos of Level A and turtle provided 
+526,29-12-14,Turtle,Olive Ridley,Fresh Dead,Benson Beach,Washington,-124.06,46.368,Estimate,0,0,0,Unknown,No Data,,Field#: 122914LoST. Photos of  Level A and turtle provided 
+527,05-01-15,Turtle,Olive Ridley,Alive,Oysterville,Washington,-124.048,46.547,Estimate,0,0,0,Unknown,No Data,,Field #: 010515LoST. 1/5/2015 transferred to Seattle Aquarium for rehabilitation. Photos of Level A and turtle provided.
+528,01-02-15,Turtle,Olive Ridley,Dead,Sand Lake,Oregon,-123.96,45.28,Estimate,0,0,0,Unknown,No Data,,Pending report from OSU
+531,25-11-15,Turtle,Olive Ridley,Dead,Dungeness Spit,Washington,-123.147,48.175,Estimate,0,0,0,Unknown,No Data,,112515LoST – Buried on site. Photos and form available. 
+532,10-12-15,Turtle,Olive Ridley,Live,Pacific City,Oregon,-123.9687,45.2109,Estimate,0,0,0,Unknown,No Data,,Transferred to Oregon Coast Aquarium for rehabilitation. 
+533,14-12-15,Turtle,Olive Ridley,Live,Cannon Beach,Oregon,-123.96865,45.91075,Estimate,0,0,0,Unknown,No Data,,121415LoST. Transferred to Seattle Aquarium for rehabilitation. 
+534,21-12-15,Turtle,Olive Ridley,Live,Pacific City,Oregon,-123.9687,45.2109,Estimate,0,0,0,Unknown,No Data,,122115LoST_A. Transferred to Seattle Aquarium for rehabilitation. 
+535,21-12-15,Turtle,Olive Ridley,Live,Seaview Beach Access,Washington,-124.059,46.449,Estimate,0,0,0,Unknown,No Data,,122115LoST_B. Transferred to Oregon Coast Aquarium for rehabilitation. 
+536,24-12-15,Turtle,Olive Ridley,Live,Oceanside,Washington,-124.06,46.409,Estimate,0,0,0,Unknown,No Data,,122415LoST. Transferred to Seattle Aquarium for rehabilitation. Necropsy by Martha Delany
+537,27-12-15,Turtle,Olive Ridley,Dead,Westhaven State Park,Washington,-124.1224,46.9046,Estimate,0,0,0,Unknown,No Data,,Responded by Westport Aquarium. 
+541,05-11-98,Turtle,Olive Ridley Sea Turtle,Unkown,Gleneden Beach,Oregon,-124.0376,44.88305,Estimate,0,0,0,Unknown,No Data,,
+542,08-12-99,Turtle,Olive Ridley Sea Turtle,Unkown,Pacific City,Oregon,-123.9687,45.2109,Estimate,0,0,0,Unknown,No Data,,
+543,08-10-01,Turtle,Olive Ridley Sea Turtle,Live,Pacific Beach,Washington,-124.2068,47.2133,Estimate,0,0,0,Unknown,No Data,,M548/R65
+544,06-12-01,Turtle,Olive Ridley Sea Turtle,Unkown,Seaside,Oregon,-123.932,45.9897,Estimate,0,0,0,Unknown,No Data,,
+545,14-01-07,Turtle,Olive Ridley Sea Turtle,Dead,Sand Island,Oregon,-124.0242,46.2764,Estimate,0,0,0,Unknown,No Data,,
+546,22-11-09,Turtle,Olive Ridley Sea Turtle,Alive,Newport,Oregon,-124.062063,44.647869,Estimate,0,0,0,Unknown,No Data,,Field #: HMSC 09-11-22-Lo Transferred to OCA Source: Jim Rice
+547,25-11-09,Turtle,Olive Ridley Sea Turtle,Alive,Agate Beach,Oregon,-124.063,44.6744,Estimate,0,0,0,Unknown,No Data,,USFWS Data
+548,13-11-10,Turtle,Olive Ridley Sea Turtle,Dead,Horsefall Beach,Oregon,-124.2776,43.4525,Estimate,0,0,0,Unknown,No Data,,
+549,14-11-10,Turtle,Olive Ridley Sea Turtle,Fresh Dead,North Bend,Oregon,-124.317283,43.38495,Estimate,0,0,0,Unknown,No Data,,Field #: HMSC10-11-14-Lo Source: Jim Rice
+550,17-12-12,Turtle,Olive Ridley Sea Turtle,Alive,Gearheart,Oregon,-123.932,45.998,Estimate,0,0,0,No Data,No Data,,"Field #: HMSC12-12-17-Lo Transferred to OCA, died upon arrival."
+551,17-12-12,Turtle,Olive Ridley Sea Turtle,Alive,Seaside,Oregon,-123.932,45.9897,Estimate,0,0,0,Unknown,No Data,,USFSW Data
+552,18-12-12,Turtle,Olive Ridley Sea Turtle,Dead,Seal Rock,Oregon,-124.081573,44.465578,no data,0,0,0,Male,No Data,,Field #: HMSC12-12-18-Lo. Fresh Dead. Access to photo in a Google+ Album. Source: Jim Rice
+553,19-12-12,Turtle,Olive Ridley Sea Turtle,Dead,Driftwood Shores State Park,Washington,-122.4743,48.1917,Estimate,0,0,0,Unknown,No Data,,USFSW Data
+554,22-12-12,Turtle,Olive Ridley Sea Turtle,Dead,Florence,Oregon,-124.137957,44.013126,Estimate,0,0,0,Male,No Data,,Field #: HMSC12-12-22-Lo. Fresh Dead. Source: Jim Rice
+555,30-09-13,Turtle,Olive Ridley Sea Turtle,Alive,Lincoln City,Oregon,-124.017626,44.969466,Estimate,0,0,0,Female,No Data,,Field #: HMSC13-09-30-Lo. Access to photo in a Google+ Album. Source: Jim Rice
+556,30-09-13,Turtle,Olive Ridley Sea Turtle,Live,D River,Oregon,-124.0183,44.968,Estimate,0,0,0,Unknown,No Data,,USFSW Data
+557,03-02-15,Turtle,Olive Ridley Sea Turtle,Fresh Dead,Sandlake,Oregon,-123.964112,45.28618,Estimate,0,0,0,Unknown,No Data,,
+558,27-03-15,Turtle,Olive Ridley Sea Turtle,Moderate Decomposition,Seaside,Oregon,-123.9622,45.8239,Estimate,0,0,0,Female,No Data,,
+559,10-12-15,Turtle,Olive Ridley Sea Turtle,Alive,Pacific City,Oregon,-123.969548,45.192332,Estimate,0,0,0,Female,No Data,,
+560,14-12-15,Turtle,Olive Ridley Sea Turtle,Alive,Cannon Beach,Oregon,-123.962233,45.86514,Estimate,0,0,0,Male,No Data,,
+561,21-12-15,Turtle,Olive Ridley Sea Turtle,Alive,Del Rey Beach State Rec. Park,Oregon,-123.932703,46.051887,Estimate,0,0,0,Unknown,No Data,,
+562,04-01-16,Turtle,Olive Ridley Sea Turtle,Fresh Dead,Florence,Oregon,-124.125926,44.08198,Estimate,0,0,0,Male,No Data,,
+563,25-11-16,Turtle,Olive Ridley Sea Turtle,Alive,Hammond,Oregon,-123.997277,46.204352,Estimate,0,0,0,Male,No Data,,
+564,17-12-16,Turtle,Olive Ridley Sea Turtle,Fresh Dead,Cape Lookout State Park,Oregon,-123.967,45.380185,Estimate,0,0,0,Unknown,No Data,,
+565,20-10-17,Turtle,Olive Ridley Sea Turtle,Alive,Gleneden Beach,Oregon,-124.029228,44.914653,Estimate,0,0,0,Female,No Data,,
+566,18-11-17,Turtle,Olive Ridley Sea Turtle,Fresh Dead,Tierra Del Mar,Oregon,-123.968,45.248612,Estimate,0,0,0,Male,No Data,,
+567,12-01-18,Turtle,Olive Ridley Sea Turtle,Moderate Decomposition,Waldport,Oregon,-124.087411,44.396992,Estimate,0,0,0,Male,No Data,,
+568,28-01-18,Turtle,Olive Ridley Sea Turtle,Moderate Decomposition,Cape Blanco State Park,Oregon,-124.547,42.8485,Estimate,0,0,0,Female,No Data,,
+569,30-10-18,Turtle,Olive Ridley Sea Turtle,Fresh Dead,Lincoln Beach,Oregon,-124.047097,44.852222,Estimate,0,0,0,Male,No Data,,
+570,23-11-89,Turtle,Olive Ridley Turtle,Alive,Newport,Oregon,-124.0672,44.6235,Estimate,0,0,0,Unknown,No Data,,
+571,25-11-09,Turtle,Pacific Green Sea Turtle,Alive,Seaside,Oregon,-123.9622,45.8239,Estimate,0,0,0,Unknown,No Data,,USFWS Data
+572,18-07-12,Turtle,Pacific Green Sea Turtle,Alive,Moolack Beach,Oregon,-124.0629,44.7003,Estimate,0,0,0,Unknown,No Data,,USFWS Data
+793,12-09-95,Turtle,Sea Turtle,Dead - Unknown,Waldport,Oregon,-124.088,44.401,Estimate,0,0,0,Male,No Data,,
+794,05-11-98,Turtle,Sea Turtle,Dead - Unknown,Lincoln Beach,Oregon,-124.04859,44.85024,Estimate,0,0,0,Unknown,No Data,,
+797,01-08-74,Turtle,Unidentified Sea Turtle,Alive,Kachemak Bay,Alaska,-151.2367,59.6855,Estimate,0,0,0,No Data,No Data,,SIGHTING
+798,01-08-79,Turtle,Unidentified Sea Turtle,Alive,Marmot Bay,Alaska,-152.2714,58.06509,Estimate,0,0,0,No Data,No Data,,SIGHTING
+799,19-07-80,Turtle,Unidentified Sea Turtle,Live,Off Westport,Washington,-124.1159,46.9105,Estimate,0,0,0,Unknown,No Data,,Sighted at sea.*
+801,01-08-87,Turtle,Unidentified Sea Turtle,Dead/Mutilated,Ocean Park,Washington,-124.054,46.4882,Estimate,0,0,0,Unknown,No Data,,*
+803,01-11-89,Turtle,Unidentified Sea Turtle,Undetermined,Ocean Shores,Washington,-124.1643,46.95459,Estimate,0,0,0,Unknown,No Data,,
+804,13-11-89,Turtle,Unidentified Sea Turtle,Dead,Copalis,Washington,-124.1818,47.1197,Estimate,0,0,0,Unknown,No Data,,*
+811,09-08-92,Turtle,Unidentified Sea Turtle,Live,Skagit Bay,Washington,-122.4497,48.3052,Estimate,0,0,0,Unknown,No Data,,Turtle reported seen from vessel underway.
+815,14-03-99,Turtle,Unidentified Sea Turtle,Dead,Taholah,Washington,-124.2925,47.34005,Estimate,0,0,0,Unknown,No Data,,
+816,22-11-99,Turtle,Unidentified Sea Turtle,Live/Dead,Long Beach,Washington,-124.06313,46.3556,Estimate,0,0,0,Unknown,No Data,,Carcass collected and frozen for later identification.
+818,02-02-01,Turtle,Unidentified Sea Turtle,Live,Long Beach,Washington,-124.06313,46.3556,Estimate,0,0,0,Unknown,No Data,,
+819,27-03-01,Turtle,Unidentified Sea Turtle,Undetermined,Ocean Shores,Washington,-124.1643,46.95459,Estimate,0,0,0,Unknown,No Data,,Undetermined status reported via WSP but no subsequent information. 
+822,16-05-05,Turtle,Unidentified Sea Turtle,Live,Grays Harbor,Washington,-123.9821,46.9876,Estimate,0,0,0,Unknown,No Data,,*
+825,24-12-07,Turtle,Unidentified Sea Turtle,Alive,Gearhart,Oregon,-123.930108,46.034225,no data,0,0,0,Unknown,No Data,,
+828,21-04-13,Turtle,Unidentified Sea Turtle,Alive,Florence,Oregon,-124.140748,44.015009,no data,0,0,0,Unknown,No Data,,Field #: HMSC13-04-21-St. Source: Jim Rice
+829,01-08-13,Turtle,Unidentified Sea Turtle,Alive,Newport,Oregon,-124.066947,44.630283,no data,0,0,0,Unknown,No Data,,Field #: HMSC13-08-01-St. Source: Jim Rice
+830,12-09-95,Turtle,Unknown,Dead,Waldport,Oregon,-124.088,44.401,Estimate,0,0,0,Unknown,No Data,,Field #: NW-1892 Source: Jim Rice
+831,05-11-98,Turtle,Unknown,Dead,Lincoln Beach,Oregon,-124.04859,44.85024,Estimate,0,0,0,Unknown,No Data,,Field #: NW-210 Source: Jim Rice
