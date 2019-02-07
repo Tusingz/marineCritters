@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from PyQt5 import QtCore
+from PyQt5.QtCore import *
 
 """
 # Name:         fileCLicked()
@@ -94,6 +94,7 @@ def createButton(name, funcPointer, layout):
     button = QPushButton(name)
     layout.addWidget(button)
     button.clicked.connect(funcPointer)
+    #button.setStyleSheet("background-color: rgb(0, 112, 210);")
 
 """
 # Name:         createCheckBox()
@@ -177,6 +178,9 @@ def window():
     window.setGeometry(20, 50, 1250, 800)
     window.setWindowTitle("Beached Marine Critters")
     window.setWindowIcon(QIcon('sea-turtle-icon.png'))
+    p = window.palette()
+    p.setColor(window.backgroundRole(), QColor(134, 199, 255))
+    window.setPalette(p)
     window.show()
     sys.exit(app.exec_())
 
