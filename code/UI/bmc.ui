@@ -15,8 +15,24 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="7" column="0">
+     <spacer name="bottomSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="3" column="3">
-     <spacer name="horizontalSpacer_4">
+     <spacer name="rightSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -32,7 +48,7 @@
      </spacer>
     </item>
     <item row="3" column="2">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="dataComboBox">
       <item>
        <property name="text">
         <string>Species</string>
@@ -56,21 +72,21 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="dataLabel">
       <property name="text">
        <string>Data</string>
       </property>
      </widget>
     </item>
     <item row="0" column="0">
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="mapFilterLabel">
       <property name="text">
        <string>Map Filters</string>
       </property>
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QGraphicsView" name="graphicsView">
+     <widget class="QGraphicsView" name="mapGraphic">
       <property name="minimumSize">
        <size>
         <width>467</width>
@@ -80,7 +96,7 @@
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="mapLabel">
       <property name="text">
        <string>Map</string>
       </property>
@@ -90,34 +106,48 @@
      <layout class="QVBoxLayout" name="verticalLayout_4"/>
     </item>
     <item row="2" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="mapFilterLayout">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="turtleLayout">
         <item>
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="leatherbackCheck">
           <property name="text">
-           <string>Turtle 1</string>
+           <string>Leatherback</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_3">
+         <widget class="QCheckBox" name="greenSeaCheck">
           <property name="text">
-           <string>Turtle 2</string>
+           <string>Green Sea</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_2">
+         <widget class="QCheckBox" name="loggerheadCheck">
           <property name="text">
-           <string>Turtle 3</string>
+           <string>Loggerhead</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="oliveRidleyCheck">
+          <property name="text">
+           <string>Olive Ridley</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="unknownCheck">
+          <property name="text">
+           <string>Unknown</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="mapFIlterSpacer1">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -133,22 +163,22 @@
        </spacer>
       </item>
       <item>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_5">
+       <layout class="QGridLayout" name="dateLayout">
+        <item row="1" column="2">
+         <widget class="QDateEdit" name="toDate"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QDateEdit" name="fromDate"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="fromLabel">
           <property name="text">
            <string>From</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
-         <widget class="QDateEdit" name="dateEdit_2"/>
-        </item>
-        <item row="0" column="2">
-         <widget class="QDateEdit" name="dateEdit"/>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_4">
+        <item row="1" column="1">
+         <widget class="QLabel" name="toLabel">
           <property name="text">
            <string>To</string>
           </property>
@@ -157,7 +187,7 @@
        </layout>
       </item>
       <item>
-       <spacer name="horizontalSpacer_2">
+       <spacer name="mapFilterSpacer2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -173,23 +203,23 @@
        </spacer>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="conditionLayout">
         <item>
-         <widget class="QCheckBox" name="checkBox_4">
+         <widget class="QCheckBox" name="seaCurrentsCheck">
           <property name="text">
            <string>Sea Currents</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_6">
+         <widget class="QCheckBox" name="surfaceTempCheck">
           <property name="text">
            <string>Surface Temperature</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="checkBox_5">
+         <widget class="QCheckBox" name="windSpeedCheck">
           <property name="text">
            <string>Wind Speed</string>
           </property>
@@ -197,33 +227,35 @@
         </item>
        </layout>
       </item>
+      <item>
+       <spacer name="mapFilterSpacer3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
     </item>
     <item row="5" column="1" colspan="2">
-     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <layout class="QVBoxLayout" name="dataLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="exampleDataPushButton">
         <property name="text">
          <string>Sea Turtle - New Port</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>Leather Back - Bend</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>Turtle - Place</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
+       <spacer name="dataSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -239,22 +271,6 @@
        </spacer>
       </item>
      </layout>
-    </item>
-    <item row="7" column="0">
-     <spacer name="verticalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Minimum</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
@@ -277,6 +293,9 @@
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuImport">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Import</string>
     </property>
