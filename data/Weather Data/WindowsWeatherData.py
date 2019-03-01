@@ -2,8 +2,18 @@
 import csv
 import glob, os
 import time
-#North: 61.152 South: 29.975 East: -123.221 West: -166.311
-#747 files @ 205 gigs
+#Intended for Windows using Python 3 due to limited server storage space
+
+#Script Creator: Daniel Domme
+#Winter 2019
+#Script Description:  This program opens and reads all files in the directory ending 
+    #in .dat and filters and parses them.  Then, it takes the data that pertains to 
+    #the bounding box of latitudes and longitudes and prints them in a .csv file.
+    #This file was meant to parse NOAA International Comprehensive Ocean-Atmosphere Data Set (ICOADS)
+    #enhanced trim files. FTP: https://www.ncei.noaa.gov/data/marine/icoads3.0/enhanced-trim/
+    #Longitude needed to be reformated to become standardized with our datasets.
+#Bounding Box: North: 61.152 South: 29.975 East: -123.221 West: -166.311
+#Turned 747 files @ 205 gigs into one file at 1.58 gigs
 
 with open ('try.csv', 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
