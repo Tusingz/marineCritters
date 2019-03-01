@@ -1,0 +1,118 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage{titletoc}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{caption}
+%\usepackage[export]{adjustbox}
+%\usepackage[notocbib]{apacite}
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Beached Marine Critters Project Team}
+\def \CapstoneTeamNumber{		64}
+\def \GroupMemberOne{			Alea Weeks}
+\def \GroupMemberTwo{			Amar Raad}
+\def \GroupMemberThree{			Daniel Domme}
+\def \GroupMemberFour{			Justin Disalvo}
+\def \GroupMemberFive{			Zachary Tusing}
+\def \CapstoneProjectName{		Develop a visual model for sea turtle beach stranding Events}
+\def \CapstoneSponsorCompany{	Oregon State University Hatfield Marine Science Center; Oregon Sea Grant}
+\def \CapstoneSponsorPerson{		Dr. William Hanshumaker}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				Executive Summary
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+     \includegraphics[height=3cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\normalsize\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            %\vfill
+            \vspace{1in}
+            {\Large Prepared for}\par
+            \huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            \vspace{.5in}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            %\CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+				\NameSigPair{\GroupMemberFour}\par
+			\NameSigPair{\GroupMemberFive}\par
+            }
+            \vspace{20pt}
+        }
+        \vfill
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	%This document is written using one sentence per line.
+        	%This allows you to have sensible diffs when you use \LaTeX with version control, as well as giving a quick visual test to see if sentences are too short/long.
+        	%If you have questions, ``The Not So Short Guide to LaTeX'' is a great resource (\url{https://tobi.oetiker.ch/lshort/lshort.pdf})
+		    \noindent 
+		    This document serves as brief overview of the documents that need verification by the client, Dr. William Hanshumaker.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+\begin{singlespace}
+\section{Problem Statement}
+The Problem Statement is an outline of the rest of our documents. It outlines the problem that we are attempting to solve. This document provides a generalization of the problem. There is a technical solution attached to the document giving a brief overview of how we are going to implement the technical side of the problem. Finally, the document is concluded with the criteria for our project.
+\section{Requirements Document}
+The Requirements document outlines what the team is doing for our project and what final product our client will be received once we are finished. It contains information regarding the project's purpose and the corresponding product's attributes, such as the product's functions, requirements, user characteristics, constraints, interface, and possible stretch goals.
+\section{Design Document}%Daniel
+The Design Document is the basic outline of our project that will determine all of the work that will be completed throughout the year.  It contains information about the users and stakeholders, and it contains mock-ups of the software based on client feedback. The document also includes details about software features and design choices. 
+\section{Progress Report}
+The Progress Report document contains a week-by-week summary of the notable activities completed throughout the term by the group. Additionally, a week by week summary of problems and solutions encountered are also provided. It also contains a retrospective which is an account of activities we completed well, things we could improve on, and ways in which we could improve. To conclude, we provide a description of where our project currently stands.
+
+\renewcommand\refname{Bibliography}
+
+% bibliography
+\pagebreak
+\nocite{*}%if nothing is referenced it will still show up in refs
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{singlespace}
+\end{document}
