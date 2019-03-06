@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1009, 742)
@@ -63,7 +64,9 @@ class Ui_MainWindow(object):
         self.unknownCheck.setObjectName("unknownCheck")
         self.turtleLayout.addWidget(self.unknownCheck)
         self.mapFilterLayout.addLayout(self.turtleLayout)
+
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+
         self.mapFilterLayout.addItem(spacerItem2)
         self.dateLayout = QtWidgets.QGridLayout()
         self.dateLayout.setObjectName("dateLayout")
@@ -80,7 +83,9 @@ class Ui_MainWindow(object):
         self.toLabel.setObjectName("toLabel")
         self.dateLayout.addWidget(self.toLabel, 1, 1, 1, 1)
         self.mapFilterLayout.addLayout(self.dateLayout)
+
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+
         self.mapFilterLayout.addItem(spacerItem3)
         self.conditionLayout = QtWidgets.QVBoxLayout()
         self.conditionLayout.setObjectName("conditionLayout")
@@ -94,7 +99,9 @@ class Ui_MainWindow(object):
         self.windSpeedCheck.setObjectName("windSpeedCheck")
         self.conditionLayout.addWidget(self.windSpeedCheck)
         self.mapFilterLayout.addLayout(self.conditionLayout)
+
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
         self.mapFilterLayout.addItem(spacerItem4)
         self.gridLayout.addLayout(self.mapFilterLayout, 2, 0, 1, 1)
         self.dataLayout = QtWidgets.QVBoxLayout()
@@ -102,38 +109,58 @@ class Ui_MainWindow(object):
         self.exampleDataPushButton = QtWidgets.QPushButton(self.centralwidget)
         self.exampleDataPushButton.setObjectName("exampleDataPushButton")
         self.dataLayout.addWidget(self.exampleDataPushButton)
+
         spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
         self.dataLayout.addItem(spacerItem5)
         self.gridLayout.addLayout(self.dataLayout, 5, 1, 1, 2)
+
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1009, 26))
         self.menubar.setObjectName("menubar")
+
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
+
         self.menuImport = QtWidgets.QMenu(self.menubar)
         self.menuImport.setEnabled(True)
         self.menuImport.setObjectName("menuImport")
+
         self.menuEdit = QtWidgets.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
+
         self.menuView = QtWidgets.QMenu(self.menubar)
         self.menuView.setObjectName("menuView")
+
         self.menuProperties = QtWidgets.QMenu(self.menubar)
         self.menuProperties.setObjectName("menuProperties")
+
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
         self.actionOpen = QtWidgets.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
+
         self.actionSave = QtWidgets.QAction(MainWindow)
         self.actionSave.setObjectName("actionSave")
+
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
+        self.actionExit.triggered.connect(app.quit)
+
         self.menuFile.addAction(self.actionOpen)
+
         self.menuFile.addAction(self.actionSave)
+
         self.menuFile.addSeparator()
         self.menuFile.addAction(self.actionExit)
+        #actionExit.triggered.connect(app.quit)
+
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuImport.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
@@ -180,6 +207,7 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    MainWindow.setWindowTitle('Beached Marrine Critters')
+    MainWindow.setWindowIcon(QtGui.QIcon('sea-turtle-icon.png'))
     MainWindow.show()
     sys.exit(app.exec_())
-
