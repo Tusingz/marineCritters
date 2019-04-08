@@ -1,1 +1,1 @@
-All code to impliment the project.
+All code to implement the project.
