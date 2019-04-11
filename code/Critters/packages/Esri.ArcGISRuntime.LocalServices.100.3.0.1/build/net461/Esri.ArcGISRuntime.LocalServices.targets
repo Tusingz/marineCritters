@@ -1,0 +1,42 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <IsExecutableApplication Condition="'$(OutputType)' == 'Exe' OR '$(OutputType)' == 'WinExe'">true</IsExecutableApplication>
+    <ArcGISLocalServerVersion Condition="'$(ArcGISLocalServerVersion)'==''">100.3</ArcGISLocalServerVersion>
+    <ArcGISLocalServerInstallFolder Condition="'$(ArcGISLocalServerInstallFolder)'==''">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\ESRI\RuntimeLocalServer100.3@InstallDir)</ArcGISLocalServerInstallFolder>
+    <ArcGISLocalServerFolder>$(OutputPath)\LocalServer$(ArcGISLocalServerVersion)</ArcGISLocalServerFolder>
+    <ArcGISLocalServerManifest Condition="'$(ArcGISLocalServerManifest)'==''">$(ProjectDir)\ArcGISLocalServer_$(ArcGISLocalServerVersion).AGSDeployment</ArcGISLocalServerManifest>
+    <ArcGISLocalServerDeployX86>false</ArcGISLocalServerDeployX86>
+    <ArcGISLocalServerDeployX64>false</ArcGISLocalServerDeployX64>
+    <ArcGISLocalServerDeployX86 Condition="('$(PlatformTarget)' == 'x86' OR '$(PlatformTarget)' == 'AnyCPU')">true</ArcGISLocalServerDeployX86>
+    <ArcGISLocalServerDeployX64 Condition="(('$(Prefer32Bit)' == 'false' AND '$(PlatformTarget)' == 'AnyCPU') OR '$(PlatformTarget)' == 'x64')">true</ArcGISLocalServerDeployX64>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildDependsOn Condition="'$(IsExecutableApplication)' == 'true'">$(BuildDependsOn);DeployArcGISLocalServer</BuildDependsOn>
+    <CleanDependsOn Condition="'$(IsExecutableApplication)' == 'true'">$(CleanDependsOn);CleanArcGISLocalServer</CleanDependsOn>
+  </PropertyGroup>
+  
+  <UsingTask TaskName="DeploymentTask" AssemblyFile="$(MSBuildThisFileDirectory)Esri.ArcGISRuntime.LocalServices.BuildTasks.dll"/>
+  
+  <Target Name="DeployArcGISLocalServer">
+    <DeploymentTask DeploymentManifestFile="$(ArcGISLocalServerManifest)"
+                    LocalServerInstallFolder="$(ArcGISLocalServerInstallFolder)"
+                    DestinationFolder="$(ArcGISLocalServerFolder)" 
+                    LocalServerVersion="$(ArcGISLocalServerVersion)"
+                    DeployX86="$(ArcGISLocalServerDeployX86)" DeployX64="$(ArcGISLocalServerDeployX64)"
+                    ApplicationId="$(ProjectGuid)"
+                    IgnoreMissingComponent="$(ArcGISLocalServerIgnoreMissingComponent)"
+                    />
+  </Target>
+   
+  <Target Name="DeployArcGISProLocalServerInstallation" AfterTargets="DeployArcGISLocalServer"
+      Condition="Exists($([System.IO.Path]::Combine($(ArcGISLocalServerFolder),'64','bin','ArcGIS.Installation.xml'))) AND Exists($([System.IO.Path]::Combine($(ArcGISLocalServerFolder),'64','pro','bin')))">
+      <Copy SourceFiles="$(ArcGISLocalServerFolder)\64\bin\ArcGIS.Installation.xml" DestinationFolder="$(ArcGISLocalServerFolder)\64\Pro\bin" />
+  </Target>
+ 
+  <Target Name="CleanArcGISLocalServer">
+    <RemoveDir Directories="$(ArcGISLocalServerFolder)" />
+  </Target>
+  
+</Project>

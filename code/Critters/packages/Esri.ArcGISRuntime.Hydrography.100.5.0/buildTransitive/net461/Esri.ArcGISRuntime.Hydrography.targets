@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <ArcGISRuntimeEncVersion>100.5</ArcGISRuntimeEncVersion>
+    <ArcGISRuntimeEncFolder>ArcGISRuntime$(ArcGISRuntimeEncVersion)</ArcGISRuntimeEncFolder>
+    <ArcGISRuntimeEncDeploymentRoot>$(MSBuildThisFileDirectory)..\..\resources</ArcGISRuntimeEncDeploymentRoot>
+  </PropertyGroup>
+  
+  <!-- Link resource files, to include them in the output directory and application manifest. -->
+  <ItemGroup>
+	<Content Include="$(ArcGISRuntimeEncDeploymentRoot)\**\*.*">
+	  <Link>$(ArcGISRuntimeEncFolder)\resources\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+  </ItemGroup>
+</Project>

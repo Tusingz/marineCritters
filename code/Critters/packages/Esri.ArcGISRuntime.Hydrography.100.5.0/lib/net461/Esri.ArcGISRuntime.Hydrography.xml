@@ -1,0 +1,567 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Esri.ArcGISRuntime.Hydrography</name>
+    </assembly>
+    <members>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncAreaSymbolizationType">
+            <summary>The list of area features symbolization settings.</summary>
+            <remarks>
+              This is used to specify whether areas should be symbolized with plain or traditional symbols.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.AreaSymbolizationType"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncAreaSymbolizationType.Plain">
+            <summary>Use plain symbols.</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncAreaSymbolizationType.Symbolized">
+            <summary>Use traditional symbols.</summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncCell">
+            <summary>An ENC cell object.</summary>
+            <remarks>
+            <para>A single ENC (Electronic Navigational Chart) data source.</para>
+            <para>It can take some time to load an ENC cell. Cells should be processed by the runtime
+            before they are used for navigation, especially when loading from large ENC exchange sets. Loading an ENC cell
+            with an <see cref="T:Esri.ArcGISRuntime.Mapping.EncLayer"/> accomplishes this by causing the runtime to build the SENC database for
+            that cell. Subsequent loads will read from the internal SENC database for improved performance.</para>
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.SencDataPath"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncCell.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Hydrography.EncCell"/> class from the specified path.
+            </summary>
+            <param name="path">The path to the S-57/ENC (extension .000) file.</param>
+            <remarks>This constructor should be used for loading an individual cell independent of any exchange set.
+            If the ENC cell was delivered as part of an exchange set, use the <see cref="M:Esri.ArcGISRuntime.Hydrography.EncCell.#ctor(Esri.ArcGISRuntime.Hydrography.EncDataset)"/> constructor instead.
+            When an ENC cell is constructed from the path directly, updates (*.001, *.002, etc.) that are part of the associated exchange set
+            (if there is one) will not be applied.</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncCell.#ctor(Esri.ArcGISRuntime.Hydrography.EncDataset)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Hydrography.EncCell"/> class from the specified dataset.
+            </summary>
+            <param name="encDataset">An <see cref="T:Esri.ArcGISRuntime.Hydrography.EncDataset"/> instance previously obtained from a <see cref="T:Esri.ArcGISRuntime.Hydrography.EncExchangeSet"/></param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncCell.LoadWarnings">
+            <summary>Returns a collection of ENC warnings encountered during load.</summary>
+            <remarks>
+            Note that, despite the property name being "LoadWarnings", the type of the warnings are exceptions. This is intentional. The
+            warnings themselves are, at this time, SSE codes and their accompanying text, as defined by the S-63 specification.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncCell.Dataset">
+            <summary>Gets the ENC data set associated with the ENC cell.</summary>
+            <remarks>Returns null if the ENC cell was loaded from a path.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncCell.Path">
+            <summary>Gets the path associated with the ENC cell.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncCell.LoadStatus">
+            <inheritdoc cref="P:Esri.ArcGISRuntime.ILoadable.LoadStatus" />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncCell.LoadError">
+            <inheritdoc cref="P:Esri.ArcGISRuntime.ILoadable.LoadError" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncCell.CancelLoad">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.CancelLoad" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncCell.LoadAsync">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.LoadAsync" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncCell.RetryLoadAsync">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.RetryLoadAsync" />
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Hydrography.EncCell.Loaded">
+            <inheritdoc cref="E:Esri.ArcGISRuntime.ILoadable.Loaded" />
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Hydrography.EncCell.LoadStatusChanged">
+            <inheritdoc cref="E:Esri.ArcGISRuntime.ILoadable.LoadStatusChanged" />
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncColorScheme">
+            <summary>A switch between S-52 color schemes.</summary>
+            <remarks>
+              The S-52 standard allows for switching between three color modes.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.ColorScheme"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncColorScheme.Day">
+            <summary>Day</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncColorScheme.Dusk">
+            <summary>Dusk</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncColorScheme.Night">
+            <summary>Night</summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncDataset">
+            <summary>Defines an ENC dataset.</summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncDataset.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Hydrography.EncDataset"/> class.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDataset.Description">
+            <summary>Gets the description of the ENC dataset.</summary>
+            <returns>The description of the ENC dataset.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDataset.Extent">
+            <summary>Gets the extent of the ENC dataset.</summary>
+            <returns>The extent of the ENC dataset.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDataset.Name">
+            <summary>Gets the name of the ENC dataset.</summary>
+            <returns>The name of the ENC dataset.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDataset.VolumeName">
+            <summary>Gets the volume name of the ENC dataset.</summary>
+            <returns>The volume name of the ENC dataset.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDataset.IsAuthorized">
+            <summary>Gets a value indicating whether the data set is authorized</summary>
+            <remarks>
+              If the underlying data is S-57, then this function returns true. If the underlying data is S-63 and there is a valid
+              cell permit, this function returns true. If the underlying data is S-63 and there is no valid cell permit, this function
+              returns false.
+            </remarks>
+            <returns>A bool returning whether the dataset is authorized</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncDisplayCategories">
+            <summary>An ENC Display Categories object. Contains three categories.</summary>
+            <remarks>
+              The S-52 standard allows for toggling three display categories.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DisplayCategories"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplayCategories.DisplayBase">
+            <summary>Gets or sets a value indicating whether the S52 "displaybase" display category is enabled.</summary>
+            <remarks>"displaybase" contains a subset of the objects in "standard".</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplayCategories.OtherDisplay">
+            <summary>Gets or sets a value indicating whether the S52 "other" display category is enabled.</summary>
+            <remarks>The "other" category contains all objects that are not enabled by default in "Standard Display". </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplayCategories.StandardDisplay">
+            <summary>Gets or sets a value indicating whether the S52 "standard" display category is enabled.</summary>
+            <remarks>Once an object has been added to or removed from display, the display is no longer showing the "Standard Display".
+            This will not be reflected by this property. </remarks>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncDisplayDepthUnits">
+            <summary>A switch between units for depth.</summary>
+            <remarks>
+              Change the unit of depth for soundings and contours.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DisplayDepthUnits"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncDisplayDepthUnits.Meters">
+            <summary>Meters</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncDisplayDepthUnits.Feet">
+            <summary>Feet</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncDisplayDepthUnits.Fathoms">
+            <summary>Fathoms</summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings">
+            <summary>Defines the ENC environment settings.</summary>
+            <remarks>ENC environment settings apply runtime-wide.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.Default">
+            <summary>Gets the global instance of the <seealso cref="T:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings"/>.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.DisplaySettings">
+            <summary>
+              Gets the ENC display settings, which allows selection of mariner, viewing group, and text group visibility settings.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.SencDataPath">
+            <summary>Gets or sets the path to the SENC resource files.</summary>
+            <remarks><para>If null, a temporary path is used.</para>
+            <para>The SENC path should always be set explicitly before using ENC functionality. </para>
+            <para>SENC files can take a long time to generate. The default temp path may not preserve generated files between app runs or over time.</para>
+            <para>SENC files should not be backed up, and care should be taken to ensure that this path will not be included in backups.
+            SENC files are machine- and build-specfic.</para></remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.TempPath"/>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncExchangeSet">
+            <summary>Defines an ENC exchange set.</summary>
+            <remarks>ENC exchange sets consist of one or more datasets and a catalog file (CATALOG.031).</remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.#ctor(System.String[])">
+            <summary>Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Hydrography.EncExchangeSet"/> class.</summary>
+            <param name="paths">The paths to ENC exchange sets to be loaded.</param>
+            <remarks>An ENC exchange set can be loaded with the path to a single exchange set and zero or more update exchange sets.
+            If an exchange set which only contains updates is loaded, the corresponding exchange set with the base
+            cells must be loaded simultaneously.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.LoadWarnings">
+            <summary>Returns a collection of ENC warnings encountered during load.</summary>
+            <remarks>
+            Note that, despite the property name being "LoadWarnings", the type of the warnings are exceptions. This is intentional. The
+            warnings themselves are, at this time, SSE codes and their accompanying text, as defined by the S-63 specification.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.Datasets">
+            <summary>Gets the ENC datasets available in the exchange set.</summary>
+            <returns>The ENC datasets.</returns>
+            <remarks>The ENC exchange set's datasets can be used to create <see cref="T:Esri.ArcGISRuntime.Hydrography.EncCell"/>s,
+            which can then be used to populate <see cref="T:Esri.ArcGISRuntime.Mapping.EncLayer"/>s.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.Paths">
+            <summary>Gets a list of the paths of the ENC exchange set.</summary>
+            <remarks>
+              An ENC exchange set can be loaded with the path to a single exchange set and zero or more update exchange sets. If an
+              exchange set which only contains updates is loaded, the corresponding exchange set with the base cells must be loaded
+              simultaneously.
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.Readme">
+            <summary>Gets the path to the ENC exchange set's Readme file.</summary>
+            <returns>The path to the Readme file of the ENC exchange set.</returns>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.Loaded">
+            <inheritdoc cref="E:Esri.ArcGISRuntime.ILoadable.Loaded" />
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.LoadStatusChanged">
+            <inheritdoc cref="E:Esri.ArcGISRuntime.ILoadable.LoadStatusChanged" />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.LoadError">
+            <inheritdoc cref="P:Esri.ArcGISRuntime.ILoadable.LoadError" />
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.LoadStatus">
+            <inheritdoc cref="P:Esri.ArcGISRuntime.ILoadable.LoadStatus" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.CancelLoad">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.CancelLoad" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.LoadAsync">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.RetryLoadAsync" />
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncExchangeSet.RetryLoadAsync">
+            <inheritdoc cref="M:Esri.ArcGISRuntime.ILoadable.RetryLoadAsync" />
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncFeature">
+            <summary>An ENC feature.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncFeature.Geometry">
+            <summary>
+            Gets the <see cref="T:Esri.ArcGISRuntime.Geometry.Geometry"/> of this ENC feature.
+            </summary>
+            <remarks>ENC feature geometry can't be set; attempting to set will throw an exception.</remarks>
+            <value>The <see cref="T:Esri.ArcGISRuntime.Geometry.Geometry"/> of this ENC feature.</value>
+            <see cref="T:Esri.ArcGISRuntime.Geometry.Geometry"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncFeature.Acronym">
+            <summary>Gets the acronym for the ENC feature.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncFeature.Description"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncFeature.Description">
+            <summary>Gets the description for the ENC feature.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncFeature.Acronym"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncFeature.GetAttributeDescription(System.String)">
+            <summary>Get the description of an ENC feature acronym.</summary>
+            <param name="key">The attribute acronym.</param>
+            <remarks>
+            Use this to convert an attribute's <c>Key</c> into a human-readable representation.
+            </remarks>
+            <returns>Returns the description of the given key acronym. If that acronym does not exist, this function returns the key passed in.</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings">
+            <summary>An ENC mariner settings object for controlling the rendering of ENC layers.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.MarinerSettings"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.ResetToDefaults">
+            <summary>Resets all ENC mariner settings.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.AreaSymbolizationType">
+            <summary>Gets or sets the area symbolization type (plain/symbolized). This controls the line symbol style for areas.</summary>
+            <remarks>Defaults to symbolized.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DisplayCategories">
+            <summary>Gets the ENC display categories object, which contains categories base, standard, and other.</summary>
+            <remarks><para>This can be used to configure display settings for categories of objects.</para>
+            <para>All display categories are enabled by default.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.ColorScheme">
+            <summary>Gets or sets the color scheme (day/dusk/night).</summary>
+            <remarks>Defaults to day.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DeepContour">
+            <summary>Gets or sets the deep water contour depth in meters.</summary>
+            <remarks><para>This must be greater than or equal to the safety contour value. An exception will be thrown otherwise.</para>
+            <para>When four (rather than two) depth shades are used, this controls the boundary between safe and deep areas.</para>
+            <para>Defaults to 30 meters.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.LabelContours">
+            <summary>Gets or sets a value indicating whether to display the depth contour labels, including safety contour labels.</summary>
+            <remarks><para>This is viewing group 33021, 33022 per IHO S-52 Annex A.</para>
+            <para>Defaults to true, meaning the depth contour labels will be displayed.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.LabelSafetyContours">
+            <summary>Gets or sets a value indicating whether to display the safety contour labels.</summary>
+            <remarks>Defaults to true, meaning the safety contour labels will be displayed.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.TwoDepthShades">
+            <summary>Gets or sets a value indicating whether two or four depth shades will be used; two is the default.</summary>
+            <value><c>true</c> for two, <c>false</c> for four.</value>
+            <remarks>Defaults to true, meaning two depth shades will be used.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DisplayDepthUnits">
+            <summary>
+            Gets or sets the depth units (meters/feet/fathoms) for display.
+            </summary>
+            <remarks>Defaults to meters.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.HonorSCAMIN">
+            <summary>Gets or sets a value indicating whether the 'SCAMIN' (scale min) S-57 feature attribute will be used.</summary>
+            <remarks><para>If disabled, all ENC features will be rendered regardless of scale.</para>
+            <para>Defaults to true, meaning the scale min attribute will be respected.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.IsolatedDangers">
+            <summary>Gets or sets a value indicating whether to display isolated dangers in shallow water.</summary>
+            <remarks><para>This is viewing group 24020, 24050 per IHO 2-52 Annex A.</para>
+            <para>Defaults to false, meaning isolated dangers will not be shown in shallow water.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.LowAccuracy">
+            <summary>Gets or sets a value indicating whether to use low accuracy symbols (CATZOC).</summary>
+            <remarks><para>This is viewing group 31010 per IHO S-52 Annex A.</para>
+            <para>Defaults to true, meaning vectors marked as 'low accuracy data' will be symbolized differently.</para>
+            <para>When low accuracy is set to false, low accuracy data will be visually indistinguishable from other data.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DisplayNOBJNM">
+            <summary>
+            Gets or sets a value indicating whether to display the national name attribute on S-57 features.
+            </summary>
+            <remarks><para>This is text group 31 per IHO S-52 Annex A.</para>
+            <para>Defaults to true, meaning national names will be displayed.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.PointSymbolizationType">
+            <summary>Gets or sets the S-52 point feature symbolization type (simplified/paperchart).</summary>
+            <remarks><para>Paperchart symbolization is based on traditional paper charts. Simplified symbols are more compact and visible.</para>
+            <para>Defaults to paperchart.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.DataQuality">
+            <summary>Gets or sets a value indicating whether to display data quality (M_QUAL) for S-57 features.</summary>
+            <remarks>Defaults to false, meaning quality of data will not be displayed.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.SafetyContour">
+            <summary>Gets or sets the depth of the safety contour in meters.</summary>
+            <remarks><para>The safety contour separates safe from unsafe areas.</para>
+            <para>Defaults to 30 meters.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.ShallowContour">
+            <summary>Gets or sets the depth of the shallow contour in meters.</summary>
+            <remarks><para>This must be less than or equal to the safety contour value. An exception will be thrown otherwise.</para>
+            <para>When four (rather than two) depth shades are used, this value controls the separation between shallow and unsafe areas.</para>
+            <para>Defaults to two meters.</para></remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.ShowShallowDepthPattern">
+            <summary>Gets or sets a value indicating whether the shallow depth pattern will be symbolized.</summary>
+            <remarks>Defaults to false, meaning the shallow depth pattern will not be symbolized.</remarks>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncPointSymbolizationType">
+            <summary>The list of point features symbolization settings.</summary>
+            <remarks>
+              This is used to specify whether point features should be symbolized with simplified or paperchart symbols.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncMarinerSettings.PointSymbolizationType"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncPointSymbolizationType.PaperChart">
+            <summary>Use Paperchart symbols.</summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Hydrography.EncPointSymbolizationType.Simplified">
+            <summary>Use simplified symbols.</summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings">
+            <summary>ENC display settings object container for a group of finer-grained settings.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.DisplaySettings"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.MarinerSettings">
+            <summary>Gets the S-52 display properties for the environment.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.TextGroupVisibilitySettings">
+            <summary>Gets the S-52 text group properties for the environment.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.ViewingGroupSettings">
+            <summary>Gets the S-52 view group properties for the environment.</summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings">
+            <summary>S-52 text group properties object.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.TextGroupVisibilitySettings"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.ResetToDefaults">
+            <summary>Resets each S-52 text group property to its respective default.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.BerthNumber">
+            <summary>Gets or sets a value indicating whether the "berth number" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 29, which includes OBJNAM from BERTHS and ACHBRT.</remarks>
+            <returns><c>true</c> if text group berth number visibility should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.CurrentVelocity">
+            <summary>Gets or sets a value indicating whether the "current velocity" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 30, which includes CURVEL.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.GeographicNames">
+            <summary>Gets or sets a value indicating whether the "geographic names" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 26, which includes OBJNAM from ACHARE, BRIDGE, BUAARE, BUISGL,
+            DOCARE, FAIRWY, LNDARE, LNDMARK, LNDRGN, SEAARE, TIDEWY, and PILBOP.</remarks>
+            <returns><c>true</c> if the text group geographic names should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.HeightOfIsletOrLandFeature">
+            <summary>Gets or sets a value indicating whether the "height of islet or land feature" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 28, which includes HEIGHT of LNDARE.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.ImportantText">
+            <summary>Gets or sets a value indicating whether the "important text" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text groups 10 and 11.</remarks>
+            <returns><c>true</c> if the text group important text should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.LightDescription">
+            <summary>Gets or sets a value indicating whether the "light descriptions" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 23.</remarks>
+            <returns><c>true</c> if the text group light descriptions should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.MagneticVariationAndSweptDepth">
+            <summary>Gets or sets a value indicating whether the "magnetic variation and swept depth" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 27, which includes MAGVAR, VALMAG, SWPARE, and DRVAL1.</remarks>
+            <returns><c>true</c> if the magnetic variation and swept depth text group should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.NamesForPositionReporting">
+            <summary>Gets or sets a value indicating whether the "names for position reporting" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 21.</remarks>
+            <returns><c>true</c> if the NamesForPositionReporting text group should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.NatureOfSeabed">
+            <summary>Gets or sets a value indicating whether the "nature of seabed" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 25, which includes SBDARE and NATSUR.</remarks>
+            <returns><c>true</c> if the text group NatureOfSeabed should be visible.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncTextGroupVisibilitySettings.NoteOnChartData">
+            <summary>Gets or sets a value indicating whether the "note on chart data" text group should be visible.</summary>
+            <remarks>Per IHO S-52 Annex A, controls text group 24.</remarks>
+            <returns><c>true</c> if the NoteOnChartData text group should be visible.</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings">
+            <summary>S-52 viewing group properties object.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncDisplaySettings.ViewingGroupSettings"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.ResetToDefaults">
+            <summary>Resets all ENC viewing group settings.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.AllIsolatedDangers">
+            <summary>Gets or sets the "all isolated dangers" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 13, which includes viewing groups 34050 and 34051.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.ArchipelagicSeaLanes">
+            <summary>Gets or sets the "archipelagic sea lanes" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 9, which includes viewing group 26260.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.BoundariesAndLimits">
+            <summary>Gets or sets the "boundaries and limits" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 4, which includes viewing groups 23030, 26050, 26220, 26240, and 26250.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.BuoysBeaconsAidsToNavigation">
+            <summary>Gets or sets the "buoys, beacons, aids to navigation" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 3, which includes viewing groups 21020, 22200 – 22240, 27000,
+            27010, 27011, 27020, 27025, 27040, 27050, 27070, 27080, 27200, 27210, 27230, 27030, and 27060.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.BuoysBeaconsStructures">
+            <summary>Gets or sets the "buoys, beacons, structures" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 3.1, which includes viewing groups 21010, 21020,
+            22200 - 22240, 27000-27050, 27080, 27200 – 27230, 27030, and 27060.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.ChartScaleBoundaries">
+            <summary>Gets or sets the "chart scale boundaries" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 6, which includes viewing group 21030.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.DepthContours">
+            <summary>Gets or sets the "depth contours" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 15, which includes viewing group 33020.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.DryingLine">
+            <summary>Gets or sets the "drying line" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 2, which includes viewing group 22010.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.Lights">
+            <summary>Gets or sets the "lights" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 3.2, which includes viewing group 27070.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.MagneticVariation">
+            <summary>Gets or sets the "magnetic variation" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 14, which includes viewing group 31080.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.OtherMiscellaneous">
+            <summary>Gets or sets the "other miscellaneous" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 18, which includes viewing group 30000-39999.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.ProhibitedAndRestrictedAreas">
+            <summary>Gets or sets the "prohibited and restricted areas" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 5, which includes viewing groups 2600, 26010, and 26040.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.Seabed">
+            <summary>Gets or sets the "seabed" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 16, which includes viewing groups 34010, 34020, and 33040.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.ShipsRoutingSystemsAndFerryRoutes">
+            <summary>Gets or sets the "ships' routing systems and ferry routes" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 8, which includes viewing groups 25010-25060.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.SpotSoundings">
+            <summary>Gets or sets the "spot soundings" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 11, which includes viewing group 33010.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.StandardMiscellaneous">
+            <summary>Gets or sets the "standard miscellaneous" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 10 under the "standard display" viewing group,
+            which includes all objects not covered by viewing groups 20000-29999.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.SubmarineCablesAndPipelines">
+            <summary>Gets or sets the "submarine cables and pipelines" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 12, which includes viewing groups 34030 and 34070.</remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.EncViewingGroupSettings.Tidal">
+            <summary>Gets or sets the "tidal" viewing group setting.</summary>
+            <remarks>Per IHO S-52 Annex A, controls viewing group layer 17, which includes viewing groups 33050 and 33060.</remarks>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Hydrography.S63DataException">
+            <summary>
+            A S63 specific error code used on <see cref="P:Esri.ArcGISRuntime.Hydrography.EncCell.LoadError"/> and <see cref="P:Esri.ArcGISRuntime.Hydrography.EncCell.LoadWarnings"/> when loading S63 encrypted data.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Hydrography.S63DataException.S63ErrorCode">
+            <summary>
+            Gets the S63 SSE Error Code
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Mapping.EncLayer">
+            <summary>
+            An instance of this class represents a layer that can visualize ENC data.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Mapping.EncLayer.#ctor(Esri.ArcGISRuntime.Hydrography.EncCell)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Mapping.EncLayer"/> class.
+            </summary>
+            <param name="cell">The ENC cell</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Mapping.EncLayer.Cell">
+            <summary>Gets the ENC cell associated with this layer.</summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Mapping.EncLayer.EnvironmentSettings">
+            <summary>Gets the global instance of the <seealso cref="T:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings"/>.</summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Hydrography.EncEnvironmentSettings.Default"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Mapping.EncLayer.ClearSelection">
+            <summary>Unselects the previously selected <see cref="T:Esri.ArcGISRuntime.Hydrography.EncFeature"/> (if any).</summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Mapping.EncLayer.SelectFeature(Esri.ArcGISRuntime.Hydrography.EncFeature)">
+            <summary>Selects an <see cref="T:Esri.ArcGISRuntime.Hydrography.EncFeature"/>.</summary>
+            <remarks>
+            Only a single <see cref="T:Esri.ArcGISRuntime.Hydrography.EncFeature"/> can be selected at a time. Selecting a feature using this method will
+            unselect any previously selected feature.
+            </remarks>
+            <param name="encFeature">The <see cref="T:Esri.ArcGISRuntime.Hydrography.EncFeature"/> to be selected.</param>
+        </member>
+    </members>
+</doc>

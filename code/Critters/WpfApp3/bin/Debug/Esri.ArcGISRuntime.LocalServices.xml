@@ -1,0 +1,2264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Esri.ArcGISRuntime.LocalServices</name>
+    </assembly>
+    <members>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment">
+            <summary>
+            This class is used to control Initialization and process wide settings for the ArcGIS Local Server.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.InstallPath">
+            <summary>
+            Gets or sets the folder of the local server.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.InstallFolderName">
+            <summary>Gets the folder like `LocalServer100.3`</summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.Initialize">
+            <summary>
+            Initializes the ArcGIS Local Server environment.
+            </summary>
+            <seealso cref="M:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.Initialize"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.CheckInstallValid">
+            <summary>
+            Returns true if the local server is available.
+            </summary>
+            <returns>true if the local server is available; otherwise, false</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.FindDefaultInstall">
+            <summary>
+            Searches applications sub folder and SDK registry key to find a default ArcGISRuntime install.
+            Returns null if a default install can not be found.
+            </summary>
+            <returns>Default install folder</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.GetExeDirectory">
+            <summary>
+            Returns the current exe's directory. This will handle EntryAssembly being null (if a native host exe is used)
+            </summary>
+            <returns>Directory of exe</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace">
+            <summary>
+            An enterprise geodatabase workspace can be used to create a <see cref="T:Esri.ArcGISRuntime.Mapping.SublayerSource"/>
+            which displays data from the database.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.LockVersion">
+            <summary>
+            Gets a value indicating whether the version specified in the <see cref="P:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.Connection"/> cannot be changed to another version of the geodatabase.
+            </summary>
+            <remarks>
+            Default value is true.
+            This property controls whether the initial version specified in the connection string or ArcSDE file when this workspace was created
+            can be changed to another version using <see cref="P:Esri.ArcGISRuntime.Mapping.MapSublayerSource.GeodatabaseVersion"/> or <see cref="P:Esri.ArcGISRuntime.Mapping.TableSublayerSource.GeodatabaseVersion"/>.
+            </remarks>
+            <return>If <c>true</c> the <see cref="P:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.Connection"/> is locked to this geodatabase version; otherwise, <c>false</c>.</return>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.Connection">
+            <summary>
+            Gets the connection used for this workspace.
+            </summary>
+            <remarks>
+            The connection is a path to the ArcSDE connection file (.sde) if created with <see cref="M:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.CreateFromConnectionFile(System.String,System.String,System.Boolean)"/>
+            or a string with connection information if created with <see cref="M:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.CreateFromConnectionString(System.String,System.String,System.Boolean)"/>.
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace"/> class.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="connection">the connection used for this workspace.</param>
+            <param name="lockVersion">value indicating whether the version specified in the <paramref name="connection"/> cannot be changed to
+            another version of the geodatabase using <see cref="P:Esri.ArcGISRuntime.Mapping.MapSublayerSource.GeodatabaseVersion"/> or
+            <see cref="P:Esri.ArcGISRuntime.Mapping.TableSublayerSource.GeodatabaseVersion"/></param>
+            <param name="isFile">value indicating whether connection is an ArcSDE connection file</param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.CreateFromConnectionFile(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace"/> class with specified path to an ArcSDE connection file.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="connectionFile">the path to an ArcSDE connection file.</param>
+            <param name="lockVersion">value indicating whether the version specified in the <paramref name="connectionFile"/> cannot be changed to
+            another version of the geodatabase using <see cref="P:Esri.ArcGISRuntime.Mapping.MapSublayerSource.GeodatabaseVersion"/> or
+            <see cref="P:Esri.ArcGISRuntime.Mapping.TableSublayerSource.GeodatabaseVersion"/></param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+            <see cref="T:System.ArgumentException">connectionFile cannot be null or empty.</see>
+            <returns>A new instance of of the <see cref="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace"/></returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace.CreateFromConnectionString(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace"/> class with specified connection string.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="connectionString">the connection string.</param>
+            <param name="lockVersion">value indicating whether the version specified in the <paramref name="connectionString"/> cannot be changed to
+            another version of the geodatabase using <see cref="P:Esri.ArcGISRuntime.Mapping.MapSublayerSource.GeodatabaseVersion"/> or
+            <see cref="P:Esri.ArcGISRuntime.Mapping.TableSublayerSource.GeodatabaseVersion"/></param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+            <see cref="T:System.ArgumentException">connectionString cannot be null or empty.</see>
+            <returns>A new instance of of the <see cref="T:Esri.ArcGISRuntime.LocalServices.EnterpriseGeodatabaseWorkspace"/></returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.ShapefileWorkspace">
+            <summary>
+            A shapefile workspace can be used to create a <see cref="T:Esri.ArcGISRuntime.Mapping.SublayerSource"/>  that displays the
+            data from a shapefile.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.ShapefileWorkspace.FolderPath">
+            <summary>
+            Gets the folder path of this workspace.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.ShapefileWorkspace.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.ShapefileWorkspace"/> class.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="folderPath">the path of the folder containing the shapefiles.</param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+            <see cref="T:System.ArgumentException">folderPath cannot be null or empty.</see>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.FileGeodatabaseWorkspace">
+            <summary>
+            A file geodatabase workspace can be used to create a <see cref="T:Esri.ArcGISRuntime.Mapping.SublayerSource"/> that
+            displays data from the geodatabase.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.FileGeodatabaseWorkspace.FilePath">
+            <summary>
+            Gets the file path for this workspace.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.FileGeodatabaseWorkspace.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.FileGeodatabaseWorkspace"/> class.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="filePath">the path of the geodatabase.</param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+            <see cref="T:System.ArgumentException">folderPath cannot be null or empty.</see>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.RasterWorkspace">
+            <summary>
+            A raster workspace can be used with a <see cref="T:Esri.ArcGISRuntime.Mapping.RasterSublayerSource"/> to create a
+            <see cref="T:Esri.ArcGISRuntime.Mapping.SublayerSource"/> that displays a raster image.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.RasterWorkspace.FolderPath">
+            <summary>
+            Gets the folder path for this workspace.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.RasterWorkspace.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.RasterWorkspace"/> class.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <param name="folderPath">the path of the folder containing the raster.</param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+            <see cref="T:System.ArgumentException">folderPath cannot be null or empty.</see>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.DynamicWorkspace">
+            <summary>
+            Represents information about a workspace to which the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalMapService"/> can connect in order to
+            allow the dynamic switching <see cref="T:Esri.ArcGISRuntime.Mapping.SublayerSource"/>s within this workspace.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.DynamicWorkspace.Id">
+            <summary>
+            Gets the id of the workspace.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.DynamicWorkspace.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.DynamicWorkspace"/> class.
+            </summary>
+            <param name="id">the id of the workspace.</param>
+            <see cref="T:System.ArgumentException">id cannot be null or empty.</see>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.StatusChangedEventArgs">
+            <summary>
+            Event argument used by <see cref="E:Esri.ArcGISRuntime.LocalServices.LocalService.StatusChanged"/> and  <see cref="E:Esri.ArcGISRuntime.LocalServices.LocalServer.StatusChanged"/>
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.StatusChangedEventArgs.Status">
+            <summary>
+            Gets the local server status of the local service.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_ApplicationStatePath_InvalidChange">
+            <summary>
+              Looks up a localized string similar to Cannot set the LocalServerApplicationStatePath after the ArcGISRuntimeEnvironment has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_ClientId_InvalidChange">
+            <summary>
+              Looks up a localized string similar to Cannot set the Client Id after the ArcGISRuntimeEnvironment has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_InstallPath_InvalidChange">
+            <summary>
+              Looks up a localized string similar to Cannot set the InstallPath after the ArcGISRuntimeEnvironment has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_ClientId_Invalid">
+            <summary>
+              Looks up a localized string similar to The supplied ClientId is invalid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Expired">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Main license has expired..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Extension_Expired">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Extension license number {0} has expired..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Extension_Invalid">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Extension license number {0} is invalid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Extension_Mismatch">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Extension license number {0} is incorrect, a main license is used where an extension license is required..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Invalid">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Main license is invalid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_Deploy_Mismatch">
+            <summary>
+              Looks up a localized string similar to License error with ArcGISRuntimeEnvironment. Main license is incorrect, an extension license is used where a main license is required..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_LoginRequired">
+            <summary>
+              Looks up a localized string similar to Login period from Portal authentication has expired. User will need to log in again..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_License_SetLicenseInvalid">
+            <summary>
+              Looks up a localized string similar to A license can only be set if the ArcGISRuntimeEnvironment class has a valid ClientId and a call to ArcGISRuntimeEnvironment.Initialize method has succeeded..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_LoadError">
+            <summary>
+              Looks up a localized string similar to Error initializing ArcGISRuntimeEnvironment. Unable to load ArcGISRuntime deployment.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_NoDeploymentFound">
+            <summary>
+              Looks up a localized string similar to Error initializing ArcGISRuntimeEnvironment. Unable to find ArcGISRuntime deployment folder. To create a deployment run the ArcGISRuntime Deployment Tool to create a folder called {0}. Place this in the same folder as your exe, or set the ArcGISRuntimeEnvironment.InstallPath to point to a different location. This deployment folder must contain sub-folders matching your process architecture. For developers you can also install the ArcGIS Runtime .Net SDK, which includes a deployment folder..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_ShadersFolderNotFound">
+            <summary>
+              Looks up a localized string similar to Cannot create a MapView. The required &apos;resources/shaders&apos; folder was not found in the ArcGIS Runtime deployment..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_SymbolsPath_InvalidChange">
+            <summary>
+              Looks up a localized string similar to Cannot set the SymbolsPath after the ArcGISRuntimeEnvironment has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_SymbolsPathNotSpecified">
+            <summary>
+              Looks up a localized string similar to ArcGISRuntimeEnvironment.SymbolsPath was not specified. Set ArcGISRuntimeEnvironment.SymbolsPath to the path to the ArcGISRuntime deployment &apos;symbols&apos; folder. The path may be specified relative to the application&apos;s installed location, for example &quot;.\Assets\symbols&quot;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ArcGISRuntime_TempPath_InvalidChange">
+            <summary>
+              Looks up a localized string similar to Cannot set the TempPath after the ArcGISRuntimeEnvironment has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Converter_TypeToStringNotSupported">
+            <summary>
+              Looks up a localized string similar to Cannot convert to string..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.CsvLayer_Parsing_FormatException">
+            <summary>
+              Looks up a localized string similar to CSV parsing failed..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.CsvLayer_ResourceNotFound">
+            <summary>
+              Looks up a localized string similar to Resource could not be located..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.DelegateCommand_CannotExecute">
+            <summary>
+              Looks up a localized string similar to Cannot execute command..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Editor_InvalidOperationNoEditingAllowed">
+            <summary>
+              Looks up a localized string similar to You cannot edit the geometry when all editing options are disabled..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Editor_MapIsNotReady">
+            <summary>
+              Looks up a localized string similar to Map is not in a ready state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Editor_NoAssociatedMap">
+            <summary>
+              Looks up a localized string similar to No map associated with Editor..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Editor_RectangleNotSupportedOnScene">
+            <summary>
+              Looks up a localized string similar to DrawShape.Rectangle is not supported in SceneView..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_Cancelled">
+            <summary>
+              Looks up a localized string similar to Export tile operation cancelled.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_Deleted">
+            <summary>
+              Looks up a localized string similar to Export tile operation was deleted.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_Failed">
+            <summary>
+              Looks up a localized string similar to Export tile operation failed.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_FileExists">
+            <summary>
+              Looks up a localized string similar to The file {0} already exists, and the download operation has been set not to overwrite existing files.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_InvalidScaleRange">
+            <summary>
+              Looks up a localized string similar to Invalid MinScale and MaxScale values.  The scale range specified must be between {0} and {1}..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_InvalidTileScheme">
+            <summary>
+              Looks up a localized string similar to Service does not contain a valid tile scheme.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_NoExportCapability">
+            <summary>
+              Looks up a localized string similar to Service does not support exporting tiles.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ExportTileCacheTask_TimedOut">
+            <summary>
+              Looks up a localized string similar to Export tile operation timed out.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_ApplyAttachmentUnsavedFeature">
+            <summary>
+              Looks up a localized string similar to You cannot save attachment edits to a feature that does not exist on the server. .
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttachmentFailedOnServer">
+            <summary>
+              Looks up a localized string similar to Attachment operation failed on server..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttachmentReadAccessFailed">
+            <summary>
+              Looks up a localized string similar to Cannot read from stream.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttachmentsNotSupported">
+            <summary>
+              Looks up a localized string similar to Layer does not support attachments..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttributeExceededLength">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; has exceeded the required field length &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttributeExceededRange">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; does not fall within the expected range of &apos;{1}-{2}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttributeFeatureTypeNotFound">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not found in the list of expected feature types..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttributeNotNullable">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; attribute cannot be null..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_AttributeTypeMismatch">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not of required data type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_CapabilitiesMissing">
+            <summary>
+              Looks up a localized string similar to Feature service does not provide the required capabilities..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_DeleteQueryParametersMissing">
+            <summary>
+              Looks up a localized string similar to Where clause and geometry cannot both be null..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_EditNotInitialized">
+            <summary>
+              Looks up a localized string similar to Feature must be initialized before any edit can be applied..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_ExistingFeatureObjectIdMissing">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is required attribute for {1} and should be present on features existing on the feature service..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_GeometryTypeMismatch">
+            <summary>
+              Looks up a localized string similar to Graphic.Geometry does not match the expected geometry type &apos;{0}&apos; of the service..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_InvalidGeometryType">
+            <summary>
+              Looks up a localized string similar to Missing or unsupported geometry type.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_NewFeatureObjectIdExists">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; attribute already exists on the graphic, which should not be present on features that do not already exist on feature service..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_ObjectIdFieldMissing">
+            <summary>
+              Looks up a localized string similar to Feature service does not provide the required Object ID field..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_OwnershipAccessFail">
+            <summary>
+              Looks up a localized string similar to The feature service does not allow you to {0} a feature you do not own..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_PropertyChangeAfterInitializeNotAllowed">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; property cannot be changed once layer has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_PropertySetNotAllowedAfterInitialize">
+            <summary>
+              Looks up a localized string similar to {0} property cannot be set after the FeatureLayer had already initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_RequiredCapabilityMissing">
+            <summary>
+              Looks up a localized string similar to The required capability &apos;{0}&apos; is not available for this feature service..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_ServiceInfoMissing">
+            <summary>
+              Looks up a localized string similar to Feature service does not provide the required metadata..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureLayer_ValidationNotInitialized">
+            <summary>
+              Looks up a localized string similar to FeatureLayer must be initialized to perform validation..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureServ_FailedToCreate0DuplicateServicePath1">
+            <summary>
+              Looks up a localized string similar to Failed to create a &apos;{0}&apos; for editing as the service with the same path is already running as an instance of &apos;{1}&apos; which does not support editing..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureServ_ServiceNotImplement01Endpoints">
+            <summary>
+              Looks up a localized string similar to Service does not implement &apos;{0}&apos; and &apos;{1}&apos; endpoints..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FeatureTable_EditOnFeatureNotFound">
+            <summary>
+              Looks up a localized string similar to Cannot perform edit on a feature that does not exist..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FileElevationSource_AlreadyInitialized">
+            <summary>
+              Looks up a localized string similar to Cannot modify FileElevationSource once it has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FileElevationSource_EmptyFileNamesCollection">
+            <summary>
+              Looks up a localized string similar to Cannot create FileElevationSource with empty Filenames collection..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FileElevationSource_NotLoaded">
+            <summary>
+              Looks up a localized string similar to Operation cannot be completed until the file elevation source is added to a scene surface..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.FilenamesCollection_CollectionReadOnly">
+            <summary>
+              Looks up a localized string similar to Filenames collection cannot be changed when in read-only mode..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_0CantBenegative">
+            <summary>
+              Looks up a localized string similar to The &apos;{0}&apos; number can&apos;t be negative.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_0IsNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to {O} is null or empty..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_0PropertyNotSetCantStartService">
+            <summary>
+              Looks up a localized string similar to {0} property is not set, cannot create a service..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_FailedToCreate0SamePathStopping">
+            <summary>
+              Looks up a localized string similar to Failed to create a &apos;{0}&apos; as the service with the same path is already stopping..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_GeometryIsNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Geometry is null or empty..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_GeometryTypeNotSupported">
+            <summary>
+              Looks up a localized string similar to Geometry type is not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_InServiceCantBeStarted">
+            <summary>
+              Looks up a localized string similar to The service is currently in progress and cannot be started..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_InternalError">
+            <summary>
+              Looks up a localized string similar to Internal error..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_InvalidEmailAddress">
+            <summary>
+              Looks up a localized string similar to Invalid email address..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_MixSpatialReferenceNotSupported">
+            <summary>
+              Looks up a localized string similar to Mix spatial references are not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_NumberCannotBeLessThanZero">
+            <summary>
+              Looks up a localized string similar to Value cannot be less than zero..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_NumberCannotBeNan">
+            <summary>
+              Looks up a localized string similar to Value is NaN..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_NumberMustBeGreaterThanZero">
+            <summary>
+              Looks up a localized string similar to Value must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_Property0CantChangeWhenServiceRunning">
+            <summary>
+              Looks up a localized string similar to {0} property cannot be changed when the service is running..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_RequiredParameterIsNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Required parameter is null or empty..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_ServiceNotImplement0Endpoint">
+            <summary>
+              Looks up a localized string similar to Service does not implement &apos;{0}&apos; endpoint..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_SpecifiedPathNotFound">
+            <summary>
+              Looks up a localized string similar to The specified Path does not exist..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Generic_UrlNotSet">
+            <summary>
+              Looks up a localized string similar to &apos;Url&apos; is not set..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GeodatabaseFeatureServiceTable_AttachmentNotImplemented">
+            <summary>
+              Looks up a localized string similar to GeodatabaseFeatureServiceTable does not implement {0} attachments..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GeodatabaseFeatureTable_NotInitialized">
+            <summary>
+              Looks up a localized string similar to Feature table is not initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Geometry_CoordinateConversionNullPointInPoints">
+            <summary>
+              Looks up a localized string similar to At least one point in points is null..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GeometryConverter_TextParseFailed">
+            <summary>
+              Looks up a localized string similar to Text parse failed..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GeometryEngine_RelationString">
+            <summary>
+              Looks up a localized string similar to Invalid relation string, it must be 9 characters long conforming to the DE-9IM specification..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GraphicsLayer_CannotModifyGraphicsPropertyWhenGraphicsSourceIsSet">
+            <summary>
+              Looks up a localized string similar to Operation not supported when using GraphicsSource..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GraphicsLayer_CannotModifyGraphicsSourceWhenGraphicsItemsArePresent">
+            <summary>
+              Looks up a localized string similar to Graphics collection must be empty before using GraphicsSource..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.GraphicsLayer_RenderingMode_SetAfterLoaded">
+            <summary>
+              Looks up a localized string similar to RenderingMode cannot be changed once the layer is loaded..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_BadEscape">
+            <summary>
+              Looks up a localized string similar to Bad escape..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_DepthLimitExceeded">
+            <summary>
+              Looks up a localized string similar to RecursionLimit exceeded..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_ExpectedOpenBrace">
+            <summary>
+              Looks up a localized string similar to Invalid object passed in, &apos;{&apos; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_IllegalPrimitive">
+            <summary>
+              Looks up a localized string similar to Invalid JSON primitive: {0}.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_InvalidArrayEnd">
+            <summary>
+              Looks up a localized string similar to Invalid array passed in, &apos;]&apos; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_InvalidArrayExpectComma">
+            <summary>
+              Looks up a localized string similar to Invalid array passed in, &apos;,&apos; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_InvalidArrayStart">
+            <summary>
+              Looks up a localized string similar to Invalid array passed in, &apos;[&apos; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_InvalidMemberName">
+            <summary>
+              Looks up a localized string similar to Invalid object passed in, member name expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_InvalidObject">
+            <summary>
+              Looks up a localized string similar to Invalid object passed in, &apos;:&apos; or &apos;}&apos; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_StringNotQuoted">
+            <summary>
+              Looks up a localized string similar to Invalid string passed in, &apos;\&apos;&quot; expected..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptObjectDeserializer_UnterminatedString">
+            <summary>
+              Looks up a localized string similar to Unterminated string passed in..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JavaScriptSerializer_InvalidRecursionLimit">
+            <summary>
+              Looks up a localized string similar to RecursionLimit must be a positive integer..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JSON_InvalidOrNotSupportedJson">
+            <summary>
+              Looks up a localized string similar to JSON string is invalid or not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JsonWriter_EndNoMatchingStart">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; called with no matching &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.JsonWriter_PropertyCalledOutsideObject">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; called outside of an object..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Layer_CannotChangeProperty0AfterInitialization">
+            <summary>
+              Looks up a localized string similar to Cannot change property &apos;{0}&apos; after layer has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalRouteTask_DirectionSettingsJson_Campus">
+            <summary>
+              Looks up a localized string similar to {&quot;directions&quot;:{&quot;settings&quot;:[{&quot;style&quot;:{&quot;id&quot;:&quot;NA Campus&quot;,&quot;language&quot;:{&quot;id&quot;:&quot;en&quot;,&quot;description&quot;:&quot;English&quot;,&quot;strings&quot;:[{&quot;id&quot;:&quot;campusManeuverContinueHallway&quot;,&quot;rule&quot;:&quot;#ContinueHallwayAction ({ through } @@campusNames)&quot;},{&quot;id&quot;:&quot;campusTurnHallwayActionMakeSharpRight&quot;,&quot;rule&quot;:&quot;{Make sharp right}&quot;},{&quot;id&quot;:&quot;campusTurnToHallwayActionKeepLeft&quot;,&quot;rule&quot;:&quot;{Keep left}&quot;},{&quot;id&quot;:&quot;campusTurnToHallwayActionContinue&quot;,&quot;rule&quot;:&quot;{Continue}&quot;},{&quot;id&quot;:&quot;campusManeuverHeader&quot;,&quot;rule&quot;:&quot;{Start} ({ at } #StopName)&quot;},{&quot;id&quot;:&quot;campusEventRestrictionViola [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalRouteTask_DirectionSettingsJson_Desktop">
+            <summary>
+              Looks up a localized string similar to {&quot;directions&quot;:{&quot;settings&quot;:[{&quot;style&quot;:{&quot;id&quot;:&quot;NA Desktop&quot;,&quot;language&quot;:{&quot;id&quot;:&quot;en&quot;,&quot;description&quot;:&quot;English&quot;,&quot;strings&quot;:[{&quot;id&quot;:&quot;AzimuthSE&quot;,&quot;rule&quot;:&quot;{southeast}&quot;},{&quot;id&quot;:&quot;ManeuverStopOnRoundabout&quot;,&quot;rule&quot;:&quot;{Take roundabout}&quot;},{&quot;id&quot;:&quot;ManeuverHeader&quot;,&quot;rule&quot;:&quot;{Start} ({ at } #StopName)&quot;},{&quot;id&quot;:&quot;ManeuverAnyRoad&quot;,&quot;rule&quot;:&quot;#FirstUpper(({go} ({ } #Azimuth) ({ on } @@Names) ({ toward } #CrossNames)))&quot;},{&quot;id&quot;:&quot;ForkSideStraight&quot;,&quot;rule&quot;:&quot;{straight}&quot;},{&quot;id&quot;:&quot;ManeuverFooter&quot;,&quot;rule&quot;:&quot;{Finish} @StopArrival ({ at } #StopName) (#StopSide [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalRouteTask_DirectionSettingsJson_Navigation">
+            <summary>
+              Looks up a localized string similar to {&quot;directions&quot;:{&quot;settings&quot;:[{&quot;style&quot;:{&quot;id&quot;:&quot;NA Navigation&quot;,&quot;language&quot;:{&quot;id&quot;:&quot;en&quot;,&quot;description&quot;:&quot;English&quot;,&quot;strings&quot;:[{&quot;id&quot;:&quot;mobManeuverHeader&quot;,&quot;rule&quot;:&quot;{Depart} ({ } #StopName)&quot;},{&quot;id&quot;:&quot;mobAtExit&quot;,&quot;rule&quot;:&quot;{at exit } #SignpostExit { }&quot;},{&quot;id&quot;:&quot;mobManeuverFooter&quot;,&quot;rule&quot;:&quot;{Arrive at destination} ({, on the } #StopSide)&quot;},{&quot;id&quot;:&quot;mobManeuverDepart&quot;,&quot;rule&quot;:&quot;{Depart} ({ } #StopName)&quot;},{&quot;id&quot;:&quot;mobPathCurveActionMakeSharpRight&quot;,&quot;rule&quot;:&quot;{make sharp right}&quot;},{&quot;id&quot;:&quot;mobManeuverStopArrive&quot;,&quot;rule&quot;:&quot;#FirstUpper((#StopArriveAc [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_CannotSetIfNotStoppedOrFailed">
+            <summary>
+              Looks up a localized string similar to {0} cannot be set if the server is not in the stopped or failed state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_CannotStartIfNotStoppedOrFailed">
+            <summary>
+              Looks up a localized string similar to Server can only be started when in the stopped or failed state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_CannotStopIfNotStarted">
+            <summary>
+              Looks up a localized string similar to Server can only be stopped when in the started state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_DirectoryNotFound">
+            <summary>
+              Looks up a localized string similar to Folder location for &apos;{0}&apos; is not found..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_ExeNotFound">
+            <summary>
+              Looks up a localized string similar to LocalServer start failed: executable not found..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_InstallPathNotValid">
+            <summary>
+              Looks up a localized string similar to Local server install path is not valid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_MissingExecutable">
+            <summary>
+              Looks up a localized string similar to Invalid ArcGISRuntime LocalServer folder, missing executable &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_MissingFolder">
+            <summary>
+              Looks up a localized string similar to Invalid ArcGISRuntime LocalServer folder, missing folder &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalServer_PathCannotBeEmpty">
+            <summary>
+              Looks up a localized string similar to Path cannot be empty..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalService_CannotBeNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to {0} cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalService_CannotBeZeroOrNegative">
+            <summary>
+              Looks up a localized string similar to Number cannot be zero or negative..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalService_CannotSetIfNotStopped">
+            <summary>
+              Looks up a localized string similar to {0} cannot be set if the service is not in the stopped state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalService_CannotStartIfNotStopped">
+            <summary>
+              Looks up a localized string similar to Service can only be started when in the stopped state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.LocalService_CannotStopIfNotStarted">
+            <summary>
+              Looks up a localized string similar to Service can only be stopped when in the started state..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_CannotCreateLocator">
+            <summary>
+              Looks up a localized string similar to Cannot create Locator..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_CannotGeocodeAddress">
+            <summary>
+              Looks up a localized string similar to Cannot geocode address..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_CannotGetLocatorServiceInfo">
+            <summary>
+              Looks up a localized string similar to Cannot get LocatorServiceInfo..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_CannotReverseGeocode">
+            <summary>
+              Looks up a localized string similar to Cannot ReverseGeocode..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_CannotReadAddress">
+            <summary>
+              Looks up a localized string similar to Cannot read address from input cursor or reset() return false..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_FileNotFound">
+            <summary>
+              Looks up a localized string similar to One of locator file not found..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_GeocoderCreation">
+            <summary>
+              Looks up a localized string similar to Failed to create geocoder..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_InternalError">
+            <summary>
+              Looks up a localized string similar to Some internal error..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_IntersectionsNotSupported">
+            <summary>
+              Looks up a localized string similar to Locator not supported intersections functionality..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_InvalidLocatorProperties">
+            <summary>
+              Looks up a localized string similar to One or more of the locator&apos;s properties is invalid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_RequiredFieldMissing">
+            <summary>
+              Looks up a localized string similar to Input location is missing a required attribute..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_UninitializedGeocodeTask">
+            <summary>
+              Looks up a localized string similar to Call to uninitialized geocode task..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_UnsupportedFileFormat">
+            <summary>
+              Looks up a localized string similar to Locator file has unsupported format..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_UnsupportedProjectionTransformation">
+            <summary>
+              Looks up a localized string similar to Geometry can&apos;t reproject..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Locator_GeocodeCode_UnsupportedSpatialReference">
+            <summary>
+              Looks up a localized string similar to Locator file has unsupported spatial reference..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.MapGrid_LabelFaceName">
+            <summary>
+              Looks up a localized string similar to .
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.MapService_0in1MustHaveUniqueIds">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; in the &apos;{1}&apos; collection must have unique Ids..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.MessageLayer_CanOnlyBeAddedToSingleMap">
+            <summary>
+              Looks up a localized string similar to A MessageLayer can only be added to a single Map..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.MessageLayer_PropertyCannotBeChanged">
+            <summary>
+              Looks up a localized string similar to This property cannot be changed after the MessageLayer has been initialized..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.MessageLayer_UnableToProcessMessages">
+            <summary>
+              Looks up a localized string similar to The Message could not be processed. MessageLayer must have been successfully loaded into a View (Map or Scene) before calling ProcessMessage..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NativeDisplay_JsonSerializationOfRendererNotSupported">
+            <summary>
+              Looks up a localized string similar to Renderer is not serializable to JSON.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_CancellationError">
+            <summary>
+              Looks up a localized string similar to Cancellation object error..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_CannotCreateRouteTask">
+            <summary>
+              Looks up a localized string similar to Cannot create RouteTask..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_CannotGetDefaultSettings">
+            <summary>
+              Looks up a localized string similar to Cannot get default settings..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_CannotSolve">
+            <summary>
+              Looks up a localized string similar to Cannot solve..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_DirectionLengthUnitsInvalid">
+            <summary>
+              Looks up a localized string similar to Unit &apos;{0}&apos; not valid for &apos;DirectionsLengthUnits&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_InconsistentRouteNames">
+            <summary>
+              Looks up a localized string similar to The stops do not have consistent route names..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_NullGeometryBarriers">
+            <summary>
+              Looks up a localized string similar to Barriers with null geometry are not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_NullGeometryStops">
+            <summary>
+              Looks up a localized string similar to Stops with null geometry are not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_ShapeTypeInvalid">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}&apos; is not valid for &apos;Shape Type&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_DirectionsTimeAndImpedanceAttributeMismatch">
+            <summary>
+              Looks up a localized string similar to Directions time and impedance attribute mismatch..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InsufficientNumberOfStops">
+            <summary>
+              Looks up a localized string similar to Insufficient number of stops..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidAccumulateAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid accumulate attribute: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidAttributeParametersAttributeName">
+            <summary>
+              Looks up a localized string similar to Invalid attribute parameters attribute name..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidAttributeParametersParameterName">
+            <summary>
+              Looks up a localized string similar to Invalid attribute parameters parameter name..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidAttributeParametersRestrictionUsageValue">
+            <summary>
+              Looks up a localized string similar to Invalid attribute parameters restriction usage value..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidAttributeParametersValueType">
+            <summary>
+              Looks up a localized string similar to Invalid attribute parameters value type..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidDirectionsDistanceAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid directions distance attribute..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidDirectionsLanguage">
+            <summary>
+              Looks up a localized string similar to Invalid directions language specified: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidDirectionsRoadClassAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid directions road class attribute..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidDirectionsStyle">
+            <summary>
+              Looks up a localized string similar to Invalid directions style specified: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidDirectionsTimeAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid directions time attribute: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidImpedanceAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid impedance attribute: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_InvalidRestrictionAttribute">
+            <summary>
+              Looks up a localized string similar to Invalid restriction attribute: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_LineBarrierDoesNotCoverAnyNetworkElements">
+            <summary>
+              Looks up a localized string similar to Line barrier {0} does not cover any network elements..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_LineBarrierInvalidScaledCostAttributeName">
+            <summary>
+              Looks up a localized string similar to Line barrier {0} has invalid scaled cost attribute name..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_NetworkHasNoHierarchyAttribute">
+            <summary>
+              Looks up a localized string similar to Network has no hierarchy attribute..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_NeutralAttributeParametersRestrictionUsageValue">
+            <summary>
+              Looks up a localized string similar to Neutral attribute parameters restriction usage value..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_NoPathFoundBetweenStops">
+            <summary>
+              Looks up a localized string similar to No path found between stops..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_PointBarrierInvalidAddedCostAttributeName">
+            <summary>
+              Looks up a localized string similar to Point barrier {0} has invalid added cost attribute name..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_PointBarrierUnlocated">
+            <summary>
+              Looks up a localized string similar to Point barrier {0} is unlocated..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_PolygonBarrierDoesNotCoverAnyNetworkElements">
+            <summary>
+              Looks up a localized string similar to Polygon barrier {0} does not cover any network elements..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_PolygonBarrierInvalidScaledCostAttributeName">
+            <summary>
+              Looks up a localized string similar to Polygon barrier {0} has invalid added cost attribute name..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_StopLocatedOnNonNetworkAnalyst_SolveCode_StopLocatedOnNonTraversableElement">
+            <summary>
+              Looks up a localized string similar to Stop {0} is located on non traversable element..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_StopLocatedOnSoftRestrictedElement">
+            <summary>
+              Looks up a localized string similar to Stop {0} is located on soft restricted element..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_StopUnlocated">
+            <summary>
+              Looks up a localized string similar to Stop {0} is unlocated..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_TraversedSoftRestrictedElements">
+            <summary>
+              Looks up a localized string similar to Traversed soft restricted elements..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_UndefinedInputSpatialReference">
+            <summary>
+              Looks up a localized string similar to Undefined input SpatialReference..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_SolveCode_UndefinedOutputSpatialReference">
+            <summary>
+              Looks up a localized string similar to Undefined output SpatialReference..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_TimeWindowsNotImplemeted">
+            <summary>
+              Looks up a localized string similar to TimeWindows are not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.NetworkAnalyst_UturnPolicyInvalid">
+            <summary>
+              Looks up a localized string similar to Policy &apos;{0}&apos; is not valid for &apos;Uturn Policy&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_ArrayTypeNotSupported">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}&apos; is not supported for deserialization of an array..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_CannotConvertObjectToType">
+            <summary>
+              Looks up a localized string similar to Cannot convert object of type &apos;{0}&apos; to type &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_CannotCreateListType">
+            <summary>
+              Looks up a localized string similar to Cannot create instance of {0}..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_DeserializerTypeMismatch">
+            <summary>
+              Looks up a localized string similar to Cannot deserialize object graph into type of &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_DictionaryTypeNotSupported">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}&apos; is not supported for serialization/deserialization of a dictionary, keys must be strings or objects..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_NoConstructor">
+            <summary>
+              Looks up a localized string similar to No parameterless constructor defined for type of &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ObjectConverter_ValueTypeCannotBeNull">
+            <summary>
+              Looks up a localized string similar to Cannot convert null to a value type..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Portal_InvalidItem">
+            <summary>
+              Looks up a localized string similar to Portal item invalid for this operation..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Portal_NoGroupDriveContent">
+            <summary>
+              Looks up a localized string similar to No portal groups drive the featured content..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Portal_NotAvailableIfNotAuthenticated">
+            <summary>
+              Looks up a localized string similar to Operation is available to authenticated users only..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Portal_SupportOnlyWGS84">
+            <summary>
+              Looks up a localized string similar to WGS84 is the only supported spatial reference for this function..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.QueryTask_RequiredParameterMissing">
+            <summary>
+              Looks up a localized string similar to At least one of the following query parameters: Text, Geometry, Where, ObjectIDs, or TimeExtent, must be set..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Resources_Language">
+            <summary>
+              Looks up a localized string similar to en-US.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_antarctic">
+            <summary>
+              Looks up a localized string similar to Antarctic Circle.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_arctic">
+            <summary>
+              Looks up a localized string similar to Arctic Circle.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_cancer">
+            <summary>
+              Looks up a localized string similar to Tropic of Cancer.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_capricorn">
+            <summary>
+              Looks up a localized string similar to Tropic of Capricorn.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_east_suffix">
+            <summary>
+              Looks up a localized string similar to e.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_equator">
+            <summary>
+              Looks up a localized string similar to Equator.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_north_suffix">
+            <summary>
+              Looks up a localized string similar to n.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_prime_meridian">
+            <summary>
+              Looks up a localized string similar to Prime Meridian.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_south_suffix">
+            <summary>
+              Looks up a localized string similar to s.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_lat_lon_grid_west_suffix">
+            <summary>
+              Looks up a localized string similar to w.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_mgrs_grid_east_suffix">
+            <summary>
+              Looks up a localized string similar to e.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.RTC_Common_res_mgrs_grid_north_suffix">
+            <summary>
+              Looks up a localized string similar to n.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.SceneLayer_NotSupportedOnMap">
+            <summary>
+              Looks up a localized string similar to SceneLayer cannot be displayed on a Map, use Scene instead..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.SceneView_ElevationSourceAlreadyInView">
+            <summary>
+              Looks up a localized string similar to ElevationSource is already in the Scene Surface..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_CannotRefreshToken">
+            <summary>
+              Looks up a localized string similar to Cannot refresh the token.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_CrossDomainTokenUrl">
+            <summary>
+              Looks up a localized string similar to TokenUrl must belong to the same domain as the server.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_NoAuthRedirectUri">
+            <summary>
+              Looks up a localized string similar to RedirectUri must be set before trying to generate an OAuth token..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_NoChallengeHandler">
+            <summary>
+              Looks up a localized string similar to The challenge handler has not been set..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_NoOAuthAuthorizeComponent">
+            <summary>
+              Looks up a localized string similar to Unable to generate OAuth token without authorization handler. Set IdentityManager.Current.OAuthAuthorizeHandler to a valid IOAuthAuthorizeHandler implementation..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_NoOAuthClientId">
+            <summary>
+              Looks up a localized string similar to OAuth ClientId must be set before trying to generate an OAuth token..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_NoTokenServiceUrl">
+            <summary>
+              Looks up a localized string similar to The token service URL is not set..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Security_UnknownResource">
+            <summary>
+              Looks up a localized string similar to Unknown resource {0}. The server needs to be registered..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_CrashDump0">
+            <summary>
+              Looks up a localized string similar to \nCrash dump file saved to: &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_InnerException">
+            <summary>
+              Looks up a localized string similar to See the inner exception for details..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_InvalidStatus">
+            <summary>
+              Looks up a localized string similar to Attempting to start LocalServer when it is not stopped..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_InvalidStopStatus">
+            <summary>
+              Looks up a localized string similar to Attempting to stop LocalServer when it is not running..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_License_Failure">
+            <summary>
+              Looks up a localized string similar to Local Server requires a standard level license to start. The current license level is basic (see ArcGISRuntimeEnvironment.License.Level). For a deployment you can initialize the runtime with a standard level license in ArcGISRuntimeEnvironment.License.SetLicense(). If you are developing an app then you can avoid setting ArcGISRuntimeEnvironment.ClientId to remain in developer mode to try out LocalServer..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_Nag_Message_Body">
+            <summary>
+              Looks up a localized string similar to This application is running using a developer license. This license is valid for development and testing only..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_Nag_Message_Title">
+            <summary>
+              Looks up a localized string similar to ArcGIS Runtime.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_NotResponding">
+            <summary>
+              Looks up a localized string similar to The LocalServer is not responding to requests and may have crashed..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_ServiceAlreadyRunning">
+            <summary>
+              Looks up a localized string similar to Cannot start this service as it is already running on the LocalServer..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_ServiceStopped0">
+            <summary>
+              Looks up a localized string similar to Service stopped unexpectedly. &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_ServiceWithName0AlreadyRunning">
+            <summary>
+              Looks up a localized string similar to Cannot start service because a LocalService with the same Name &apos;{0}&apos; is already running..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Server_UnexpectedExit">
+            <summary>
+              Looks up a localized string similar to Server process exited unexpectedly during startup..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_CantSetName">
+            <summary>
+              Looks up a localized string similar to Cannot set the services name when the service is in progress. The name can only be set when the service is stopped..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_InvalidPath">
+            <summary>
+              Looks up a localized string similar to Invalid value specified for path..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_InvalidStatus">
+            <summary>
+              Looks up a localized string similar to Attempting to start a LocalService when its stopped..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_InvalidStopStatus">
+            <summary>
+              Looks up a localized string similar to Attempting to stop a LocalService when its not running..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_NoRunningServiceToStop">
+            <summary>
+              Looks up a localized string similar to LocalServer is not initialized, so there are no running services to stop..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Service_NotStartedCantStopped">
+            <summary>
+              Looks up a localized string similar to The Service is not started, so it cannot be stopped..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.ServiceFeatureTable_InvalidServiceLayerType0">
+            <summary>
+              Looks up a localized string similar to Cannot create ServiceFeatureTable from service layer of type: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.SpatialReference_Invalid">
+            <summary>
+              Looks up a localized string similar to Spatial reference is invalid..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.StringToArrayConverter_TypeNotSupported">
+            <summary>
+              Looks up a localized string similar to Cannot convert to &apos;{0}&apos; array..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Symbol_JsonSerializationNotSupported">
+            <summary>
+              Looks up a localized string similar to Symbol is not serializable to JSON..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Threading_OperationOnlyOnDispatcherThread">
+            <summary>
+              Looks up a localized string similar to Operation only allowed from the UI Thread.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.TiledLayer_LoadFailedSpatialReferenceMismatch">
+            <summary>
+              Looks up a localized string similar to Layer cannot be displayed on a Map with a different spatial reference..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.TimeExtent_StringToDateFailed">
+            <summary>
+              Looks up a localized string similar to Could not convert &apos;string&apos; to &apos;DateTime&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.TimeExtent_StringToTimeExtentFailed">
+            <summary>
+              Looks up a localized string similar to Could not convert to &apos;TimeExtent&apos;..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMap_CannotCreateLayer">
+            <summary>
+              Looks up a localized string similar to Cannot create the layer from the webmap layer..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMap_CannotDeserializeMetadata">
+            <summary>
+              Looks up a localized string similar to Cannot deserialize Layer Metadata..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMap_InvalidService">
+            <summary>
+              Looks up a localized string similar to Invalid service, Map Export not allowed, or service type not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMap_LayerTypeNotSupported">
+            <summary>
+              Looks up a localized string similar to Layer type {0} not supported..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMap_NoBingToken">
+            <summary>
+              Looks up a localized string similar to The Bing Map layer cannot be drawn because no bing keys are provided..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WebMapViewModel_CannotModifyLayers">
+            <summary>
+              Looks up a localized string similar to Cannot modify layers collection directly when managed by WebMapViewModel.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.Wmts_TilingSchemeNotSupported">
+            <summary>
+              Looks up a localized string similar to Tiling scheme not supported at this time..
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.Properties.Resources.WorkspaceInfo_0CantChangeWhenServiceRunning">
+            <summary>
+              Looks up a localized string similar to {0} cannot be changed when the service is running..
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.CreateServiceResponse">
+            <summary>
+            The response from a successful request to create a new a new service.
+            (You will get an ErrorResponse if there's a problem but the server is able to return a response).
+            <!--POST admin/publish ? path={filepath}&p=json-->
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.DeleteServiceResponse">
+            <summary>
+            Response from a request to delete a service
+            <!--POST admin/deleteService ? serviceName={serviceName}&serviceType={serviceType}&f=json-->
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.ErrorResponseInfo">
+            <summary>
+            Response that gets returned when a ArcGIS Runtime request is made that it is unable to service (sometimes you get a status response instead)
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalServer">
+            <summary>
+            A singleton representing a local server. This class enables a number of LocalService types to be created based on local geographic content.
+            </summary>
+            <remarks>
+            <para>
+            Before using the the LocalServer the runtime deployment must be licensed with a valid license string. For more information please see the
+            <see cref="T:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment">ArcGISRuntimeEnvironment class</see>. Once the license string has been set and the ArcGISRuntime initialized,
+            the recommended approach to start the LocalServer is by calling the asynchronous InitializeAsync method and listening for the
+            InitializeCompleted event or by using the overloaded <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalServer.StartAsync">
+            Initialize(Action) method</see> and passing in an action callback delegate.
+            </para>
+            <para>
+            To determine the current state of the LocalServer the Status property will provide a <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus">
+            LocalServerStatus</see> value or alternatively the property IsRunning can be used to quickly determine whether the
+            LocalServer is currently running.
+            </para>
+            <para>
+            Finally, when the LocalServer is no longer required the asynchronous <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalServer.StopAsync">
+            ShutdownAsyncTask method</see> should be called to shutdown the LocalServer and recover any resources being used. Once the LocalServer
+            has shutdown it will trigger the ShutdownCompleted event, or alternatively you can use the overloaded
+            <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalServer.StopAsync">ShutdownAsyncTask() method</see> to provide
+            an action callback delegate.
+            </para>
+            <para>
+            It is not necessary to work with the LocalServer directly. Instead, creating and starting the individual LocalService classes (
+            <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalMapService">LocalMapService</see>, <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalFeatureService">
+            LocalFeatureService</see>, and <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService">LocalGeoprocessingService</see>)
+            will start the LocalServer if it is not already running.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Instance">
+            <summary>
+            Gets the single <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServer"/> instance.
+            This is the only way to get a LocalServer instance.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.AppDataPath">
+            <summary>
+            Gets or sets the application data path for the runtime deployment used by this application.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the path to a folder on disk.
+            </value>
+            <remarks>
+            <para>
+            The folder specified by this property will contain data created by the runtime deployment which should be persisted between application sessions.
+            The runtime deployment will write all application-related data to the folder specified by this property for the lifetime of the application.
+            The property must be set each time your application starts but before the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalServerEnvironment.Initialize"/> method is called.
+            Once the runtime deployment is initialized any attempt to set this property will result in an <see cref="T:System.InvalidOperationException">Exception</see>.
+            </para>
+            <para>
+            Any Map Packages (.MPK), Address Locator Packages (.GCPK) or Geoprocessing Packages (.GPK) used by your application in conjunction with
+            the runtime local server are unpacked to this location.
+            You should therefore consider how much space may be required by this folder when setting the property.
+            Packages will be unpacked to "{AppDataPath}\Documents\ArcGIS\Packages".
+            Other data written to the folder specified by this property can be considered internal to the runtime deployment and typically does not require significant disk space.
+            </para>
+            <para>
+            If not specified, <see cref="P:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.TempPath"/> will be used. It is therefore recommended that this
+            property be set in order to differentiate the application data from that created by another runtime deployment. For example,
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Vendor\MyAppName");
+            </para>
+            <para>
+            This property, in conjunction with the <see cref="P:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.TempPath"/> property enable you to have control over any application-related or temporary data
+            created by the runtime deployment during use by your application and can help achieve a zero footprint implementation in which no files are left behind when the
+            application is removed from or uninstalled from the deployment machine.
+            </para>
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.ArcGISRuntimeEnvironment.TempPath"/>
+            <exception cref="T:System.InvalidOperationException">AppDataPath cannot be set if the server is not stopped or failed state.</exception>
+            <exception cref="T:System.ArgumentException">Path cannot be empty.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Folder location for 'AppDataPath' is not found.</exception>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Services">
+            <summary>
+            Gets the collection of active local services. These services can be in a starting, stopping, or running state.
+            </summary>
+            <returns>A read only collection of LocalService objects.</returns>
+            <remarks>
+            <para>
+            The collection may contain any of the following types of LocalService:
+            <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalMapService">LocalMapService</see>;
+            <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalFeatureService">LocalFeatureService</see>;
+            <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService">LocalGeoprocessingService</see>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServer"/> class.
+            Initializes static members of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServer"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServer.RemoveService(Esri.ArcGISRuntime.LocalServices.LocalService)">
+            <summary>
+            Remove a service from the list of running services.
+            </summary>
+            <param name="localService">service</param>
+            <returns>Boolean indicating if the service was removed from the list</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Status">
+            <summary>
+            Gets the current status of the LocalServer.
+            </summary>
+            <value>The current <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus"/>.</value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Error">
+            <summary>
+            Gets the associated error if the server's <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Status"/> is <see cref="F:Esri.ArcGISRuntime.LoadStatus.FailedToLoad"/>.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.FilterWebContent">
+            <summary>
+            Gets or sets a value indicating whether to filter web content.
+            Turns on filtering of HTML content for feature service text fields. By default this is enabled.
+            When this is enabled only a small subset of HTML is accepted and an error will occur if unsupported HTML is used.
+            Filter web content should be set to disabled if you want to use unfiltered HTML.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">FilterWebContent cannot be set if the server is not in the stopped or failed state.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServer.StopAsync">
+            <summary>
+            Asynchronously shuts down the LocalServer.
+            </summary>
+            <remarks>
+            <para>
+            If you would like to execute some code in response to the LocalServer shutting down the
+            <see cref="E:Esri.ArcGISRuntime.LocalServices.LocalServer.StatusChanged"/> event can be used to respond to this.
+            </para>
+            </remarks>
+            <returns>A task that represents the asynchronous stop operation.</returns>
+            <exception cref="T:System.InvalidOperationException">Server can only be stopped when in the started state.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServer.StartAsync">
+            <summary>
+            Asynchronously starts the local server.
+            The server can only be started from the STOPPED or FAILED states.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Local server install path is not valid.</exception>
+            <exception cref="T:System.InvalidOperationException">Server can only be started when in the stopped or failed state.</exception>
+            <returns>A task that represents the asynchronous start operation.</returns>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Folder location for 'AppDataPath' is not found.</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">Folder location for 'TempDataPath' is not found.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServer.AbortServices">
+            <summary>
+            Use this method when shutting a server down, or clearing state.
+            Sets services to be stopped without telling the server process and clears them from the LocalServer.Services
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.CrashDumpPath">
+            <summary>
+            Gets the crash dump path. *FOR INTERNAL USE ONLY*
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Url">
+            <summary>
+            Gets the base URL of the local server. For example: http://127.0.0.1:50000/arcgis/rest
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.LocalServices.LocalServer.StatusChanged">
+            <summary>
+            Occurs when <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalServer.Status"/> of this local server has changed.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalServerException">
+            <summary>
+            Represents an error returned from the LocalServer.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException"/> class.
+            </summary>
+            <param name="error">A <see cref="T:System.String"/> representing the error.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException"/> class.
+            </summary>
+            <param name="error">A <see cref="T:System.String"/> representing the error.</param>
+            <param name="inner">A <see cref="T:System.Exception"/> representing the inner exception message.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.#ctor(Esri.ArcGISRuntime.LocalServices.ErrorResponse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException"/> class.
+            </summary>
+            <param name="error">The <see cref="T:Esri.ArcGISRuntime.LocalServices.ErrorResponse"/> representing the error.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.#ctor(Esri.ArcGISRuntime.LocalServices.ErrorResponse,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException"/> class.
+            </summary>
+            <param name="error">The <see cref="T:Esri.ArcGISRuntime.LocalServices.ErrorResponse"/> representing the error.</param>
+            <param name="inner">A <see cref="T:System.Exception"/> representing the inner exception message.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerException.ExceptionIndicatesThatServerIsDown(System.Exception)">
+            <summary>
+            This is a probably brittle test for whether an exception returned from a request indicates
+            that the ArcGIS Runtime server is currently down.
+            Checks the exception returned from a request to the runtime, and if it looks like the kind of
+            exception you get back when the server is down, return true.
+            </summary>
+            <param name="error">Error</param>
+            <returns>Whether the exception indicates that the server is down</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalServerProcess.HandleStartupMessage(System.String)">
+            <summary>
+             Handle server process messages. Runs on main thread.
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus">
+            <summary>
+            Indicates the current status of the LocalServer.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Stopped">
+            <summary>
+            The LocalServer has stopped.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Starting">
+            <summary>
+            The LocalServer is starting.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Started">
+            <summary>
+            The LocalServer has started.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Stopping">
+            <summary>
+            The LocalServer is stopping.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Failed">
+            <summary>
+            The LocalServer has a failure.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType">
+            <summary>
+            The GeoprocessingServiceType enumeration contains values which are used to determine how a LocalGeoprocessingService will run.
+            </summary>
+            <remarks>
+              <para>
+            When creating LocalGeoprocessingServices to run Geoprocessing tools and models you must choose whether that service will run synchronously (<see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.SynchronousExecute"/>),
+            asynchronously (<see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmit"/>) or asynchronously with an dedicated LocalMapService instance to draw the result (<see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmitWithMapServiceResult"/>).
+            The synchronous Execute option should be chosen if the tool will take less than 15 seconds to complete but for larger and more complex tools which take longer than 15 seconds it is recommended
+            that the asynchronous SubmitJob option is used. The synchronous Execute option will result in a single RuntimeLocalServer.exe worker process being created to perform the work
+            (in addition to the primary RuntimeLocalServer process) whereas the
+            asynchronous SubmitJob option will result in two RuntimeLocalServer.exe processes, one to undertake the actual processing and one to monitor the processing. Lastly, the asynchronous option with a
+            map server result produces three RuntimeLocalServer.exe processes where the third one is a LocalMapService instance employed to render the results of the Geoprocessing operation.
+            Once the LocalGeoprocessingService has started the setting becomes read-only for the lifetime of that service and cannot be changed once the service is running.
+              </para>
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.SynchronousExecute">
+            <summary>
+            The service will execute tasks synchronously on the LocalServer.
+            </summary>
+            <remarks>
+            Use this for tasks that run quickly (approx 15 seconds).
+            The Geoprocessor.ExecuteAsync method is typically used to initiate tasks in this service.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmit">
+            <summary>
+            The service will run tasks asynchronously on the LocalServer.
+            </summary>
+            <remarks>
+            A job id is used to poll for progress of asynchronous tasks.
+            The Geoprocessor.SubmitJobAsync method is typically used to initiate tasks in this service.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmitWithMapServiceResult">
+            <summary>
+            The service will run tasks asynchronously, a job id is used to poll for progress.
+            </summary>
+            <remarks>
+            The Geoprocessor.SubmitJobAsync method is typically used to initiate tasks in this service.
+            A result of a task can be displayed as a layer in a map using the GPResultImageLayer class.
+            </remarks>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalFeatureService">
+            <summary>
+            The LocalFeatureService class represents a Feature Service hosted by the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServer"/>.
+            </summary>
+            <remarks>
+            <para>
+            LocalFeatureServices form the basis for feature editing in conjunction with an instance of the <see cref="T:Esri.ArcGISRuntime.Mapping.FeatureLayer"/> class.
+            The feature service is just a map service with the Feature Access capability enabled. This capability allows the map service to expose feature
+            geometries and their symbols in a way that is easy for the API to use and update. Unlike with map services, which have an ExportMap function
+            to draw the map, visualization of feature services works completely from queries. The server returns the queried features to the client, then
+            the client does the work of drawing the features in the feature layer.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalFeatureService._urlFeatureService">
+            <summary>
+            The LocalFeatureService Url
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalFeatureService._enableZDefaults">
+            <summary>
+            Enable Z Default values
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.LocalServices.LocalFeatureService._zDefaultValue">
+            <summary>
+            Default Z value
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalFeatureService"/> class based on the provided ArcGIS map package path property.
+            </summary>
+            <param name="path">A string representing the path or URL of an ArcGIS map package.</param>
+            <remarks>
+            <para>
+            This overloaded constructor provides a more convenient option for instantiating a new LocalFeatureService object and setting
+            the path property in one call.
+            </para>
+            <para>
+            Once the path property has been set, the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.StartAsync">
+            StartAsyncTask</see> method can be called to start the LocalFeatureService.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.MapServiceUrl">
+            <summary>
+             Gets the Url of this LocalFeatureService instance.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.Url">
+            <summary>
+             Gets the Url of this LocalFeatureService instance.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.IsZDefaultsEnabled">
+            <summary>
+            Gets or sets a value indicating whether when creating new features, Z coordinate values will be set to the configured default value.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">IsZDefaultsEnabled cannot be set if the service is not in the stopped state.</exception>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.ZDefault">
+            <summary>
+            Gets or sets the default value to set Z coordinates on new features.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">ZDefault cannot be set if the service is not in the stopped state.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.StartAsync">
+            <summary>
+            Starts this LocalFeatureService instance on the LocalServer. The StartCompleted event is called when the service creation is complete.
+            </summary>
+            <remarks>
+            <para>
+            There are a number of patterns available when working with the StartAsync method. The most concise
+            approach is to use the overloaded <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.StartAsync">
+            StartAsync(Action&lt;LocalFeatureService&gt;)</see> method in conjunction with a lambda expression.
+            Alternatively lambda expressions can be used with the StartCompleted event and the default
+            parameterless Start method. Lastly, it is also possible to use a separate named event handler registered with
+            the StartCompleted event if required.
+            </para>
+            </remarks>
+            <returns>A task that represents the asynchronous start operation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.CompleteStopServiceInternal">
+            <summary>
+             This is called to complete the stopping of the service and reset internal variables and fire event.
+            The service goes into Stopped state. Override this in derived classes to reset variables first before calling this implementation.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalFeatureService.ToString">
+            <summary>
+            Returns a string representing the path of the map package on which the LocalFeatureService is based.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that contains the LocalFeatureService path.
+            </returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService">
+            <summary>
+            A class representing a local geoprocessing service hosted by the runtime local server.
+            </summary>
+            <remarks>
+            <para>A single local geoprocessing service instance corresponds directly to a geoprocessing package shared from ArcGIS for Desktop.
+            One or more geoprocessing tasks may be exposed by the local geoprocessing service depending on the number of individual tool or script results
+            contained within the geoprocessing package. When starting local geoprocessing services there are a number of properties you must choose values for
+            which are usually determined by the server administrator for online geoprocessing services hosted by ArcGIS for Server.
+            </para>
+            <para>
+            These properties are:
+            <list type="buller">
+            <item>
+            Service execution type: The <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.ServiceType"/> property determines whether the service will run the task asynchronously or
+            synchronously. This affects how the client application you are developing interacts with the runtime local server and gets the result from the task.
+            When a service is set to <see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.SynchronousExecute"/> (synchronous) operation, the client waits for the task to finish. Typically, a service that
+            will run tasks synchronously should execute quickly (five seconds or less). A service should be set to use the <see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmit"/>
+            (asynchronous) if one or more of that tasks within that service will takes longer to run. When using the SubmitJob mode the client application
+            must periodically ask the server if the task has finished and, if it has finished, get the result.
+            The GeoprocessingServiceType enumeration values which determine the synchronous or asynchronous service operation are called "Execute" and "SubmitJob" to align
+            them with the corresponding methods on the Geoprocessor task API and to differentiate them from the synchronous or asynchronous usage.
+            You must use the method which corresponds to the GeoprocessingServiceType of the local geoprocessing service you are working with.
+            The service mode <see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmitWithMapServiceResult"/> will enable you to display the results of the task within a local map service.
+            </item>
+            <item>
+            Maximum number of records returned: The maximum number of results the service can return to a client.
+            Setting this value to a large number means your runtime local server can handle sending a lot of individual records or features to the client
+            application. Whether you choose this pattern depends on the number and complexity of the feature geometries. If you do not want to return any features, set this value to 0 (zero). Typically, you set this value to zero only when you create the
+            service as <see cref="F:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType.AsynchronousSubmitWithMapServiceResult"/>. To determine whether the <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.MaxRecords"/> limits has been exceeded you should
+            check the exceeded transfer limit property of the feature set or record set returned by the task. The exceeded transfer limit property will be set to true
+            when the number of records and features of the output parameter exceed the maximum number of records specified by the service. this information is also included
+            in the <see cref="T:Esri.ArcGISRuntime.Tasks.JobMessage"> Messages</see> of <see cref="T:Esri.ArcGISRuntime.Tasks.Geoprocessing.GeoprocessingJob"/> returned by the service.
+            </item>
+            </list>
+            </para>
+            <para>
+            Once you have created a new LocalGeoprocessingService and specified the <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.PackagePath"/>, <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.ServiceType"/> and <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.MaxRecords"/> properties,
+            starting the service via the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.StartAsync"/> method will populate the <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.Url"/> property. It is this
+            last property, the URL of the local geoprocessing service that you provide a <see cref="T:Esri.ArcGISRuntime.Tasks.Geoprocessing.GeoprocessingTask"/> task with in order to interact
+            with the tasks exposed by the service. Additionally you can use the static
+            GetServiceAsyncTask method to instantiate and start a new local geoprocessing service.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService"/> class based on the provided path to a geoprocessing package.
+            </summary>
+            <param name="path">A <see cref="T:System.String"/> representing the path to a geoprocessing package.</param>
+            <exception cref="T:System.ArgumentException">Invalid value specified for path.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.#ctor(System.String,Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService"/> class based on the provided path to a geoprocessing package and
+            service type.
+            </summary>
+            <param name="path">A <see cref="T:System.String"/> representing the path to a geoprocessing package.</param>
+            <param name="serviceType">A <see cref="T:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType"/> representing the service type.</param>
+            <exception cref="T:System.ArgumentException">Invalid value specified for path.</exception>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.ServiceType">
+            <summary>
+            Gets or sets the execution type of the local geoprocessing service.
+            </summary>
+            <remarks>
+            <para>
+            This can use the synchronous ExecuteAsync/Execute type or asynchronous SubmitJobAsync/SubmitJob type.
+            Additionally the SubmitJobAsync/SubmitJob operation can also optionally return results via a map service.
+            </para>
+            </remarks>
+            <seealso cref="T:Esri.ArcGISRuntime.LocalServices.GeoprocessingServiceType"/>
+            <exception cref="T:System.InvalidOperationException">ServiceType cannot be set if the service is not in the stopped state.</exception>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.MaxRecords">
+            <summary>
+            Gets or sets the maximum number of records that can be returned by the Geoprocessing service.
+            </summary>
+            <remarks>
+            <para>
+            The MaxRecords property must be set before the Geoprocessing service has started. This property has a default value of 1000.
+            </para>
+            <para>
+            The maximum number of records property determines the number of output features or records returned by the service.
+            If the number of output records or features created by a geoprocessing task exceeded the maximum number of records,
+            the service will not return any features or records. The clients can identify such cases by examining the exceeded transfer limit
+            property of the feature set or record set returned by the task. The exceeded transfer limit property will be set to true when the
+            number of records and features of the output parameter exceed the maximum number of records specified by the service.
+            </para>
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">MaxRecords cannot be set if the service is not in the stopped state.</exception>
+            <exception cref="T:System.ArgumentException">Number cannot be zero or negative</exception>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.Url">
+            <summary>
+             Gets the Url of the local geoprocessing service.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.StartAsync">
+            <summary>
+             Asynchronously starts the local geoprocessing service.
+            </summary>
+            <remarks>
+            <para>
+            The StartAsyncTask method will check whether this local service is already in the <see cref="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Started"/> state and
+            raise an <see cref="T:System.InvalidOperationException"/> if necessary. The <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.PackagePath"/> property
+            will also be checked for a valid geoprocessing package.
+            </para>
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">StartAsyncTask should can not be called if the local service is already in the
+            <see cref="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Started"/> state.</exception>
+            <exception cref="T:System.InvalidOperationException">An exception is raised if the <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.PackagePath"/> property
+            does not reference a valid geoprocessing package file.</exception>
+            <returns>A task that represents the asynchronous start operation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalGeoprocessingService.CompleteStopServiceInternal">
+            <summary>
+            This is called to complete the stopping of the service and reset internal variables and fire event.
+            The service goes into Stopped state. Override this in derived classes to reset variables first before calling this implementation.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalMapService">
+            <summary>
+            The LocalMapService class represents a map service hosted by the LocalServer.
+            </summary>
+            <remarks>
+            <para>
+            A local map service provides access to maps, features, and attribute data contained within a Map Package. Local map services are typically
+            used to display operational or business data on top of a tiled basemap layer.
+            Map images from local map services are dynamically rendered from the data with each request (e.g. when the user pans the map). Local map services
+            do not support caching in the same way as other server-based map services. To use local cached maps in your application you should use the
+            <see cref="T:Esri.ArcGISRuntime.Mapping.ArcGISTiledLayer">ArcGISLocalTiledLayer class</see>.
+            Local map services have built-in capabilities that allow each layer's behavior and appearance to be changed dynamically.
+            These dynamic layers can increase the amount of interaction that users are able to have with maps within your application. For more information see
+            the <see cref="T:Esri.ArcGISRuntime.Mapping.ArcGISMapImageLayer">ArcGISDynamicMapServiceLayer class</see> documentation.
+            </para>
+            <para>
+            Local map services don't always need to display images. You can create a local map service for the purpose of returning a set of features to work within your
+            application. You retrieve these features through tasks that you add to your application. For example, you might want to query a map service and display
+            the resulting features as graphics in the map. Local map services always have their Query and Data operations enabled in contrast to map services hosted
+            by ArcGIS for Server where these operations can be explicitly enabled or disabled by the server administrator.
+            </para>
+            <para>
+            To start a LocalMapService you can either create a new instance of a LocalMapService object via the default constructor then
+            set the path property or use the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.#ctor(System.String)">overloaded constructor</see>.
+            Once the path property has been set by either approach above, the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.StartAsync">
+            StartAsyncTask</see> method should be called to start the LocalMapService which will be hosted by the
+            <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServer"/>. The <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.Status">Status</see> property
+            can be checked to determine the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus">LocalServiceStatus</see> state.
+            </para>
+            <para>
+            Alternatively the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalService.StartAsync">overloaded StartAsyncTask</see>
+            method can be called.
+            </para>
+            <para>
+            Finally, there is one other convenience method for obtaining a LocalMapService object.
+            Based on the supplied path to a Map Package the GetServiceAsyncTask method will either start a new LocalMapService or return a reference to an existing
+            LocalMapService if one has previously been created for that particular Map Package resource with the same service properties.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalMapService"/> class based on the provided path property.
+            </summary>
+            <param name="path">A string representing the path to an ArcGIS Map Package (.MPK) either located on disk on on
+            ArcGIS.com.</param>
+            <remarks>
+            <para>
+            This overloaded constructor provides a more convenient option for instantiating a new LocalMapService object and setting
+            the path property in one call.
+            </para>
+            <para>
+            Once the path property has been set, the <see cref="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.StartAsync">
+            StartAsyncTask</see> method can be called to start the LocalMapService.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentException">Invalid value specified for path.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.StartAsync">
+            <summary>
+            Asynchronously creates a LocalMapService based on the Map Package referenced by the Path property.
+            </summary>
+            <remarks>
+            <para>
+            The StartAsyncTask method will perform various checks to ascertain the status of both the LocalMapService instance
+            and the underlying LocalServer:
+            <list type="bullet">
+            <item>
+            First the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus"/> of the
+            LocalMapService instance will be ascertained. In the cases that it is already LocalServerStatus.Started or
+            LocalServerStatus.Starting the method will exit.
+            If the LocalMapService creation failed, the current status will be LocalServerStatus.Failed,
+            and an InvalidOperationException will be thrown.
+            </item>
+            <item>
+            The status of the LocalServer will then be confirmed. If the status is LocalServerStatus.Initialized the
+            LocalMapService creation will continue. In the cases that the LocalServer is LocalServerStatus.NotInitialized or
+            LocalServerStatus.Initializing an attempt will be made to start the LocalServer and execution will wait until
+            the status is LocalServerStatus.Initialized at which point the attempt to create the LocalMapService will be remade.
+            The status will also be LocalServerStatus.Failed if the StartAsyncTask method is called whilst the LocalServer
+            is shutting down. If the underlying LocalServer encountered an error and failed to initialize correctly
+            an exception will be raised.
+            </item>
+            </list>
+            </para>
+            </remarks>
+            <returns>A task that represents the asynchronous start operation.</returns>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalMapService.Url">
+            <summary>
+            Gets the Url of the local map service.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.CompleteStopServiceInternal">
+            <summary>
+            This is called to complete the stopping of the service and reset internal variables and fire event.
+            The service goes into Stopped state. Override this in derived classes to reset variables first before calling this implementation.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalMapService.MaxRecords">
+            <summary>
+            Gets or sets the maximum number of records that can be returned by the LocalMapService in response to a query, find, or identify operation.
+            </summary>
+            <remarks>
+            <para>
+            The MaxRecords property should be set before the LocalMapService has started.
+            This property has a default value of 1000. If the property is not set explicitly the service will return the first 1000 records.
+            The service can still exceed the MaxRecords property set.
+            For both these scenarios more information can be found in the results of an operation to find out whether the service has exceeded the MaxRecords property set.
+            To improve performance it is recommended that the MaxRecords property is set in order to limit an operation that may return a large number of results.
+            </para>
+            </remarks>
+            <value>A <see cref="T:System.Int32"/> representing the maximum number of records that can be returned by query, find, and identify operations on a local map service.</value>
+            <exception cref="T:System.InvalidOperationException">MaxRecords cannot be set if the service is not in the stopped state.</exception>
+            <exception cref="T:System.ArgumentException">Number cannot be zero or negative.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.GetDynamicWorkspaces">
+            <summary>
+            Returns the list of this service's dynamic workspaces.
+            </summary>
+            <returns>a list of <see cref="T:Esri.ArcGISRuntime.LocalServices.DynamicWorkspace"/></returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.SetDynamicWorkspaces(System.Collections.Generic.IEnumerable{Esri.ArcGISRuntime.LocalServices.DynamicWorkspace})">
+            <summary>
+            Sets the dynamic workspaces for this service.
+            </summary>
+            <remarks>
+            This can only be set when the service is in the <see cref="F:Esri.ArcGISRuntime.LocalServices.LocalServerStatus.Stopped"/> state.
+            Setting this will replace any previously set values.
+            </remarks>
+            <param name="dynamicWorkspaces">the workspaces.</param>
+            <exception cref="T:System.InvalidOperationException">dynamicWorkspaces cannot be set if the service is not in the stopped state.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalMapService.ToString">
+            <summary>
+            Gets the path to the Map Package on which the LocalMapService is based.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that contains the map path.
+            </returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.LocalServices.LocalService">
+            <summary>
+            Provides a base class for services which can be initialized on the runtime LocalServer.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalService"/> class.
+            </summary>
+            <param name="path">Path to package file.</param>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.Name">
+            <summary>
+            Gets the unique auto-assigned name for the service.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.AutoName">
+            <summary>
+            Gets an automatically generated name for the service based on the Paths etc. This is used
+            to set the Name property when the service is started and the Name is null.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.OnIsActiveChanged">
+            <summary>
+            *FOR INTERNAL USE ONLY* Raises the IsActiveChanged event.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.Status">
+            <summary>
+            Gets the local server status.
+            </summary>
+            <value>
+            A <see cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerStatus"/> value indicating the current status of the local service.
+            </value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.Error">
+            <summary>
+            Gets the associated error if the server's <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.Status"/> is <see cref="F:Esri.ArcGISRuntime.LoadStatus.FailedToLoad"/>.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.StartAsyncImpl">
+            <summary>
+            Asynchronously start the service creation process. The StartCompleted event is called when the start process is complete.
+            </summary>
+            <returns>A task that represents the asynchronous start operation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.StartServiceInternal(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            This method is called form implementation of StartAsyncTask or Start, it will ensure the LocalServer is running, when it is
+            ContinueStartService is called
+            </summary>
+            <param name="serviceSpecificParams">parameters</param>
+            <returns>A task that represents the asynchronous start operation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.CompleteStartService(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            This provides the default implementation of completing a service, it looks for an endpoint matching the ServiceType
+            (e.g. GeocodeServer) and then initializes the Url and status and fires events. This can be overridden is more steps are required to
+            complete the starting of a service (e.g. getting service metadata).
+            </summary>
+            <param name="createServiceResponse">response</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.Abort">
+            <summary>
+            This method is called when the LocalServer is shutting down - it sets the service to stopped without sending
+            rest calls to the local server.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.StartAsync">
+            <summary>
+            Asynchronously starts this local service instance, and returns a Task object.
+            </summary>
+            <returns>A task that represents the asynchronous start operation.</returns>
+            <exception cref="T:System.InvalidOperationException">Service can only be started when in the stopped state.</exception>
+            <exception cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException">Cannot start this service as it is already running on the LocalServer.</exception>
+            <exception cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException">Cannot start service because a LocalService with the same Name is already running.</exception>
+            <exception cref="T:Esri.ArcGISRuntime.LocalServices.LocalServerException">Local Server requires a standard level license to start. The current license level is basic (see ArcGISRuntimeEnvironment.License.Level). For a deployment you can initialize the runtime with a standard level license in ArcGISRuntimeEnvironment.License.SetLicense(). If you are developing an app then you can avoid setting ArcGISRuntimeEnvironment.ClientId to remain in developer mode to try out LocalServer.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.StopAsync">
+            <summary>
+            Asynchronously stops this local service instance, and returns a Task object.
+            </summary>
+            <returns>A task that represents the asynchronous stop operation.</returns>
+            <exception cref="T:System.InvalidOperationException">Service can only be stopped when in the started state.</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.LocalServices.LocalService.CompleteStopService">
+            <summary>
+            This is called to complete the stopping of the service and reset internal variables and fire event.
+            The service goes into Stopped state. Override this in derived classes to reset variables first before calling this implementation.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.PackagePath">
+            <summary>
+            Gets the path of the package file on which the LocalService is based.
+            </summary>
+            <remarks>
+            <para>
+            The Path property may only be set once prior to the LocalService being started.
+            </para>
+            </remarks>
+            <value>A String representing the path to the package.</value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.LocalServices.LocalService.Url">
+            <summary>
+            Gets the URL of this local service.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.LocalServices.LocalService.StatusChanged">
+            <summary>
+            Occurs when <see cref="P:Esri.ArcGISRuntime.LocalServices.LocalService.Status"/> of this local service has changed.
+            </summary>
+        </member>
+    </members>
+</doc>

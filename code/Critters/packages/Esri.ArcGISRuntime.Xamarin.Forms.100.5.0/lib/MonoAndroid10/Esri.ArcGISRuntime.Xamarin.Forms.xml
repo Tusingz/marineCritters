@@ -1,0 +1,939 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Esri.ArcGISRuntime.Xamarin.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:Esri.ArcGISRuntime.UI.MapConverter">
+            <summary>
+             *FOR INTERNAL USE ONLY* Provides a way of converting <see cref="T:Esri.ArcGISRuntime.Mapping.Map"/> to and from a string uri to a portal item, or from a portal item instance.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.MapConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.UI.MapConverter" /> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.MapConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+                Returns whether this converter can convert an object of the given type to
+            the type of this converter, using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="sourceType">A System.Type that represents the type you want to convert from.</param>
+            <returns>true if this converter can perform the conversion; otherwise, false.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.MapConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type,
+            using the specified context.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="destinationType">A System.Type that represents the type you want to convert to.</param>
+            <returns>Returns whether this converter can convert the object to the specified type.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.MapConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the given object to the type of this converter, using the specified
+            context and culture information.
+            </summary>
+            <param name="context">An System.ComponentModel.ITypeDescriptorContext that provides a format context.</param>
+            <param name="culture">The System.Globalization.CultureInfo to use as the current culture.</param>
+            <param name="value">The System.Object to convert.</param>
+            <returns>An System.Object that represents the converted value.</returns>
+            <exception cref="T:System.NotSupportedException">The conversion cannot be performed.</exception>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.UI.SceneConverter">
+            <summary>
+            *FOR INTERNAL USE ONLY* Provides a way of converting <see cref="T:Esri.ArcGISRuntime.Mapping.Scene"/> from a string uri to a
+             portal item, or from a portal item instance.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.SceneConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.UI.SceneConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.SceneConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert an object of the given type to the type of this converter, using
+            the specified context.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="sourceType">A <see cref="T:System.Type"/> that represents the type you want to convert from.</param>
+            <returns><c>true</c> if this converter can perform the conversion; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.SceneConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Returns whether this converter can convert the object to the specified type, using the specified context.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="destinationType">A <see cref="T:System.Type"/> that represents the type you want to convert to.</param>
+            <returns>Returns whether this converter can convert the object to the specified type.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.UI.SceneConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the given object to the type of this converter, using the specified context and culture information.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext"/> that provides a format context.</param>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to use as the current culture.</param>
+            <param name="value">The <see cref="T:System.Object"/> to convert.</param>
+            <returns>An <see cref="T:System.Object"/> that represents the converted value.</returns>
+            <exception cref="T:System.NotSupportedException">The conversion cannot be performed.</exception>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Xamarin.Forms.GeoView">
+            <summary>
+            A base class for the map control.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ShowCalloutForGeoElement(Esri.ArcGISRuntime.Data.GeoElement,Xamarin.Forms.Point,Esri.ArcGISRuntime.UI.CalloutDefinition)">
+            <summary>
+            Shows a callout for the given geoelement at an appropriate location for the tap location by snapping to the geometry of the element.
+            </summary>
+            <param name="element">The GeoElement used to calculate the placement of the callout.</param>
+            <param name="tapPosition">The position the user tapped the view to use for calculating an adjusted callout location.</param>
+            <param name="definition">The callout definition.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ShowCalloutAt(Esri.ArcGISRuntime.Geometry.MapPoint,Esri.ArcGISRuntime.UI.CalloutDefinition)">
+            <summary>
+            Shows a callout based on a <see cref="T:Esri.ArcGISRuntime.UI.CalloutDefinition"/> at the given location.
+            </summary>
+            <param name="location">Location to anchor the callout to.</param>
+            <param name="definition">The callout definition.</param>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.DismissCallout">
+            <summary>
+            Dismisses a callout if it's open.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsCalloutVisible"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsCalloutVisible">
+            <summary>
+            Gets a value indicating whether a callout is currently open
+            </summary>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.DismissCallout"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ExportImageAsync">
+            <summary>
+            Creates an image snapshot of the current map view
+            </summary>
+            <returns>Task&lt;ImageSource&gt;.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GetCurrentViewpoint(Esri.ArcGISRuntime.Mapping.ViewpointType)">
+            <summary>
+            Gets the current Viewpoint of the view.
+            </summary>
+            <param name="viewpointType">Type of Viewpoint</param>
+            <returns>a Viewpoint.</returns>
+            <remarks>
+            To change the view viewpoint, you can use the <see cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint)"/> method available on the view.
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpoint(Esri.ArcGISRuntime.Mapping.Viewpoint)">
+            <summary>
+            Sets the view to the given Viewpoint location
+            </summary>
+            <param name="viewpoint">Viewpoint object.</param>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint)">
+            <summary>
+            Animates the view to the given Viewpoint location
+            </summary>
+            <param name="viewpoint">Viewpoint object</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint,System.TimeSpan)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpoint(Esri.ArcGISRuntime.Mapping.Viewpoint)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint,System.TimeSpan)">
+            <summary>
+            Animates the view to the given Viewpoint location
+            </summary>
+            <param name="viewpoint">Viewpoint object</param>
+            <param name="duration">Duration of the animation</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetViewpoint(Esri.ArcGISRuntime.Mapping.Viewpoint)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SetBookmarkAsync(Esri.ArcGISRuntime.Mapping.Bookmark)">
+            <summary>
+            Sets the GeoView's viewpoint with the bookmark's value.
+            </summary>
+            <param name="bookmark">The <see cref="T:Esri.ArcGISRuntime.Mapping.Bookmark"/> containing the new viewpoint for the map.</param>
+            <returns>
+            <c>True</c> if the set bookmark animation completed, <c>false</c> if it was interrupted by another view navigation.
+            </returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.CancelSetViewpointOperations">
+            <summary>Cancels any pending or currently running SetViewpointAsync operations.</summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GetLayerViewState(Esri.ArcGISRuntime.Mapping.Layer)">
+            <summary>
+            Gets the <see cref="T:Esri.ArcGISRuntime.Mapping.LayerViewState"/> for the given layer.
+            </summary>
+            <param name="layer">Layer</param>
+            <returns>LayerViewState</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyGraphicsOverlayAsync(Esri.ArcGISRuntime.UI.GraphicsOverlay,Xamarin.Forms.Point,System.Double,System.Boolean)">
+            <summary>Initiates an identify operation on the specified graphics overlay which will return the visible topmost graphic.</summary>
+            <param name="graphicsOverlay">The overlay on which to run the identify.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified graphics overlay.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyGraphicsOverlayResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">graphicsOverlay</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyGraphicsOverlayAsync(Esri.ArcGISRuntime.UI.GraphicsOverlay,Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64)">
+            <summary>Initiates an identify operation on the specified graphics overlay which will return the single visible topmost graphic per overlay only.</summary>
+            <param name="graphicsOverlay">The overlay on which to run the identify.</param>
+            <param name="maximumResults">The maximum size of the result set to return.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified graphics overlay.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyGraphicsOverlayResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">graphicsOverlay</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyGraphicsOverlaysAsync(Xamarin.Forms.Point,System.Double,System.Boolean)">
+            <summary>Initiate an identify operation on all graphics overlays.</summary>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on all graphics overlays in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyGraphicsOverlayResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyGraphicsOverlaysAsync(Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64)">
+            <summary>Initiate an identify operation on all graphics overlays.</summary>
+            <param name="maximumResultsPerOverlay">The maximum number of graphics to return per overlay..</param>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on all graphics overlays in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyGraphicsOverlayResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayerAsync(Esri.ArcGISRuntime.Mapping.Layer,Xamarin.Forms.Point,System.Double,System.Boolean)">
+            <summary>Initiates an identify operation on the specified layer which will return the single visible topmost geolement only.</summary>
+            <param name="layer">The layer on which to run the identify.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified layer.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">layer</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayerAsync(Esri.ArcGISRuntime.Mapping.Layer,Xamarin.Forms.Point,System.Double,System.Boolean,System.Threading.CancellationToken)">
+            <summary>Initiates an identify operation on the specified layer which will return the single visible topmost geolement only.</summary>
+            <param name="layer">The layer on which to run the identify.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified layer.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">layer</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayerAsync(Esri.ArcGISRuntime.Mapping.Layer,Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64)">
+            <summary>Initiates an identify operation on the specified layer.</summary>
+            <param name="layer">The layer on which to run the identify.</param>
+            <param name="maximumResults">The maximum size of the result set of geoelements.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified layer.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">layer</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayerAsync(Esri.ArcGISRuntime.Mapping.Layer,Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64,System.Threading.CancellationToken)">
+            <summary>Initiates an identify operation on the specified layer.</summary>
+            <param name="layer">The layer on which to run the identify.</param>
+            <param name="screenPoint">The location at which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <param name="maximumResults">The maximum size of the result set of geoelements.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A task that represents the asynchronous identify operation on the specified layer.
+            The value of the TResult parameter contains <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/></returns>
+            <exception cref="T:System.ArgumentNullException">layer</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayersAsync(Xamarin.Forms.Point,System.Double,System.Boolean)">
+            <summary>Initiates an identify operation on all layers in the view which will return the single visible topmost geoelement per layer only.</summary>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on all layers in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayersAsync(Xamarin.Forms.Point,System.Double,System.Boolean,System.Threading.CancellationToken)">
+            <summary>Initiates an identify operation on all layers in the view which will return the single visible topmost geoelement per layer only.</summary>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A task that represents the asynchronous identify operation on all layers in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayersAsync(Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64)">
+            <summary>Initiates an identify operation on all layers in the view.</summary>
+            <param name="maximumResultsPerLayer">The maximum number of geoelements to return per layer.</param>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <returns>A task that represents the asynchronous identify operation on all layers in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IdentifyLayersAsync(Xamarin.Forms.Point,System.Double,System.Boolean,System.Int64,System.Threading.CancellationToken)">
+            <summary>Initiates an identify operation on all layers in the view.</summary>
+            <param name="screenPoint">The location on which to run identify in screen coordinates.</param>
+            <param name="tolerance">The width and height in screen coordinates of the square centered on screen coordinate that will be used in the identify.</param>
+            <param name="returnPopupsOnly">Controls whether the graphics property of the result is populated.</param>
+            <param name="maximumResultsPerLayer">The maximum number of geoelements to return per layer.</param>
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A task that represents the asynchronous identify operation on all layers in the view
+            The value of the TResult parameter contains a read-only collection of <see cref="T:Esri.ArcGISRuntime.Data.IdentifyLayerResult"/> in top to bottom order.</returns>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.NavigationCompleted">
+            <summary>
+            When navigation on the map has completed this event will be raised.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsNavigating"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.DrawStatusChanged">
+            <summary>
+            Occurs when the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.DrawStatus"/> property of this instance changes.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.LayerViewStateChanged">
+            <summary>
+            Occurs when the <see cref="T:Esri.ArcGISRuntime.Mapping.LayerViewState"/> of a contained layer changes.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SpatialReferenceChanged">
+            <summary>
+            Occurs when spatial reference of the view changes.
+            </summary>
+            <seealso cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SpatialReference"/>
+            <seealso cref="T:Esri.ArcGISRuntime.Geometry.SpatialReference"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ViewpointChanged">
+            <summary>
+            Occurs when the current viewpoint changes.
+            </summary>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GetCurrentViewpoint(Esri.ArcGISRuntime.Mapping.ViewpointType)"/>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewDoubleTapped">
+            <summary>
+            Occurs when an otherwise unhandled DoubleTap interaction occurs over the hit test
+            area of the view.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewTapped">
+            <summary>
+            Occurs when an otherwise unhandled Tap interaction occurs over the hit test
+            area of the view.
+            </summary>
+        </member>
+        <member name="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewHolding">
+            <summary>
+            Occurs when an otherwise unhandled holding interaction occurs over the hit test
+            area of the view.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GraphicsOverlaysProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GraphicsOverlays"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GraphicsOverlays">
+            <summary>
+            Gets or sets the GraphicsOverlays collection.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsAttributionTextVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsAttributionTextVisible"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsAttributionTextVisible">
+            <summary>
+            Gets or sets a value indicating whether the Esri attribution text is visible.
+            </summary>
+            <remarks>
+            If your application uses data served by Esri through ArcGIS Online, you must display this logo.
+            </remarks>
+            <seealso cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.AttributionText"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.AttributionText">
+            <summary>Gets the full attribution text for all active layers, concatenated into a single string.</summary>
+            <returns>A string with all the attribution contributors concatenated together</returns>
+            <seealso cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsAttributionTextVisible"/>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ViewInsetsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ViewInsets"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.ViewInsets">
+            <summary>
+            Gets or sets the viewport inset.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.TimeExtentProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.TimeExtent"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.TimeExtent">
+            <summary>
+            Gets or sets the time extent that is applied to layers within the view
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SpatialReference">
+            <summary>
+            Gets the current spatial reference of the map
+            </summary>
+            <remarks>
+            <para>You can observe changes to this property by listening to the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event.</para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsWrapAroundEnabled">
+            <summary>
+            Indicates whether the wrap around feature is currently active. For wrap around to be
+            active the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.WrapAroundMode"/> property must be set to true and the SpatialReference
+            of the MapView control must be a SpatialReference that supports wrapping.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsNavigating">
+            <summary>
+            Gets a value indicating whether the map is currently navigating.
+            when navigation has finished the <see cref="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.NavigationCompleted"/> event will be raised.
+            </summary>
+            <value>
+            <c>true</c> if this instance is navigating; otherwise, <c>false</c>.
+            </value>
+            <seealso cref="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.NavigationCompleted"/>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.DrawStatus">
+            <summary>
+            Returns the current draw status
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SelectionPropertiesProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SelectionProperties"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.SelectionProperties">
+            <summary>
+            Gets or sets the selection properties that is applied to graphic overlays and layers within the view.
+            </summary>
+            <remarks>
+            The selection properties of the GeoView defines how features are rendered when selected.
+            </remarks>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Xamarin.Forms.GeoViewInputEventArgs">
+            <summary>
+            Event argument used by the <see cref="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewHolding"/>,
+            <see cref="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewTapped"/> and <see cref="E:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.GeoViewDoubleTapped"/> events.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoViewInputEventArgs.Position">
+            <summary>
+            Gets the screen position on the view where the event occured.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoViewInputEventArgs.Location">
+            <summary>
+            Gets the location on the view where the event occured.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoViewInputEventArgs.Handled">
+            <summary>
+            Gets or sets a value indicating whether the present state of the event handling
+            for a routed event as it travels the route.</summary>
+            <value>
+             If setting, set to <c>true</c> if the event is to be marked handled; otherwise <c>false</c>.
+             If reading this value, true indicates that either a class handler, or some
+             instance handler along the route, has already marked this event handled.
+             <c>false</c> indicates that no such handler has marked the event handled. The default
+             value is <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoViewRenderer.ManageNativeControlLifetime">
+            <summary>
+            Determines whether the native control is disposed of when this renderer is disposed
+            Can be overridden in deriving classes (default: true).
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Xamarin.Forms.MapView">
+            <summary>
+            The MapView is a container that holds a Map. It is the mapping component of
+            the ArcGIS Runtime .NET SDK. It can contain mapping layers and responds to user interaction (touch, mouse, keyboard) and
+            provides behavior for map navigation. It has multiple properties such as its extent, scale, zoom factor, rotation, etc.
+            </summary>
+            <remarks>
+            <para>
+            The MapView is a container that holds a Map. A Map holds a collection of
+            <a href="071b1757-82a0-4351-815a-9e14000eebe3.htm">operational layers</a> and Basemap.
+            Layers are visual representations of geographic information and come in many forms. The types of layers that are displayed
+            in a MapView are two dimensional in nature; meaning they are displayed in X/Y (a.k.a. Latitude/Longitude) coordinate space.
+            </para>
+            <para>
+            There is only one Map per MapView and it is set by the MapView.Map Property.
+            Multiple Map objects can be created and swapped out dynamically as the application is running in the MapView.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Xamarin.Forms.MapView"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.ScreenToLocation(Xamarin.Forms.Point)">
+            <summary>
+            Converts a screen point relative to the upper left of the map into a location on the map.
+            </summary>
+            <param name="screenPoint">Screen point relative to the upper left</param>
+            <returns>a location in map coordinates.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint)">
+            <summary>
+            Converts a location in map coordinates to a screen coordinate relative to the
+            upper-left corner of the map.
+            </summary>
+            <param name="location">The location in map coordinates to convert to screen coordinate.</param>
+            <returns>
+            Screen location in this map control's local display coordinate system
+            </returns>
+            <remarks>
+            <para>
+            The screen location returned is relative to the upper left corner of
+            the map control. If you need a location relative to another visual
+            element, use the TransformToVisual method to
+            create a transformation between the map and another visual element.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointAsync(Esri.ArcGISRuntime.Mapping.Viewpoint,System.TimeSpan,Esri.ArcGISRuntime.UI.AnimationCurve)">
+            <summary>
+            Animates the view to the given Viewpoint location using the provided animation curve
+            </summary>
+            <param name="viewpoint">Viewpoint object</param>
+            <param name="duration">Duration of the animation</param>
+            <param name="animationCurve">The animation curve for controlling the acceleration and decelleration of the animation.</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(Esri.ArcGISRuntime.Geometry.MapPoint)">
+            <summary>
+            Centers the view on the provided point in the provided duration.
+            </summary>
+            <param name="center">Point to center the view on.</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(System.Double,System.Double)">
+            <summary>
+            Centers the view on the provided point.
+            </summary>
+            <param name="latitude">Latitude in a WGS84 geographic coordinate system</param>
+            <param name="longitude">Longitude in a WGS84 geographic coordinate system</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(Esri.ArcGISRuntime.Geometry.MapPoint,System.Double)">
+            <summary>
+            Centers the view on the provided point in the provided duration and zooms to the provided scale.
+            </summary>
+            <param name="center">Point to center the view on.</param>
+            <param name="scale">The reference scale to zoom to</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(System.Double,System.Double,System.Double)">
+            <summary>
+            Centers the view on the provided point and zooms to the provided scale.
+            </summary>
+            <param name="latitude">Latitude in a WGS84 geographic coordinate system</param>
+            <param name="longitude">Longitude in a WGS84 geographic coordinate system</param>
+            <param name="scale">The reference scale to zoom to</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointScaleAsync(System.Double)">
+            <summary>
+            Zooms to the given scale.
+            </summary>
+            <param name="scale">The scale to zoom to, ie '50000' to zoom to 1:50,000 scale.</param>
+            <returns><c>True</c> if the zoom animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointRotationAsync(System.Double)">
+            <summary>
+            Sets the rotation angle of the map
+            </summary>
+            <param name="rotation">Rotation angle in degrees.</param>
+            <returns><c>True</c> if the rotation animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <remarks>
+            Angle will be normalized between 0 and 360 degrees.
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointGeometryAsync(Esri.ArcGISRuntime.Geometry.Geometry)">
+            <summary>
+            Zooms to the provided geometry.
+            </summary>
+            <param name="boundingGeometry">The geometry to zoom to. </param>
+            <returns><c>True</c> if the zoom animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <remarks>
+            If the bounding geometry is a point, the map will only pan. If you want to center and zoom on a point, use <see cref="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(Esri.ArcGISRuntime.Geometry.MapPoint,System.Double)"/>.
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointGeometryAsync(Esri.ArcGISRuntime.Geometry.Geometry,System.Double)">
+            <summary>
+            Zooms to the provided geometry and leaves some padding around the geometry.
+            </summary>
+            <param name="boundingGeometry">The geometry to zoom to. </param>
+            <param name="padding">Minimum amount of padding around the bounding geometry in pixels.</param>
+            <returns><c>True</c> if the zoom animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <remarks>
+            If the bounding geometry is a point, the map will only pan. If you want to center and zoom on a point, use <see cref="M:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SetViewpointCenterAsync(Esri.ArcGISRuntime.Geometry.MapPoint,System.Double)"/>.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.MapProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Map"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Map">
+            <summary>
+            Gets or sets the map the view is rendering.
+            </summary>
+            <value>The map the view renders.</value>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.MapScale">
+            <summary>
+            Gets the current scale of the map
+            </summary>
+            <remarks>
+            Returns <see cref="F:System.Double.NaN"/> if the map isn't in a ready-state.
+            <para>You can observe changes to this property by listening to the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event.</para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.MapRotation">
+            <summary>
+            Gets the current rotational heading of the map
+            </summary>
+            <remarks>
+            <para>You can observe changes to this property by listening to the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event.</para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.UnitsPerPixel">
+            <summary>
+            Gets the current size of each device independent pixel in map units.
+            </summary>
+            <remarks>
+            Returns <see cref="F:System.Double.NaN"/> if the map isn't in a ready-state.
+            <para>You can observe changes to this property by listening to the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event.</para>
+            </remarks>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.VisibleArea">
+            <summary>
+            Gets the view's visible area.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.WrapAroundModeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.WrapAroundMode"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.WrapAroundMode">
+            <summary>
+            Gets or sets a whether the map will do continuous pan across the antimeridian
+            </summary>
+            <remarks>
+            Note that not all spatial references supports this mode, and setting it to true in those cases,
+            this property will have no effect. You can check the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.GeoView.IsWrapAroundEnabled"/> property
+            to determine if this <see cref="T:Esri.ArcGISRuntime.Xamarin.Forms.MapView"/> is wrapping.
+            </remarks>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.LabelingProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Labeling"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Labeling">
+            <summary>
+            Gets or sets the <see cref="T:Esri.ArcGISRuntime.UI.ViewLabelProperties"/>.
+            </summary>
+            <value>The <see cref="T:Esri.ArcGISRuntime.UI.ViewLabelProperties"/></value>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.LocationDisplayProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.LocationDisplay"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.LocationDisplay">
+            <summary>
+            Gets or sets the LocationDisplay.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SketchEditorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SketchEditor"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.SketchEditor">
+            <summary>
+            Gets or sets the sketch editor used for drawing and editing on the map.
+            </summary>
+            <value>
+            The sketch editor.
+            </value>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.BackgroundGridProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.BackgroundGrid"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.BackgroundGrid">
+            <summary>
+            Gets or sets the background grid rendered behind the map data.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.GridProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Grid"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.Grid">
+            <summary>
+            Gets or sets the grid that is available to the map for display.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.MapView.InteractionOptionsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.InteractionOptions"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.MapView.InteractionOptions">
+            <summary>
+            Gets or sets the grid that is available to the map for display.
+            </summary>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Xamarin.Forms.RuntimeImageExtensions">
+            <summary>
+            Provides conversions of the <see cref="T:Esri.ArcGISRuntime.UI.RuntimeImage"/> generic type to a platform specific image type
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.RuntimeImageExtensions.ToImageSourceAsync(Esri.ArcGISRuntime.UI.RuntimeImage)">
+            <summary>
+            Converts a <see cref="T:Esri.ArcGISRuntime.UI.RuntimeImage"/> to a Xamarin.Forms image source.
+            </summary>
+            <param name="image">Runtime Image to convert</param>
+            <returns>A Xamarin.Forms image source</returns>
+        </member>
+        <member name="T:Esri.ArcGISRuntime.Xamarin.Forms.SceneView">
+            <summary>
+            The SCeneView is a container that holds a Scene. It is the mapping component of
+            the ArcGIS Runtime .NET SDK. It can contain mapping layers and responds to user interaction (touch, mouse, keyboard) and
+            provides behavior for scene navigation. It has multiple properties such as its extent, scale, zoom factor, rotation, etc.
+            </summary>
+            <remarks>
+            <para>
+            The SceneView is a container that holds a Scene. A Scene holds a collection of operational layers and Basemap.
+            Layers are visual representations of geographic information and come in many forms. The types of layers that are displayed
+            in a SceneView are two dimensional in nature; meaning they are displayed in X/Y (a.k.a. Latitude/Longitude) coordinate space.
+            </para>
+            <para>
+            There is only one Scene per SceneView and it is set by the SceneView.Scene Property.
+            Multiple Scene objects can be created and swapped out dynamically as the application is running in the SceneView.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Esri.ArcGISRuntime.Xamarin.Forms.SceneView"/> class.
+            </summary>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToBaseSurface(Xamarin.Forms.Point)">
+            <summary>
+            Converts a screen point relative to the upper left of the map into a location on the map.
+            </summary>
+            <param name="screenPoint">Screen point relative to the upper left</param>
+            <returns>a location in map coordinates.</returns>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToLocationAsync(Xamarin.Forms.Point)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint,Esri.ArcGISRuntime.UI.LocationVisibility@)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToLocationAsync(Xamarin.Forms.Point)">
+             <summary>
+             Async method to convert a screen point relative to the upper left of the SceneView into a location
+             accounting for 3D features within the Scene.
+             </summary>
+             <remarks>
+             This method checks for intersection between the input screen point and visible 3D features on the Scene.
+             It returns a point with X, Y and Z values matching the intersection point. If the input point does not
+             intersect a visible 3D feature, the Scene <see cref="T:Esri.ArcGISRuntime.Mapping.Surface">Surface
+             </see> is used to retrieve the point values. If the input point does not intersect the Scene Surface or
+             any visible 3D features a null value is returned.
+            
+             This method differs from <see cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToBaseSurface(Xamarin.Forms.Point)"/> in that the latter only uses the Scene Surface and
+             ignores visible 3D features. The algorithm is inherently slower than ScreenToBaseSurface and is therefore an
+             async operation.
+             </remarks>
+             <param name="screenPoint">Screen point relative to the upper left</param>
+             <returns>MapPoint</returns>
+             <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToBaseSurface(Xamarin.Forms.Point)"/>
+             <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint)"/>
+             <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint,Esri.ArcGISRuntime.UI.LocationVisibility@)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint)">
+            <summary>
+            Converts a location in map coordinates to a screen coordinate relative to the
+            upper-left corner of the map.
+            </summary>
+            <param name="location">The location in map coordinates to convert to screen coordinate.</param>
+            <returns>
+            Screen location in this map control's local display coordinate system
+            </returns>
+            <remarks>
+            <para>
+            The screen location returned is relative to the upper left corner of
+            the map control. If you need a location relative to another visual
+            element, use the TransformToVisual method to
+            create a transformation between the map and another visual element.
+            </para>
+            </remarks>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToBaseSurface(Xamarin.Forms.Point)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToLocationAsync(Xamarin.Forms.Point)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint,Esri.ArcGISRuntime.UI.LocationVisibility@)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint,Esri.ArcGISRuntime.UI.LocationVisibility@)">
+            <summary>
+            Converts a location in map coordinates to a screen coordinate relative to the
+            upper-left corner of the scene.
+            </summary>
+            <param name="location">The location in world coordinates to convert to screen coordinate.</param>
+            <param name="visibility">The visibility of the point on the screen.</param>
+            <returns>
+            Screen location in this scene view control's local display coordinate system
+            </returns>
+            <exception cref="T:System.ArgumentNullException">location</exception>
+            <remarks>
+            The screen location returned is relative to the upper left corner of
+            the scene view control. If you need a location relative to another visual
+            element, use the TransformToVisual method to
+            create a transformation between the map and another visual element.
+            </remarks>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToBaseSurface(Xamarin.Forms.Point)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.ScreenToLocationAsync(Xamarin.Forms.Point)"/>
+            <seealso cref="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.LocationToScreen(Esri.ArcGISRuntime.Geometry.MapPoint)"/>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SetViewpointCamera(Esri.ArcGISRuntime.Mapping.Camera)">
+            <summary>
+            Sets the viewpoint camera in the scene view.
+            </summary>
+            <param name="camera">The new camera information for the scene view.</param>
+            <exception cref="T:System.ArgumentNullException">camera</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SetViewpointCameraAsync(Esri.ArcGISRuntime.Mapping.Camera)">
+            <summary>
+            Changes the scene view to the new camera viewpoint asynchronously.
+            </summary>
+            <param name="camera">The new camera information for the scene view.</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <exception cref="T:System.ArgumentNullException">camera</exception>
+        </member>
+        <member name="M:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SetViewpointCameraAsync(Esri.ArcGISRuntime.Mapping.Camera,System.TimeSpan)">
+            <summary>
+            Changes the scene view to the new camera viewpoint asynchronously using the specified duration to arrive.
+            </summary>
+            <param name="camera">The new camera information for the scene view.</param>
+            <param name="duration">Duration of the animation</param>
+            <returns><c>True</c> if the set view animation completed, <c>false</c> if it was interrupted by another view navigation.</returns>
+            <exception cref="T:System.ArgumentNullException">camera</exception>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SceneProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.Scene"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.Scene">
+            <summary>
+            Gets or sets the scene the view is rendering.
+            </summary>
+            <value>The scene the view renders.</value>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AnalysisOverlaysProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AnalysisOverlays"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AnalysisOverlays">
+            <summary>
+            Gets or sets the AnalysisOverlays collection.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AtmosphereEffectProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AtmosphereEffect"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AtmosphereEffect">
+            <summary>
+            Gets or sets the effect applied to the scene's atmosphere.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunLightingProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunLighting"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunLighting">
+            <summary>
+            Gets or sets the type of lighting applied to the scene view.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunTimeProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunTime"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.SunTime">
+            <summary>
+            Gets or sets the position of the Sun.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AmbientLightColorProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AmbientLightColor"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.AmbientLightColor">
+            <summary>
+            Gets or sets the ambient light.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.InteractionOptionsProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.InteractionOptions"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.InteractionOptions">
+            <summary>
+            Gets or sets the grid that is available to the map for display.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.Camera">
+            <summary>
+            Gets the current Camera for the view.
+            </summary>
+        </member>
+        <member name="F:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.CameraControllerProperty">
+            <summary>
+            Identifies the <see cref="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.CameraController"/> bindable property.
+            </summary>
+        </member>
+        <member name="P:Esri.ArcGISRuntime.Xamarin.Forms.SceneView.CameraController">
+            <summary>
+            Gets or sets the SceneView camera controller which determines the camera interaction and navigation model.
+            </summary>
+        </member>
+    </members>
+</doc>
