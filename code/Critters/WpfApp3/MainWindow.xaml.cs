@@ -937,7 +937,7 @@ namespace WpfApp3
                 QueryParameters queryParams = new QueryParameters();
 
                 // Construct and assign the where clause that will be used to query the feature table.
-                queryParams.WhereClause = "Species = 'Leatherback' or Species = 'Leatherback Sea Turtle'";
+                queryParams.WhereClause = "Species = 'Leatherback' or Species = 'Leatherback Sea Turtle' or Species = 'Leatherback Sea Turtle (2+)'";
 
                 // Query the feature table.
                 FeatureQueryResult queryResult = await _featureTable.QueryFeaturesAsync(queryParams);
@@ -980,7 +980,7 @@ namespace WpfApp3
                 QueryParameters queryParams = new QueryParameters();
 
                 // Construct and assign the where clause that will be used to query the feature table.
-                queryParams.WhereClause = "Species = 'Leatherback' or Species = 'Leatherback Sea Turtle'";
+                queryParams.WhereClause = "Species = 'Leatherback' or Species = 'Leatherback Sea Turtle' or Species = 'Leatherback Sea Turtle (2+)'";
 
                 // Query the feature table.
                 FeatureQueryResult queryResult = await _featureTable.QueryFeaturesAsync(queryParams);

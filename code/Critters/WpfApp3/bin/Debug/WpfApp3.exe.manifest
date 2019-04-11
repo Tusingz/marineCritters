@@ -1710,14 +1710,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApp3.exe" size="63400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApp3.exe" size="63912">
       <assemblyIdentity name="WpfApp3" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KGRjAqU3MvNkDNbYcvTud/3CEHIzRknp8lA8mK7PmRw=</dsig:DigestValue>
+        <dsig:DigestValue>VkBGpd+ZgZ5csIHtcKqiQbmvWQvDogS3EXV4Jz1VHmY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
