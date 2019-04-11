@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Release\
 WpfApp3
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\App.xaml
 11151548125
 191-1931779607
@@ -16,5 +16,5 @@ C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\App.xaml
 125-1572311299
 MainWindow.xaml;
 
-False
+True
 

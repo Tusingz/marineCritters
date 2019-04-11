@@ -16,7 +16,7 @@
                 <ListView x:Name="SublayerListView">
 
                     <CheckBox Content="Turtle Data"
-                                      IsChecked="True"
+                                      IsChecked="False"
                                       Checked="turtleCheckBoxChecked"
                                       Unchecked="turtleCheckBoxUnchecked"
                                       Margin="5" />
@@ -52,23 +52,28 @@
                                       Margin="5" 
                                       Name="GreenSeaTurtleCheckbox"/>
                     <CheckBox Content="Leatherback Sea Turtle"
+                                      Name="LeatherbackCheckbox"
                                       IsChecked="False"
                                       Checked="leatherbackTurtleCheckBoxChecked"
                                       Unchecked="leatherbackCheckBoxUnChecked"
                                       Margin="5" />
                     <CheckBox Content="Loggerhead Sea Turtle"
+                                      Name="LoggerheadCheckbox"
                                       IsChecked="False"
                                       Checked="loggerheadTurtleCheckBoxChecked"
                                       Unchecked="loggerheadCheckBoxUnChecked"
                                       Margin="5" />
                     <CheckBox Content="Olive Ridley Sea Turtle"
+                                      Name="OliveRidleyCheckbox"
                                       IsChecked="False"
                                       Checked="oliveRidleyTurtleCheckBoxChecked"
                                       Unchecked="oliveRidleyCheckBoxUnChecked"
                                       Margin="5" />
                     <CheckBox Content="Unidentified Sea Turtle"
+                                      Name="UnidentifiedTurtleCheckBox"
                                       IsChecked="False"
-                                     
+                                      Checked="unidentifiedTurtleCheckBoxChecked"
+                                      Unchecked="unidentifiedCheckBoxUnChecked"
                                       Margin="5" />
                 </ListView>
                 <Button Name="TurtleTableButton" Focusable="True" Content="Show Turtle Data Table" Click="MakeTurtleTable"></Button>

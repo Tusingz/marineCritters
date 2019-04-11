@@ -94,7 +94,7 @@ namespace WpfApp3
 
             // Create and set initial map area
             Envelope initialLocation = new Envelope(
-                -171.6739, -15.3844, 12.5449, 67.2319,
+                -160.6739, 13.3844, -179.5449, 80.2319,
                 SpatialReferences.Wgs84);
             myMap.InitialViewpoint = new Viewpoint(initialLocation);
 
@@ -194,9 +194,11 @@ namespace WpfApp3
             };
 
             // add feature layers to map
-            myMap.OperationalLayers.Add(_featureLayer);
-            // myMap.OperationalLayers.Add(_airFeatureLayer);
-            // myMap.OperationalLayers.Add(_windFeatureLayer);
+           /* myMap.OperationalLayers.Add(_featureLayer);
+            myMap.OperationalLayers.Add(_airFeatureLayer);
+            myMap.OperationalLayers.Add(_windFeatureLayer);
+            myMap.OperationalLayers.Add(_seaTempFeatureLayer);*/
+
 
             // Add the label definition to the feature layer's label definition collection.
             _featureLayer.LabelDefinitions.Add(turtleSpeciesLabelDefinition);
@@ -387,6 +389,13 @@ namespace WpfApp3
 
         private async Task ShowTurtleData()
         {
+            myMap.OperationalLayers.Add(_featureLayer);
+            GreenSeaTurtleCheckbox.IsChecked = true;
+            LeatherbackCheckbox.IsChecked = true;
+            OliveRidleyCheckbox.IsChecked = true;
+            LoggerheadCheckbox.IsChecked = true;
+            UnidentifiedTurtleCheckBox.IsChecked = true;
+
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -430,6 +439,13 @@ namespace WpfApp3
 
         private async Task HideTurtleData()
         {
+            myMap.OperationalLayers.Remove(_featureLayer);
+            GreenSeaTurtleCheckbox.IsChecked = false;
+            LeatherbackCheckbox.IsChecked = false;
+            OliveRidleyCheckbox.IsChecked = false;
+            LoggerheadCheckbox.IsChecked = false;
+            UnidentifiedTurtleCheckBox.IsChecked = false;
+
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -516,6 +532,8 @@ namespace WpfApp3
 
         private async Task HideAirData()
         {
+           myMap.OperationalLayers.Remove(_airFeatureLayer);
+
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -601,6 +619,7 @@ namespace WpfApp3
 
         private async Task HideWindData()
         {
+            myMap.OperationalLayers.Remove(_windFeatureLayer);
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -686,6 +705,7 @@ namespace WpfApp3
 
         private async Task HideSeaTempData()
         {
+            myMap.OperationalLayers.Remove(_seaTempFeatureLayer);
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -733,8 +753,7 @@ namespace WpfApp3
         }
 
         private async Task ShowGreenTurtleSpecies()
-        {
-            MessageBox.Show("Green Turtle Clicked");
+        {           
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -777,8 +796,7 @@ namespace WpfApp3
         }
 
         private async Task HideGreenTurtleSpecies()
-        {
-            MessageBox.Show("Green Turtle Unclicked");
+        {          
             try
             {
                 // Create a query parameters that will be used to Query the feature table.
@@ -1077,7 +1095,97 @@ namespace WpfApp3
                 MessageBox.Show("An error occurred.\n" + ex, "Sample error");
             }
         }
-    }
+
+      /**********************************
+       * show/hide unidentified ridley species 
+       **********************************/
+        private async void unidentifiedTurtleCheckBoxChecked(object sender, RoutedEventArgs e)
+        {
+            // Begin query process.
+            await ShowUnidentifiedTurtleSpecies();
+        }
+
+        private async Task ShowUnidentifiedTurtleSpecies()
+        {
+            try
+            {
+                // Create a query parameters that will be used to Query the feature table.
+                QueryParameters queryParams = new QueryParameters();
+
+                // Construct and assign the where clause that will be used to query the feature table.
+                queryParams.WhereClause = "Species = 'Unidentified Sea Turtle' or Species = 'Sea Turtle' or Species = 'Unknown'";
+
+                // Query the feature table.
+                FeatureQueryResult queryResult = await _featureTable.QueryFeaturesAsync(queryParams);
+
+                // Cast the QueryResult to a List so the results can be interrogated.
+                List<Feature> features = queryResult.ToList();
+
+                if (features.Any())
+                {
+                    // Loop over each feature from the query result.
+                    foreach (Feature feature in features)
+                    {
+                        // Select each feature.
+                        _featureLayer.SetFeatureVisible(feature, true);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Features to Select");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred.\n" + ex, "Sample error");
+            }
+        }
+
+
+        private async void unidentifiedCheckBoxUnChecked(object sender, RoutedEventArgs e)
+        {
+            // Begin query process.
+            await HideUnidentifiedTurtleSpecies();
+        }
+
+        private async Task HideUnidentifiedTurtleSpecies()
+        {
+            try
+            {
+                // Create a query parameters that will be used to Query the feature table.
+                QueryParameters queryParams = new QueryParameters();
+
+                // Construct and assign the where clause that will be used to query the feature table.
+                queryParams.WhereClause = "Species = 'Unidentified Sea Turtle' or Species = 'Sea Turtle' or Species = 'Unknown'";
+
+                // Query the feature table.
+                FeatureQueryResult queryResult = await _featureTable.QueryFeaturesAsync(queryParams);
+
+                // Cast the QueryResult to a List so the results can be interrogated.
+                List<Feature> features = queryResult.ToList();
+
+                if (features.Any())
+                {
+                    // Loop over each feature from the query result.
+                    foreach (Feature feature in features)
+                    {
+                        // Select each feature.
+                        _featureLayer.SetFeatureVisible(feature, false);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Features to Select");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred.\n" + ex, "Sample error");
+            }
+        }
+    
+}
+
 }
     
 
