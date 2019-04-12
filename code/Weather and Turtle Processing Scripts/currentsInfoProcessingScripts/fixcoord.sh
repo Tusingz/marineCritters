@@ -1,5 +1,6 @@
 #!/bin/bash
 #must have cdo installed
+#Made by: Daniel Domme for Beached Marine Critters Project
 date=1992
 for file in oscar_vel{1992..2019}.nc.gz.nc
     do

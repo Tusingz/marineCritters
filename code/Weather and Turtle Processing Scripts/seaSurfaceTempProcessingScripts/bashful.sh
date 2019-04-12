@@ -1,5 +1,6 @@
 #!/bin/bash
 #must have cdo installed
+#Made by: Daniel Domme for Beached Marine Critters Project
 date=1981
 for file in sst.day.mean.{1981..2019}.nc
     do

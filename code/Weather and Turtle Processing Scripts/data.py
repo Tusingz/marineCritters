@@ -1,4 +1,7 @@
 #!/usr/bin/python
+#Made by: Daniel Domme for Beached Marine Critters Project
+#uses: Python 3 on windows
+#Parses data from .csv
 import csv
 
 with open('Clean_BMC_DB_ORTurt.csv', 'w') as csv_file:

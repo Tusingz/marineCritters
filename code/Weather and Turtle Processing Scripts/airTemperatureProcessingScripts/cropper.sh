@@ -1,5 +1,6 @@
 #!/bin/bash
 #must have cdo installed
+#Made by: Daniel Domme for Beached Marine Critters Project
 date=1955
 for file in lftx4.sfc.{1955..2019}.nc
     do
