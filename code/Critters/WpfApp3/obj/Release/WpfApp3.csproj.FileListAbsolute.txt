@@ -354,3 +354,4 @@ C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Releas
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Release\WpfApp3.csproj.CopyComplete
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Release\WpfApp3.exe
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Release\WpfApp3.pdb
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Release\WpfApp3.csprojAssemblyReference.cache

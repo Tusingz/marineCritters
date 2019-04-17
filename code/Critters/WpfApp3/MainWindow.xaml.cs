@@ -104,7 +104,7 @@ namespace WpfApp3
              ************************************************************************/
             // Create uri to the used feature service
             var serviceUri = new Uri(
-                "https://services5.arcgis.com/qRhgKuZN9Zwtwsjc/ArcGIS/rest/services/Turtle_Group_Layer/FeatureServer/1");
+                "https://services6.arcgis.com/kInEIOmrLNzXMSuZ/arcgis/rest/services/Turtles/FeatureServer/0");
 
             // Create feature table using a URL.
             _featureTable = new ServiceFeatureTable(serviceUri);
@@ -152,7 +152,7 @@ namespace WpfApp3
              *   Air Temp Feature Layer
              ************************************************************************/
             var airServiceUri = new Uri(
-                "https://services5.arcgis.com/A8199VwGsdtPOFY6/arcgis/rest/services/BMC_WeatherData_1957_2018_Av1/FeatureServer/0");
+                "https://services6.arcgis.com/kInEIOmrLNzXMSuZ/arcgis/rest/services/Air_Temp_/FeatureServer/0");
 
             // Create feature table using a URL.
             _airFeatureTable = new ServiceFeatureTable(airServiceUri);
@@ -167,7 +167,7 @@ namespace WpfApp3
              *   Wind Feature Layer
              ************************************************************************/
             var windServiceUri = new Uri(
-                "https://services5.arcgis.com/A8199VwGsdtPOFY6/arcgis/rest/services/Wind/FeatureServer/0");
+                "https://services6.arcgis.com/kInEIOmrLNzXMSuZ/arcgis/rest/services/Wind/FeatureServer/0");
 
             // Create feature table using a URL.
             _windFeatureTable = new ServiceFeatureTable(windServiceUri);
@@ -182,7 +182,7 @@ namespace WpfApp3
              *   Sea Surface Temperature Feature Layer
              ************************************************************************/
             var seaTempServiceUri = new Uri(
-                "https://services5.arcgis.com/A8199VwGsdtPOFY6/arcgis/rest/services/Sea_Surface_Temp_C/FeatureServer/0");
+                "https://services6.arcgis.com/kInEIOmrLNzXMSuZ/arcgis/rest/services/Sea_Temp/FeatureServer/0");
 
             // Create feature table using a URL.
             _seaTempFeatureTable = new ServiceFeatureTable(seaTempServiceUri);
@@ -517,7 +517,7 @@ namespace WpfApp3
                 else
                 {
                     MessageBox.Show("No Features to Select");
-                }
+                } 
             }
             catch (Exception ex)
             {

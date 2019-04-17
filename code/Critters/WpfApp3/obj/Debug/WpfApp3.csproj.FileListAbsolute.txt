@@ -712,13 +712,6 @@ C:\Users\Zach\Downloads\WpfApp3\WpfApp3\obj\Debug\WpfApp3.application
 C:\Users\Zach\Downloads\WpfApp3\WpfApp3\obj\Debug\WpfApp3.csproj.CopyComplete
 C:\Users\Zach\Downloads\WpfApp3\WpfApp3\obj\Debug\WpfApp3.exe
 C:\Users\Zach\Downloads\WpfApp3\WpfApp3\obj\Debug\WpfApp3.pdb
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\client32\runtimecore.dll
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3.exe.config
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\MainWindow.g.cs
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\App.g.cs
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_Content.g.cs
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.cache
-C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.lref
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\atmosphere_accurate_ps.cso
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\atmosphere_accurate_vs.cso
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\atmosphere_textured_ps.cso
@@ -887,6 +880,7 @@ C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\vector_tiles_stencil_vs.cso
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\vector_tiles_tile_info_ps.cso
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\shaders\vector_tiles_tile_info_vs.cso
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\client32\runtimecore.dll
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\client32\RuntimeCoreNet.dll
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\hydrography\ECDIS_settings.xml
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\ArcGISRuntime100.4\resources\hydrography\S-52x.stylx
@@ -1058,6 +1052,12 @@ C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\zh-Hans\Esri.ArcGISRuntime.resources.dll
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\zh-HK\Esri.ArcGISRuntime.resources.dll
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\bin\Debug\zh-TW\Esri.ArcGISRuntime.resources.dll
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3.exe.config
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\MainWindow.g.cs
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\App.g.cs
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_Content.g.cs
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.cache
+C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.lref
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\MainWindow.baml
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3.g.resources
 C:\Users\weeksr\Documents\GitHub\marineCritters\code\Critters\WpfApp3\obj\Debug\WpfApp3.Properties.Resources.resources
