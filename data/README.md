@@ -1,1 +1,1 @@
-All data collected from a varity of sources.
+All data collected from a varity of sources for sea and weather conditions and sea turtles.

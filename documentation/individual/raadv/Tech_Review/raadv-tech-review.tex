@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{CS 461 \\ Technology Review and \\ Implementation Plan \\}
+\author{Team: 64 \\ Amar Raad (raadv) \\ Sea Turtle Beach Strandings \\ Developer}
+\date{November 9th, 2018 \\ CS 461 | Fall 2018}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+\section{Introduction}
+The goal of this project is to develop a visual model for sea turtle beach strandings. In order to better understand how weather and ocean conditions affect where and when a turtle gets stranded, historical statistics must be logged and reviewed. As correlations between the data are found, this will aid in rescue, research, and a further understanding of the current state of the environment. The options listed in this document cover the preference of database options as well as the portability and the overall look of the UI.
+\newline \newline \newline \newline
+
+\section{Data Storage/Standardization}
+Information will need to be processed and recorded into a general database. There are various types of databases, such as those using cloud or SQL, which are viable options to pass in and store variables of the beached sea turtles.
+\newline 
+
+\subsection{MySQL}
+One of the most popular Oracle-backed open-source databases. MySQL runs on virtually all platforms, including Linux, UNIX and Windows. It is most often associated with web applications and online publishing [1].
+\begin{itemize}
+\item Pros:
+\begin{itemize}
+\item Free \& easy to use
+\item Fast setup
+\item Stable databases
+\item Easy to manage data, backups, privileges, etc.
+\item Highly supported by the web community
+\item Can have a relatively high performance system 
+\end{itemize}
+\item Cons:
+\begin{itemize}
+\item Poor support for user defined functions and stored procedures
+\item Extracting data can be difficult at times due to the absence of windowing and some analytic functions
+\item Optimizing queries can be challenging
+\end{itemize}
+\end{itemize}
+
+\subsection{Google Cloud}
+A reliable cloud storage provider as well as a growing number of cloud services. Cloud SQL is a fully-managed database service that makes it easy to set up, maintain, manage, and administer your relational databases in the cloud and provides a database infrastructure for applications running anywhere [2].
+\begin{itemize}
+\item Pros:
+\begin{itemize}
+\item Good Documentation (can store hundreds of pages)
+\item Good Prices 
+\item Highly Durable
+\item Multi-region Compatible
+\item Can integrate with other Google Cloud Services
+\item Different storage classes for various necessities
+\end{itemize}
+\end{itemize}
+\begin{itemize}
+\item Cons:
+\begin{itemize}
+\item Support fees
+\item Downloading data from storage can be expensive
+\item Complex pricing schema \newline \newline
+\end{itemize}
+\end{itemize}
+
+\subsection{Oracle}
+A leading enterprise-grade relational database that offers secure data management. Oracle database is a relational database management system from the Oracle Corporation. It is a fully scalable relational database architecture with its own network component to communicate across networks, often used by global enterprises [3].
+\begin{itemize}
+\item Pros:
+\begin{itemize}
+\item Good reliability
+\item Delivers high integrity of stored data and excellent performance.
+\item Sturdy architecture
+\item Easy to organize, efficiently manage memory, \& running complex queries 
+\item Super advanced engine
+\item Trustworthy security
+\end{itemize}
+\item Cons:
+\begin{itemize}
+\item Higher prices
+\item Learning Curve
+\item Can be difficult to diagnose performance issues
+\item Backups and Data migrations to another server are non trivial
+\end{itemize}
+\end{itemize}
+
+\newpage
+\section{Portability}
+The final product application should be available online. Although there won't be development for a smartphone application, the web-based application should be able to run from a smartphone's internet browser seamlessly.
+\newline
+
+\subsection{Web-based}
+Website located on a web-based server and accessible through various popular web browsers. Various browsers include Google Chrome, Firefox, Safari, etc.
+\newline
+
+\subsection{Mobile-compatible}
+Application and site are also accessible through mobile web browsers. Tweaks and modifications are to be made to accommodate the smartphone screen and operating system. Various mobile browsers include Google Chrome, Safari, Samsung Internet, etc.
+\newline \newline \newline \newline
+
+\section{UI Details}
+The default UI will be implemented to accommodate web-based browsers. The mobile-site view of the UI will be tailored and slightly modified to fit smartphone screens.
+\subsection{Web UI Ver.1 - General Type}
+a straightforward UI that has a similar format to build-your-own website compositions. A homescreen displaying the site/application's "purpose", as well as a navigation bar, will be displayed. By selecting different navigation links, more information pages such as the "about", "view strandings", "report a stranding", "contact", "etc." will be available.
+\newline
+\subsection{Web UI Ver.2 - Aesthetic Type}
+UI will be designed and formatted with a more "aesthetic" touch. A minimalist homescreen with more photography will be displayed. By hovering over different photos, various options will display to the user. By following these links, more information pages such as the "about", "view strandings", "report a stranding", "contact", "etc." will be available.
+\subsection{Mobile-site View}
+Mobile-site view will be modified to match the previous UI option selected (General or Aesthetic). The view will be formatted to match the dimensions of a smartphone screen to accommodate the Mobile-site view.
+\newline \newline \newline \newline
+\section{Conclusion}
+There are various database options which run SQL, Cloud, etc, all with their pros and cons. Whether to opt for a high price to receive an efficient and reliable database server, or a lower price for a database server known to have various obstacles, in turn increasing turnaround time, is up to the client.
+The Portability and UI design choices are in favor of preference to the client, and upon making the final decision, will determine the corresponding view for the mobile-site version of the application.
+
+\newpage
+\section{Works Cited}
+
+[1] "What is MySQL? - Definition from WhatIs.com". n.d., \newline https://searchoracle.techtarget.com/definition/mysql.
+\newline\newline [2] "Cloud SQL - MySQL \& PostgreSQL Relational Database Service  Cloud SQL| Google Cloud".nd., https://cloud.google.com/sql/.
+\newline\newline [3] "What is Oracle Database (Oracle DB)? - Definition from Techopedia". n.d., https://www.techopedia.com/definition/8711/oracle-database.
+
+\end{document}
